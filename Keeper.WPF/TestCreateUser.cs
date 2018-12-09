@@ -1,5 +1,6 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Users;
+using System;
 
 namespace Keeper.WPF
 {
@@ -7,8 +8,13 @@ namespace Keeper.WPF
     {
         public TestCreateUser()
         {
-            var client = new Client().CreateUser(
-                new CreateUserRequest { Email = "test", Password = "test" });
+            var user = new { Name = "Test", Password = "Test" };
+
+            var response = new Client().CreateUser(
+                new CreateUserRequest { Email = user.Name, Password = user.Password });
+
+            if (!response.Success)
+                Console.WriteLine("Nie udalo sie");
         }
     }
 }
