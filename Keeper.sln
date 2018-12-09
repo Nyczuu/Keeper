@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Core", "Keeper.Core\Keeper.Core.csproj", "{18DF887C-15DB-4177-A9C4-46E244261D3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.WPF", "Keeper.WPF\Keeper.WPF.csproj", "{28A18A29-B4A7-4924-9C6F-D79DBD35C007}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Data", "Keeper.Data\Keeper.Data.csproj", "{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}"
 EndProject
 Global
@@ -19,6 +17,10 @@ Global
 		{18DF887C-15DB-4177-A9C4-46E244261D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DF887C-15DB-4177-A9C4-46E244261D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DF887C-15DB-4177-A9C4-46E244261D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
