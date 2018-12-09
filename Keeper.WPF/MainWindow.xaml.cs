@@ -27,7 +27,15 @@ namespace Keeper.WPF
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            /*var response = Client.LoginUserRequest(Login_TxtBox.Text, Password_Box.Password);
+            if (response.Success)
+            {
+                Message_TxtBlock.Text = "Login Successful";
+            }
+            else
+            {
+                Message_TxtBlock.Text = "Login Bad";
+            }*/
         }
     }
 }
