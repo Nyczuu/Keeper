@@ -1,0 +1,11 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Keeper.Core/bin
+/Keeper.Core/obj
+/Keeper.Data/bin
+/Keeper.Data/obj
+/Keeper.GUI/bin
+/Keeper.GUI/obj
