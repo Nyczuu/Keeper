@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Core", "Keeper.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Data", "Keeper.Data\Keeper.Data.csproj", "{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.WPF", "Keeper.WPF\Keeper.WPF.csproj", "{28A18A29-B4A7-4924-9C6F-D79DBD35C007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC3CDDC6-9F48-45D0-99FC-8AF909D43AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28A18A29-B4A7-4924-9C6F-D79DBD35C007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28A18A29-B4A7-4924-9C6F-D79DBD35C007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28A18A29-B4A7-4924-9C6F-D79DBD35C007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28A18A29-B4A7-4924-9C6F-D79DBD35C007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
