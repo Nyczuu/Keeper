@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TestCreateUser.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +94,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Keeper.CoreContract\Keeper.CoreContract.csproj">
+      <Project>{828589CB-690B-4CEF-B975-865B3C8AFDB0}</Project>
+      <Name>Keeper.CoreContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keeper.Core\Keeper.Core.csproj">
+      <Project>{18DF887C-15DB-4177-A9C4-46E244261D3B}</Project>
+      <Name>Keeper.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

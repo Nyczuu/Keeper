@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Keeper.Data
+namespace Keeper.CoreContract.Users
 {
-    public class Class1
+    public class CreateUserRequest
     {
+        public string Email;
+        public string Password;
     }
 }
