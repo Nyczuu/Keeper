@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class CreateUserResponse
+    public class DeleteUserResponse
     {
-        public int? Identifier;
-        public bool Success;
     }
 }

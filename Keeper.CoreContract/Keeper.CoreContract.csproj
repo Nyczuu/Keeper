@@ -44,6 +44,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\CreateUserRequest.cs" />
     <Compile Include="Users\CreateUserResponse.cs" />
+    <Compile Include="Users\DeleteUserRequest.cs" />
+    <Compile Include="Users\DeleteUserResponse.cs" />
+    <Compile Include="Users\GetUserRequest.cs" />
+    <Compile Include="Users\GetUserResponse.cs" />
+    <Compile Include="Users\GetUserResponseItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
