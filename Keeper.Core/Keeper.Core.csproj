@@ -53,6 +53,7 @@
     <Compile Include="Users\CreateUser.cs" />
     <Compile Include="Users\DeleteUser.cs" />
     <Compile Include="Users\GetUser.cs" />
+    <Compile Include="Users\ValidateUserEmail.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Keeper.CoreContract\Keeper.CoreContract.csproj">
