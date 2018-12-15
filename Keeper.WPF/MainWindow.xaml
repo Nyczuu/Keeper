@@ -11,7 +11,7 @@
             <ColumnDefinition Width="200*"/>
             <ColumnDefinition Width="197*"/>
         </Grid.ColumnDefinitions>
-        <PasswordBox x:Name="Password_Box" HorizontalAlignment="Left" Margin="274,208,0,0" VerticalAlignment="Top" Height="50" Width="250" Grid.ColumnSpan="2" FontSize="24"/>
+        <PasswordBox x:Name="Password_Box" HorizontalAlignment="Left" Margin="274,208,0,0" VerticalAlignment="Top" Height="50" Width="250" Grid.ColumnSpan="2" FontSize="24" KeyDown="Password_Box_KeyDown"/>
         <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="120,208,0,0" VerticalAlignment="Top" Height="50" Width="120" FontSize="24" RenderTransformOrigin="0.525,0.479">
             <Label.RenderTransform>
                 <TransformGroup>

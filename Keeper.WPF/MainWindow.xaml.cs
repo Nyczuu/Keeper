@@ -50,5 +50,24 @@ namespace Keeper.WPF
                 Message_TxtBlock.Text = "Bad Login";
             }
         }
+
+        private void Password_Box_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (Login_TxtBox.Text == "admin" && Password_Box.Password == "admin")
+                {
+                    Message_TxtBlock.Text = "Login Successful";
+                    AdminWindow admin = new AdminWindow();
+                    App.Current.MainWindow = admin;
+                    this.Close();
+                    admin.Show();
+                }
+                else
+                {
+                    Message_TxtBlock.Text = "Bad Login";
+                }
+            }
+        }
     }
 }

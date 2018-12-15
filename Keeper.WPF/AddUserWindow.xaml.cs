@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Keeper.Core;
+using Keeper.CoreContract.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,21 @@ namespace Keeper.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var client = new Client();
+            var response = client.CreateUser(new CreateUserRequest
+            {
+                Email = EmailTextBox.Text,
+                Password = PassWordTextBox.Text,
+            });
+
+            if (response.Success)
+            {
+                this.Close();
+            }
+            else
+            {
+                ErrorTxtBlock.Text = "Add User Failed";
+            }
             /*
               if(AddUserResponse.Success){
                 new AddUserRequest(EmailTextBox.Text, PassWordTextBox.Text);

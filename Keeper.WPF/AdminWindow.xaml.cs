@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Keeper.Core;
+using Keeper.CoreContract.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,20 @@ namespace Keeper.WPF
     /// </summary>
     public partial class AdminWindow : Window
     {
+        private readonly Client _client;
+        private readonly GetUserResponseItem[] _users;
+
         public AdminWindow()
         {
+            _client = new Client();
+            _users = _client.GetUser(new GetUserRequest()).Items;
             InitializeComponent();
+            var gridView = new GridView();
+            this.UsersList.View = gridView;
+            gridView.Columns.Add(new GridViewColumn { Header = "ID", DisplayMemberBinding = new Binding("id") });
+            gridView.Columns.Add(new GridViewColumn { Header = "E-Mail", DisplayMemberBinding = new Binding("email") });
+            foreach (var user in _users) {
+                UsersList.Items.Add(new { email = user.Email, id = user.Identifier }); }
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
@@ -32,8 +45,20 @@ namespace Keeper.WPF
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-            DeleteUserWindow delete = new DeleteUserWindow();
-            delete.Show();
+            var response = _client.DeleteUser(new DeleteUserRequest
+            {
+               
+            });
+        }
+        
+        private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
