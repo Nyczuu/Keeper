@@ -33,8 +33,9 @@ namespace Keeper.WPF
             this.UsersList.View = gridView;
             gridView.Columns.Add(new GridViewColumn { Header = "ID", DisplayMemberBinding = new Binding("id") });
             gridView.Columns.Add(new GridViewColumn { Header = "E-Mail", DisplayMemberBinding = new Binding("email") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Group", DisplayMemberBinding = new Binding("group") });
             foreach (var user in _users) {
-                UsersList.Items.Add(new { email = user.Email, id = user.Identifier }); }
+                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group }); }
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)

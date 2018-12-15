@@ -33,6 +33,7 @@ namespace Keeper.WPF
             {
                 Email = EmailTextBox.Text,
                 Password = PassWordTextBox.Text,
+                Group =UserGroupType.Administrator
             });
 
             if (response.Success)
