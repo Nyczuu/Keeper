@@ -49,6 +49,7 @@
     <Compile Include="Users\GetUserRequest.cs" />
     <Compile Include="Users\GetUserResponse.cs" />
     <Compile Include="Users\GetUserResponseItem.cs" />
+    <Compile Include="Users\UserGroupType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

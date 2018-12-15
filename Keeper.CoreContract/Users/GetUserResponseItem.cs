@@ -10,5 +10,6 @@ namespace Keeper.CoreContract.Users
     {
         public int Identifier;
         public string Email;
+        public UserGroupType Group;
     }
 }
