@@ -7,14 +7,16 @@ namespace Keeper.Data.Users
     {
         public string Email { get; private set; }
         public string Password { get; private set; }
+        public UserGroupType GroupType { get; private set; }
 
         public void Set(CreateUserRequest request)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
 
-            Email = request.Email;
+            Email = request.Email.ToLower();
             Password = request.Password;
+            GroupType = request.Group;
         }
     }
 }

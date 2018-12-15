@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class CreateUserRequest
+    public enum UserGroupType
     {
-        public string Email;
-        public string Password;
-        public UserGroupType Group;
+        Worker = 1,
+        ProjectManager = 2,
+        HumanResourceManager = 3,
+        Administrator = 4,
     }
 }

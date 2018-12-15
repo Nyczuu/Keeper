@@ -9,5 +9,6 @@ namespace Keeper.CoreContract.Users
     public class GetUserRequest
     {
         public int[] UsersIdentifiers;
+        public string SearchKeyword;
     }
 }
