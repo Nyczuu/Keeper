@@ -15,25 +15,18 @@ using System.Windows.Shapes;
 namespace Keeper.WPF
 {
     /// <summary>
-    /// Logika interakcji dla klasy AdminWindow.xaml
+    /// Logika interakcji dla klasy DeleteUserWindow.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class DeleteUserWindow : Window
     {
-        public AdminWindow()
+        public DeleteUserWindow()
         {
             InitializeComponent();
         }
 
-        private void AddUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddUserWindow add = new AddUserWindow();
-            add.Show();
-        }
-
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-            DeleteUserWindow delete = new DeleteUserWindow();
-            delete.Show();
+            this.Close();
         }
     }
 }

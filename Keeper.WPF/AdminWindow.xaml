@@ -5,6 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Keeper.WPF"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="400" Width="400">
-    <Grid Width="400" Height="400"/>
+        Title="AdminWindow" Height="600.005" Width="800.01">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="AddUserButton" Content="Add User" HorizontalAlignment="Left" Margin="60,474,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="AddUserButton_Click"/>
+        <Button x:Name="DeleteUserButton" Content="Delete User" HorizontalAlignment="Left" Margin="60,390,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="DeleteUserButton_Click"/>
+    </Grid>
 </Window>
