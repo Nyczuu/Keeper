@@ -22,6 +22,7 @@ namespace Keeper.Core.Users
 
                 Response = new CreateUserResponse
                 {
+                    Identifier = user.Identifier,
                     Success = true
                 };
             }

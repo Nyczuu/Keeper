@@ -51,6 +51,8 @@
     <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\CreateUser.cs" />
+    <Compile Include="Users\DeleteUser.cs" />
+    <Compile Include="Users\GetUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Keeper.CoreContract\Keeper.CoreContract.csproj">

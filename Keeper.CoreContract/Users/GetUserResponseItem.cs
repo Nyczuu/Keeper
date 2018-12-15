@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class CreateUserResponse
+    public class GetUserResponseItem
     {
-        public int? Identifier;
-        public bool Success;
+        public int Identifier;
+        public string Email;
     }
 }
