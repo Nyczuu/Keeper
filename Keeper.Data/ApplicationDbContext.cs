@@ -1,4 +1,5 @@
-﻿using Keeper.Data.Users;
+﻿using Keeper.Data.Projects;
+using Keeper.Data.Users;
 using System.Data.Entity;
 
 namespace Keeper.Data
@@ -11,5 +12,6 @@ namespace Keeper.Data
 
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }

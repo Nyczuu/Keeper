@@ -58,7 +58,12 @@
     <Compile Include="Migrations\201812151758361_UserGroup.Designer.cs">
       <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901051138341_Projects.cs" />
+    <Compile Include="Migrations\201901051138341_Projects.Designer.cs">
+      <DependentUpon>201901051138341_Projects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\User.cs" />
   </ItemGroup>
@@ -72,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812151758361_UserGroup.resx">
       <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901051138341_Projects.resx">
+      <DependentUpon>201901051138341_Projects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
