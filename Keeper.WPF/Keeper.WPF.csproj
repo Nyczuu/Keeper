@@ -68,10 +68,12 @@
     <Compile Include="AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="DeleteUserWindow.xaml.cs">
       <DependentUpon>DeleteUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestCreateUser.cs" />
+    <Compile Include="UserListItemModel.cs" />
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
