@@ -13,5 +13,9 @@ namespace Keeper.Core
 
         public DeleteUserResponse DeleteUser(DeleteUserRequest request)
             => new DeleteUser(request).Response;
+
+        public LoginUserResponse LoginUser(LoginUserRequest request)
+            => new LoginUser(request).Response;
+
     }
 }

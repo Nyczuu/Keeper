@@ -9,6 +9,8 @@ namespace Keeper.Data.Users
         public string Password { get; private set; }
         public UserGroupType GroupType { get; private set; }
 
+
+
         public void Set(CreateUserRequest request)
         {
             CreatedOnUtc = DateTime.UtcNow;
