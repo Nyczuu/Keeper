@@ -50,21 +50,9 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="Migrations\201812091423154_UserEntity.cs" />
-    <Compile Include="Migrations\201812091423154_UserEntity.Designer.cs">
-      <DependentUpon>201812091423154_UserEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812151758361_UserGroup.cs" />
-    <Compile Include="Migrations\201812151758361_UserGroup.Designer.cs">
-      <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901051138341_Projects.cs" />
-    <Compile Include="Migrations\201901051138341_Projects.Designer.cs">
-    <DependentUpon>201901051138341_Projects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901051320096_UserSessions.cs" />
-    <Compile Include="Migrations\201901051320096_UserSessions.Designer.cs">
-      <DependentUpon>201901051320096_UserSessions.cs</DependentUpon>
+    <Compile Include="Migrations\201901051435348_InitialMigration.cs" />
+    <Compile Include="Migrations\201901051435348_InitialMigration.Designer.cs">
+      <DependentUpon>201901051435348_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
@@ -77,24 +65,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812091423154_UserEntity.resx">
-      <DependentUpon>201812091423154_UserEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812151758361_UserGroup.resx">
-      <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901051138341_Projects.resx">
-      <DependentUpon>201901051138341_Projects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901051320096_UserSessions.resx">
-      <DependentUpon>201901051320096_UserSessions.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Keeper.CoreContract\Keeper.CoreContract.csproj">
       <Project>{828589CB-690B-4CEF-B975-865B3C8AFDB0}</Project>
       <Name>Keeper.CoreContract</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901051435348_InitialMigration.resx">
+      <DependentUpon>201901051435348_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
