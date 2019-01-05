@@ -69,6 +69,9 @@
     <Compile Include="DeleteUserWindow.xaml.cs">
       <DependentUpon>DeleteUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TaskWindow.xaml.cs">
+      <DependentUpon>TaskWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestCreateUser.cs" />
     <Compile Include="UserListItemModel.cs" />
     <Compile Include="UserWindow.xaml.cs">
@@ -101,6 +104,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

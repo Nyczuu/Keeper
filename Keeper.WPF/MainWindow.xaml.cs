@@ -41,10 +41,10 @@ namespace Keeper.WPF
             if (Login_TxtBox.Text == "admin" && Password_Box.Password == "admin")
             {
                 Message_TxtBlock.Text = "Login Successful";
-                AdminWindow admin = new AdminWindow();
-                App.Current.MainWindow = admin;
+                AdminWindow user = new AdminWindow();
+                App.Current.MainWindow = user;
                 this.Close();
-                admin.Show();
+                user.Show();
             }
 
 

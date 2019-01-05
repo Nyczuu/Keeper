@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="manage_users_but" Content="Manage Users" HorizontalAlignment="Left" Margin="55,96,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="Manage_Users_but_Click"/>
         <ListBox HorizontalAlignment="Left" Height="446" Margin="394,75,0,0" VerticalAlignment="Top" Width="554"/>
-        <Button x:Name="project_edit_but" Content="Edit Projects" HorizontalAlignment="Left" Margin="55,172,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="Manage_Users_but_Click"/>
+        <Button x:Name="project_edit_but" Content="Edit Projects" HorizontalAlignment="Left" Margin="55,172,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="Project_Edit_but_Click"/>
 
     </Grid>
 </Window>
