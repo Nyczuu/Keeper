@@ -22,7 +22,7 @@ namespace Keeper.WPF
     public partial class AdminWindow : Window
     {
         private readonly Client _client;
-        private readonly GetUserResponseItem[] _users;
+        private GetUserResponseItem[] _users;
 
         public AdminWindow()
         {
@@ -46,10 +46,17 @@ namespace Keeper.WPF
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-            var response = _client.DeleteUser(new DeleteUserRequest
+
+            _client.DeleteUser(new DeleteUserRequest
             {
-               
+                Identifiers = UsersList.SelectedItems.Cast<UserListItemModel>().Select(aUser => aUser.Id).ToArray()
             });
+            UsersList.Items.Clear();
+            _users = _client.GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text }).Items;
+            foreach (var user in _users)
+            {
+                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group });
+            }
         }
         
         private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,7 +66,12 @@ namespace Keeper.WPF
 
         private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            UsersList.Items.Clear();
+           _users = _client.GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text}).Items;
+            foreach (var user in _users)
+            {
+                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group });
+            }
         }
     }
 }

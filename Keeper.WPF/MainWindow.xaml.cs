@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Keeper.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace Keeper.WPF
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            /* var response = Client.LoginUserRequest(Login_TxtBox.Text, Password_Box.Password);
+          /*   var response = Client.(Login_TxtBox.Text, Password_Box.Password);
              if (response.Success)
              {
                  Message_TxtBlock.Text = "Login Successful";
