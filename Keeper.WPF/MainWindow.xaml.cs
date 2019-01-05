@@ -45,6 +45,18 @@ namespace Keeper.WPF
                 this.Close();
                 admin.Show();
             }
+
+
+            if (Login_TxtBox.Text == "user" && Password_Box.Password == "user")
+            {
+                Message_TxtBlock.Text = "Login Successful";
+                UserWindow user = new UserWindow();
+                App.Current.MainWindow = user;
+                this.Close();
+                user.Show();
+            }
+
+
             else
             {
                 Message_TxtBlock.Text = "Bad Login";
