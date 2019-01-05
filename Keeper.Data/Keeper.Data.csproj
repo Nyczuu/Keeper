@@ -58,9 +58,14 @@
     <Compile Include="Migrations\201812151758361_UserGroup.Designer.cs">
       <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901051320096_UserSessions.cs" />
+    <Compile Include="Migrations\201901051320096_UserSessions.Designer.cs">
+      <DependentUpon>201901051320096_UserSessions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812151758361_UserGroup.resx">
       <DependentUpon>201812151758361_UserGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901051320096_UserSessions.resx">
+      <DependentUpon>201901051320096_UserSessions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
