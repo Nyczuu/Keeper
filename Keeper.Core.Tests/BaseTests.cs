@@ -10,7 +10,8 @@ namespace Keeper.Core.Tests
         public static void Cleanup(TestContext testContext)
         {
             var dbContext = new ApplicationDbContext();
-            dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
+            dbContext.UserSession.RemoveRange(dbContext.UserSession);
+            dbContext.Users.RemoveRange(dbContext.Users);
         }
     }
 }
