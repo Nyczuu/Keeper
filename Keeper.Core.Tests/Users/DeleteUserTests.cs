@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Keeper.Core.Tests.Users
 {
     [TestClass()]
-    public class DeleteUserTests : BaseUsersTests
+    public class DeleteUserTests : BaseUserTests
     {
         [TestMethod()]
         public void DeleteUser()

@@ -58,9 +58,14 @@
     <Compile Include="Migrations\201901061247416_ProjectUser_Relationship.Designer.cs">
       <DependentUpon>201901061247416_ProjectUser_Relationship.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901061810130_Tasks.cs" />
+    <Compile Include="Migrations\201901061810130_Tasks.Designer.cs">
+      <DependentUpon>201901061810130_Tasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\Task.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSession.cs" />
   </ItemGroup>
@@ -80,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901061247416_ProjectUser_Relationship.resx">
       <DependentUpon>201901061247416_ProjectUser_Relationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061810130_Tasks.resx">
+      <DependentUpon>201901061810130_Tasks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

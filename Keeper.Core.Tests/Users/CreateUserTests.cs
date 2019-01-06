@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Keeper.Core.Tests.Users
 {
     [TestClass()]
-    public class CreateUserTests : BaseUsersTests
+    public class CreateUserTests : BaseUserTests
     {
         [TestMethod()]
         public void CreateUser()

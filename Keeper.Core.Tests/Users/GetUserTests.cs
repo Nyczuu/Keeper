@@ -5,7 +5,7 @@ using System.Linq;
 namespace Keeper.Core.Tests.Users
 {
     [TestClass()]
-    public class GetUserTests : BaseUsersTests
+    public class GetUserTests : BaseUserTests
     {
         [TestMethod()]
         public void GetUser()
