@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Keeper.CoreContract.Projects;
+﻿using Keeper.CoreContract.Projects;
 using Keeper.Data.Users;
+using System;
+using System.Collections.Generic;
 
 namespace Keeper.Data.Projects
 {
@@ -19,7 +16,8 @@ namespace Keeper.Data.Projects
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
 
-            Name = request.Name;
+            if (request.Name != null)
+                Name = request.Name.Trim();
         }
     }
 }

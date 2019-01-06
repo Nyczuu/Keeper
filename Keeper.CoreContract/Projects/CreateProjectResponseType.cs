@@ -8,6 +8,8 @@ namespace Keeper.CoreContract.Projects
 {
     public enum CreateProjectResponseType
     {
-        EmptyName, NameExists, Success
+        NameEmpty,
+        NameExists,
+        Success,
     }
 }

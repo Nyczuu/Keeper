@@ -14,20 +14,17 @@ namespace Keeper.Core.Projects
             if (request != null)
             {
                 if (string.IsNullOrWhiteSpace(request.Name))
-                {
                     Response = new CreateProjectResponse
                     {
-                        Type = CreateProjectResponseType.EmptyName
+                        Type = CreateProjectResponseType.NameEmpty
                     };
-                }
                 else
                 {
                     using (var dbContext = new ApplicationDbContext())
                     {
-                        var projects = dbContext.Set<Project>().AsQueryable();
-
-                        if (projects.SingleOrDefault(aProject
-                             => aProject.Name.ToLower() == request.Name.ToLower()) != null)
+                        if (dbContext.Projects.Any(aProject
+                            => aProject.Name.ToLower().Trim()
+                            == request.Name.ToLower().Trim()))
                         {
                             Response = new CreateProjectResponse
                             {

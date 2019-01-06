@@ -6,12 +6,20 @@ namespace Keeper.Core.Tests
     [TestClass]
     public class BaseTests
     {
+        protected Client _client { get; private set; }
+
+        public BaseTests()
+        {
+            _client = new Client();
+        }
+
         [AssemblyInitialize]
         public static void Cleanup(TestContext testContext)
         {
             var dbContext = new ApplicationDbContext();
             dbContext.UserSession.RemoveRange(dbContext.UserSession);
             dbContext.Users.RemoveRange(dbContext.Users);
+            dbContext.Projects.RemoveRange(dbContext.Projects);
         }
     }
 }
