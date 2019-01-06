@@ -11,7 +11,7 @@ namespace Keeper.Core.Tests.Users
 
         public BaseUsersTests()
         {
-            _testPassword = "testPassword123";
+            _testPassword = "testPassword123!";
         }
 
         private string GeneratePseudoRandomTestEmail()

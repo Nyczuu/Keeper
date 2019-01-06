@@ -1,7 +1,6 @@
 ﻿using Keeper.CoreContract.Users;
 using Keeper.Data.Projects;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Keeper.Data.Users
@@ -19,7 +18,9 @@ namespace Keeper.Data.Users
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
 
-            Email = request.Email.ToLower();
+            if (request.Email != null)
+                Email = request.Email.ToLower().Trim();
+
             Password = request.Password;
             GroupType = request.Group;
         }

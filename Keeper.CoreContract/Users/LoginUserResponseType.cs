@@ -8,6 +8,9 @@ namespace Keeper.CoreContract.Users
 {
     public enum LoginUserResponseType
     {
-        WrongEmail, NoUser, WrongPassword, Success
+        WrongEmail,
+        NoUser,
+        WrongPassword,
+        Success
     }
 }

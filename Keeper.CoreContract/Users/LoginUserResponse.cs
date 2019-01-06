@@ -10,7 +10,5 @@ namespace Keeper.CoreContract.Users
     {
         public Guid SessionId;          
         public LoginUserResponseType Type;
-
-
     }
 }

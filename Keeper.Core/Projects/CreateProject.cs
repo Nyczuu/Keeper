@@ -15,9 +15,7 @@ namespace Keeper.Core.Projects
             {
                 if (string.IsNullOrWhiteSpace(request.Name))
                     Response = new CreateProjectResponse
-                    {
-                        Type = CreateProjectResponseType.NameEmpty
-                    };
+                    { Type = CreateProjectResponseType.NameEmpty };
                 else
                 {
                     using (var dbContext = new ApplicationDbContext())
@@ -27,9 +25,7 @@ namespace Keeper.Core.Projects
                             == request.Name.ToLower().Trim()))
                         {
                             Response = new CreateProjectResponse
-                            {
-                                Type = CreateProjectResponseType.NameExists
-                            };
+                            { Type = CreateProjectResponseType.NameExists };
                         }
                         else
                         {

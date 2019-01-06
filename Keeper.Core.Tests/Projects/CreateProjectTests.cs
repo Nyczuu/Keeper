@@ -28,7 +28,7 @@ namespace Keeper.Core.Tests.Projects
         [DataRow("")]
         [DataRow(null)]
         [DataRow("     ")]
-        public void CreateProject_EmptyNameValidation(string name)
+        public void CreateProject_NameEmpty(string name)
         {
             var createProjectResponse = _client.CreateProject(
                 new CreateProjectRequest
@@ -44,7 +44,7 @@ namespace Keeper.Core.Tests.Projects
         [DataRow("existingtestproject")]
         [DataRow("ExistingTestProject     ")]
         [DataRow("     ExistingTestProject")]
-        public void CreateProject_ExistingNameValidation(string name)
+        public void CreateProject_NameExists(string name)
         {
             var createFirstProjectResponse = _client.CreateProject(
                 new CreateProjectRequest
@@ -52,7 +52,7 @@ namespace Keeper.Core.Tests.Projects
                     Name = "ExistingTestProject"
                 });
 
-            var createSameNameProjectResponse1 = _client.CreateProject(
+            var createSameNameProjectResponse = _client.CreateProject(
                 new CreateProjectRequest
                 {
                     Name = name
