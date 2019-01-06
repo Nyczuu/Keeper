@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201901051435348_InitialMigration.Designer.cs">
       <DependentUpon>201901051435348_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901061247416_ProjectUser_Relationship.cs" />
+    <Compile Include="Migrations\201901061247416_ProjectUser_Relationship.Designer.cs">
+      <DependentUpon>201901061247416_ProjectUser_Relationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901051435348_InitialMigration.resx">
       <DependentUpon>201901051435348_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061247416_ProjectUser_Relationship.resx">
+      <DependentUpon>201901061247416_ProjectUser_Relationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,10 +1,14 @@
-﻿using Keeper.Core.Users;
+﻿using Keeper.Core.Projects;
+using Keeper.Core.Users;
+using Keeper.CoreContract.Projects;
 using Keeper.CoreContract.Users;
 
 namespace Keeper.Core
 {
     public class Client
     {
+        #region Users
+
         public CreateUserResponse CreateUser(CreateUserRequest request)
             => new CreateUser(request).Response;
 
@@ -17,5 +21,16 @@ namespace Keeper.Core
         public LoginUserResponse LoginUser(LoginUserRequest request)
             => new LoginUser(request).Response;
 
+        public AddUsersToProjectResponse AddUsersToProject(AddUsersToProjectRequest request)
+            => new AddUsersToProject(request).Response;
+
+        #endregion
+
+        #region Projects
+
+        public CreateProjectResponse CreateProject(CreateProjectRequest request)
+            => new CreateProject(request).Response;
+
+        #endregion
     }
 }

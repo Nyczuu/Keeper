@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Keeper.CoreContract
+namespace Keeper.CoreContract.Users
 {
     public enum LoginUserResponseType
     {
