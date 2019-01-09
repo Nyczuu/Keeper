@@ -31,6 +31,9 @@ namespace Keeper.Core
         public CreateProjectResponse CreateProject(CreateProjectRequest request)
             => new CreateProject(request).Response;
 
+        public DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
+            => new DeleteProject(request).Response;
+
         #endregion
     }
 }
