@@ -1,4 +1,5 @@
-﻿using Keeper.Core.Projects;
+﻿using System;
+using Keeper.Core.Projects;
 using Keeper.Core.Users;
 using Keeper.CoreContract.Projects;
 using Keeper.CoreContract.Users;
@@ -14,6 +15,11 @@ namespace Keeper.Core
 
         public GetUserResponse GetUser(GetUserRequest request)
             => new GetUser(request).Response;
+
+        public object CreateUser(CreateProjectRequest createProjectRequest)
+        {
+            throw new NotImplementedException();
+        }
 
         public DeleteUserResponse DeleteUser(DeleteUserRequest request)
             => new DeleteUser(request).Response;

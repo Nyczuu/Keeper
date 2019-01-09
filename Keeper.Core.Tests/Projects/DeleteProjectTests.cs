@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Keeper.CoreContract.Projects;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,16 @@ namespace Keeper.Core.Tests.Projects
         [TestMethod()]
         public void DeleteProject()
         {
-            var createUserResponse = _client.CreateUser(
-                new CreateProjectRequest { });
+            var createProjectResponse = _client.CreateProject(
+                 new CreateProjectRequest
+                 {
+                     Name = _testName,
+                 });
 
-            var deleteUserResponse = _client.DeleteUser(
+            var deleteProjectResponse = _client.DeleteProject(
                 new DeleteProjectRequest { Identifiers = new int[] { createProjectResponse.Identifier.Value } });
 
-            Assert.IsNotNull(deleteUserResponse);
+            Assert.IsNotNull(deleteProjectResponse);
         }
 
 
