@@ -15,7 +15,7 @@ namespace Keeper.Core.Tests.Users
             var deleteUserResponse = _client.DeleteUser(
                 new DeleteUserRequest { Identifiers = new int[] { createUserResponse.Identifier.Value } });
 
-            Assert.IsNotNull(deleteUserResponse);
+            Assert.IsNotNull(deleteProjectResponse);
         }
     }
 }
