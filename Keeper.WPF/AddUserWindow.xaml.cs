@@ -1,18 +1,7 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Users;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Keeper.WPF
 {
@@ -24,6 +13,7 @@ namespace Keeper.WPF
         public AddUserWindow()
         {
             InitializeComponent();
+            UserTypeComboBox.ItemsSource = Enum.GetValues(typeof(UserGroupType));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,33 +23,25 @@ namespace Keeper.WPF
             {
                 Email = EmailTextBox.Text,
                 Password = PassWordTextBox.Text,
-                Group =UserGroupType.Administrator
+                Group = (UserGroupType)UserTypeComboBox.SelectedItem,
             });
 
-            if (response.Type == CreateUserResponseType.Success)
+            switch (response.Type)
             {
-                this.Close();
+                case CreateUserResponseType.EmailExists:
+                    { ErrorTxtBlock.Text = "Email address already exists."; }
+                    break;
+                case CreateUserResponseType.EmailNotValid:
+                    { ErrorTxtBlock.Text = "Email address is not valid."; }
+                    break;
+                case CreateUserResponseType.PasswordTooWeak:
+                    { ErrorTxtBlock.Text = "Provided password is too weak."; }
+                    break;
+                case CreateUserResponseType.Success:
+                    { this.Close(); }
+                    break;
+                default: { } break;
             }
-            else
-            {
-                ErrorTxtBlock.Text = "Add User Failed";
-            }
-            /*
-              if(AddUserResponse.Success){
-                new AddUserRequest(EmailTextBox.Text, PassWordTextBox.Text);
-              this.Close();
-              */
-            
         }
-
-        private void PassWordTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-        /*else{
-* ErrorTxtBlock.Text = "Add User Failed";
-}
-*/
-
     }
 }
