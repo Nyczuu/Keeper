@@ -1,9 +1,5 @@
-﻿using Keeper.Data.Projects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Keeper.CoreContract.Tasks;
+using Keeper.Data.Projects;
 
 namespace Keeper.Data.Tasks
 {
