@@ -10,6 +10,6 @@ namespace Keeper.CoreContract.Users
     {
         public string Email;
         public string Password;
-        public UserGroupType Group;
+        public UserGroupType Group = UserGroupType.Worker;
     }
 }

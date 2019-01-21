@@ -36,7 +36,7 @@ namespace Keeper.WPF
                 Group =UserGroupType.Administrator
             });
 
-            if (response.Success)
+            if (response.Type == CreateUserResponseType.Success)
             {
                 this.Close();
             }

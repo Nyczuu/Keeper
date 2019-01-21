@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Keeper.CoreContract.Users
+namespace Keeper.CoreContract.Projects
 {
-    public class CreateUserResponse
+    public class CreateProjectResponse
     {
         public int? Identifier;
-        public CreateUserResponseType Type;
+        public CreateProjectResponseType Type;
     }
 }

@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class CreateUserResponse
+    public class AddUsersToProjectResponse
     {
-        public int? Identifier;
-        public CreateUserResponseType Type;
     }
 }

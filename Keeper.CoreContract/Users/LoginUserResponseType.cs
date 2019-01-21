@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class CreateUserResponse
+    public enum LoginUserResponseType
     {
-        public int? Identifier;
-        public CreateUserResponseType Type;
+        WrongEmail,
+        NoUser,
+        WrongPassword,
+        Success
     }
 }

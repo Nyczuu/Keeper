@@ -7,13 +7,13 @@ namespace Keeper.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UserGroup : IMigrationMetadata
+    public sealed partial class ProjectUser_Relationship : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserGroup));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ProjectUser_Relationship));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812151758361_UserGroup"; }
+            get { return "201901061247416_ProjectUser_Relationship"; }
         }
         
         string IMigrationMetadata.Source
