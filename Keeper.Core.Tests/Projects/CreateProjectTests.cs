@@ -58,7 +58,7 @@ namespace Keeper.Core.Tests.Projects
                     Name = name
                 });
 
-            Assert.IsTrue(createFirstProjectResponse.Type == CreateProjectResponseType.NameExists);
+            Assert.IsTrue(createSameNameProjectResponse.Type == CreateProjectResponseType.NameExists);
         }
     }
 }

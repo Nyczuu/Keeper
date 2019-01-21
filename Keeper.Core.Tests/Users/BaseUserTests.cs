@@ -6,13 +6,8 @@ namespace Keeper.Core.Tests.Users
     {
         private readonly string _testEmailDomain = "@test.pl";
 
-        protected string _testPassword { get; private set; }
+        protected string _testPassword { get { return "testPassword123!"; } }
         protected string _testEmail { get { return GeneratePseudoRandomTestEmail(); } }
-
-        public BaseUserTests()
-        {
-            _testPassword = "testPassword123!";
-        }
 
         private string GeneratePseudoRandomTestEmail()
         {

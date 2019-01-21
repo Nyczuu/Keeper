@@ -44,6 +44,9 @@
     <Compile Include="Projects\CreateProjectRequest.cs" />
     <Compile Include="Projects\CreateProjectResponse.cs" />
     <Compile Include="Projects\CreateProjectResponseType.cs" />
+    <Compile Include="Tasks\CreateTaskRequest.cs" />
+    <Compile Include="Tasks\CreateTaskResponse.cs" />
+    <Compile Include="Tasks\CreateTaskResponseType.cs" />
     <Compile Include="Tasks\TaskStatus.cs" />
     <Compile Include="Projects\DeleteProjectRequest.cs" />
     <Compile Include="Projects\DeleteProjectResponse.cs" />
