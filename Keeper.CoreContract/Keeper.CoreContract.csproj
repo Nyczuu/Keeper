@@ -45,6 +45,8 @@
     <Compile Include="Projects\CreateProjectResponse.cs" />
     <Compile Include="Projects\CreateProjectResponseType.cs" />
     <Compile Include="Tasks\TaskStatus.cs" />
+    <Compile Include="Projects\DeleteProjectRequest.cs" />
+    <Compile Include="Projects\DeleteProjectResponse.cs" />
     <Compile Include="Users\AddUsersToProjectRequest.cs" />
     <Compile Include="Users\AddUsersToProjectResponse.cs" />
     <Compile Include="Users\CreateUserResponseType.cs" />

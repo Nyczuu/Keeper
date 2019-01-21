@@ -51,6 +51,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Projects\CreateProject.cs" />
+    <Compile Include="Projects\DeleteProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\AddUsersToProject.cs" />
     <Compile Include="Users\CreateUser.cs" />
@@ -70,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

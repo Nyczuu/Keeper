@@ -1,4 +1,5 @@
-﻿using Keeper.Core.Projects;
+﻿using System;
+using Keeper.Core.Projects;
 using Keeper.Core.Users;
 using Keeper.CoreContract.Projects;
 using Keeper.CoreContract.Users;
@@ -25,11 +26,14 @@ namespace Keeper.Core
             => new AddUsersToProject(request).Response;
 
         #endregion
-
+        
         #region Projects
 
         public CreateProjectResponse CreateProject(CreateProjectRequest request)
             => new CreateProject(request).Response;
+
+        public DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
+            => new DeleteProject(request).Response;
 
         #endregion
     }
