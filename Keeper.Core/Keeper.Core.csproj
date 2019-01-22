@@ -58,6 +58,7 @@
     <Compile Include="Users\CreateUser.cs" />
     <Compile Include="Users\DeleteUser.cs" />
     <Compile Include="Users\GetUser.cs" />
+    <Compile Include="Users\GetUserSession.cs" />
     <Compile Include="Users\LoginUser.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,8 +76,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,6 +24,9 @@ namespace Keeper.Core
         public LoginUserResponse LoginUser(LoginUserRequest request)
             => new LoginUser(request).Response;
 
+        public GetUserSessionResponse GetUserSession(GetUserSessionRequest request)
+            => new GetUserSession(request).Response;
+
         public AddUsersToProjectResponse AddUsersToProject(AddUsersToProjectRequest request)
             => new AddUsersToProject(request).Response;
 

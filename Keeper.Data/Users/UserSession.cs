@@ -9,20 +9,21 @@ namespace Keeper.Data.Users
 {
     public class UserSession : BaseEntity
     {
-        public int UserId { get; private set; }
+        public int UserIdentifier { get; private set; }
 
-        public Guid SessionId { get; private set; }
+        public Guid SessionKey { get; private set; }
 
-        public DateTime FinishedOnUtc { get; private set; }
+        public DateTime? FinishedOnUtc { get; private set; }
 
         public virtual User User { get; private set; }
 
-        public void Set(LoginUserRequest request, Guid sessionId, int userId)
+        public void Set(LoginUserRequest request, Guid sessionKey, int userIdentifier)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
-            SessionId = sessionId;
-            UserId = userId;
+
+            SessionKey = sessionKey;
+            UserIdentifier = userIdentifier;
         }
     }
 }

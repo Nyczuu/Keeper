@@ -26,21 +26,24 @@ namespace Keeper.WPF
                 Group = (UserGroupType)UserTypeComboBox.SelectedItem,
             });
 
+            if (response == null)
+                ErrorTxtBlock.Text = Strings.Common_DefaultError;
+
             switch (response.Type)
             {
                 case CreateUserResponseType.EmailExists:
-                    { ErrorTxtBlock.Text = "Email address already exists."; }
+                    { ErrorTxtBlock.Text = Strings.CreateUser_EmailExists; }
                     break;
                 case CreateUserResponseType.EmailNotValid:
-                    { ErrorTxtBlock.Text = "Email address is not valid."; }
+                    { ErrorTxtBlock.Text = Strings.CreateUser_EmailNotValid; }
                     break;
                 case CreateUserResponseType.PasswordTooWeak:
-                    { ErrorTxtBlock.Text = "Provided password is too weak."; }
+                    { ErrorTxtBlock.Text = Strings.CreateUser_PasswordTooWeak; }
                     break;
                 case CreateUserResponseType.Success:
                     { this.Close(); }
                     break;
-                default: { } break;
+                default: { ErrorTxtBlock.Text = Strings.Common_DefaultError; } break;
             }
         }
     }

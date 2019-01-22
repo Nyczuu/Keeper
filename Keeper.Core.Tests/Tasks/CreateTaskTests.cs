@@ -45,18 +45,20 @@ namespace Keeper.Core.Tests.Tasks
         [DataRow("     ExistingTestTask")]
         public void CreateTask_NameExists(string name)
         {
+            var projectIdentifier = _projectIdentifier;
+
             var createFirstTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = "ExistingTestTask",
-                    ProjectIdentifier = _projectIdentifier,
+                    ProjectIdentifier = projectIdentifier,
                 });
 
             var createSameNameTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = name,
-                    ProjectIdentifier = _projectIdentifier,
+                    ProjectIdentifier = projectIdentifier,
                 });
 
             Assert.IsTrue(createSameNameTaskResponse.Type == CreateTaskResponseType.NameExists);
