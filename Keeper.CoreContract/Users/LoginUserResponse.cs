@@ -8,7 +8,7 @@ namespace Keeper.CoreContract.Users
 {
     public class LoginUserResponse
     {
-        public Guid SessionId;          
+        public Guid SessionKey;          
         public LoginUserResponseType Type;
     }
 }

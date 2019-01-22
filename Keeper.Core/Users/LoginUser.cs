@@ -33,15 +33,16 @@ namespace Keeper.Core.Users
                             { Type = LoginUserResponseType.WrongPassword };
                         else
                         {
-                            var userSessionId = Guid.NewGuid();
+                            var sessionKey = Guid.NewGuid();
                             var userSession = new UserSession();
-                            userSession.Set(request, userSessionId, user.Identifier);
+                            userSession.Set(request, sessionKey, user.Identifier);
+                            dbContext.UserSession.Add(userSession);
                             dbContext.SaveChanges();
 
                             Response = new LoginUserResponse
                             {
                                 Type = LoginUserResponseType.Success,
-                                SessionId = userSessionId,
+                                SessionKey = sessionKey,
                             };
                         }
                     }

@@ -10,7 +10,6 @@ namespace Keeper.CoreContract.Users
     {
         Worker = 1,
         ProjectManager = 2,
-        HumanResourceManager = 3,
-        Administrator = 4,
+        Administrator = 3,
     }
 }
