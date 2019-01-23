@@ -9,6 +9,5 @@ namespace Keeper.CoreContract.Tasks
     public class GetTaskRequest
     {
         public int[] TaskIdentifiers;
-        public string SearchKeyword;
     }
 }
