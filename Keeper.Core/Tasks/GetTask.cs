@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Keeper.Data;
 using Keeper.CoreContract.Tasks;
 
@@ -23,6 +19,9 @@ namespace Keeper.Core.Tasks
                     if (request.TaskIdentifiers != null && request.TaskIdentifiers.Any())
                         query = query.Where(aTask => request.TaskIdentifiers.Contains(aTask.Identifier));
 
+                    if (request.ProjectIdentifiers != null && request.ProjectIdentifiers.Any())
+                        query = query.Where(aTask => request.ProjectIdentifiers.Contains(aTask.ProjectIdentifier));
+
                     Response = new GetTaskResponse
                     {
                         Items = query.Select(aTask => new GetTaskResponseItem
@@ -33,11 +32,7 @@ namespace Keeper.Core.Tasks
                             ProjectIdentifier = aTask.ProjectIdentifier
                         }).ToArray(),
                     };
-
-
-
                 }
-
             }
         }
     }

@@ -61,9 +61,11 @@
     <Compile Include="Projects\BaseProjectTests.cs" />
     <Compile Include="Projects\DeleteProjectTests.cs" />
     <Compile Include="Projects\CreateProjectTests.cs" />
+    <Compile Include="Projects\GetProjectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\BaseTaskTests.cs" />
     <Compile Include="Tasks\CreateTaskTests.cs" />
+    <Compile Include="Tasks\GetTaskTests.cs" />
     <Compile Include="Users\BaseUserTests.cs" />
     <Compile Include="Users\CreateUserTests.cs" />
     <Compile Include="Users\DeleteUserTests.cs" />

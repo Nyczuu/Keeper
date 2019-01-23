@@ -37,6 +37,9 @@ namespace Keeper.Core
         public CreateProjectResponse CreateProject(CreateProjectRequest request)
             => new CreateProject(request).Response;
 
+        public GetProjectResponse GetProject(GetProjectRequest request)
+            => new GetProject(request).Response;
+
         public DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
             => new DeleteProject(request).Response;
 
