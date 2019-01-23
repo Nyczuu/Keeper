@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Keeper.WPF
 {
-    class UserListItemModel
+    public class UserListItemModel
     {
         public int Id { get; set; }
         public string Email { get; set; }

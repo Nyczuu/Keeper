@@ -8,14 +8,10 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="752.405" Width="1278.41">
     <Grid Margin="0,0,-6.4,-19.6">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Button x:Name="AddUserButton" Content="Add" HorizontalAlignment="Left" Margin="99,130,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="AddUserButton_Click"/>
         <Button x:Name="DeleteUserButton" Content="Delete" HorizontalAlignment="Left" Margin="99,217,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="DeleteUserButton_Click"/>
-        <ListView x:Name="UsersList" HorizontalAlignment="Left" Height="581" Margin="445,130,0,0" VerticalAlignment="Top" Width="777" FontSize="16" SelectionChanged="UsersList_SelectionChanged" Grid.ColumnSpan="2"/>
         <TextBox x:Name="SearchTxtBox" HorizontalAlignment="Left" Margin="445,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="20" TextChanged="SearchTxtBox_TextChanged" Grid.ColumnSpan="2" RenderTransformOrigin="0.45,-0.105"/>
         <Button x:Name="EditUserButton" Content="Edit" HorizontalAlignment="Left" Margin="99,301,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24"/>
+        <DataGrid x:Name="UserList" HorizontalAlignment="Left" Height="535" Margin="445,130,0,0" VerticalAlignment="Top" Width="760" RenderTransformOrigin="2.864,-0.419" VerticalGridLinesBrush="#FFC5C3C3" />
     </Grid>
 </Window>

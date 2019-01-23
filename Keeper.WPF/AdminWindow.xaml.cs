@@ -1,18 +1,8 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Users;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Keeper.WPF
 {
@@ -21,21 +11,14 @@ namespace Keeper.WPF
     /// </summary>
     public partial class AdminWindow : Window
     {
-        private readonly Client _client;
-        private GetUserResponseItem[] _users;
-
         public AdminWindow()
         {
-            _client = new Client();
-            _users = _client.GetUser(new GetUserRequest()).Items;
             InitializeComponent();
-            var gridView = new GridView();
-            this.UsersList.View = gridView;
-            gridView.Columns.Add(new GridViewColumn { Header = "ID", DisplayMemberBinding = new Binding("id") });
-            gridView.Columns.Add(new GridViewColumn { Header = "E-Mail", DisplayMemberBinding = new Binding("email") });
-            gridView.Columns.Add(new GridViewColumn { Header = "Group", DisplayMemberBinding = new Binding("group") });
-            foreach (var user in _users) {
-                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group }); }
+
+            UserList.CanUserAddRows = false;
+            UserList.CanUserDeleteRows = false;
+            
+            ReloadUsersList();
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
@@ -46,32 +29,34 @@ namespace Keeper.WPF
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-
-            _client.DeleteUser(new DeleteUserRequest
+            if(UserList.SelectedItems.Count > 0)
             {
-                Identifiers = UsersList.SelectedItems.Cast<UserListItemModel>().Select(aUser => aUser.Id).ToArray()
-            });
-            UsersList.Items.Clear();
-            _users = _client.GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text }).Items;
-            foreach (var user in _users)
-            {
-                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group });
+                new Client().DeleteUser(new DeleteUserRequest
+                {
+                    Identifiers = UserList.SelectedItems
+                    .Cast<UserListItemModel>()
+                    .Select(aSelectedItem => aSelectedItem.Id)
+                    .ToArray()
+                });
             }
-        }
-        
-        private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
+            ReloadUsersList();
         }
 
         private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            UsersList.Items.Clear();
-           _users = _client.GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text}).Items;
-            foreach (var user in _users)
-            {
-                UsersList.Items.Add(new { email = user.Email, id = user.Identifier, group = user.Group });
-            }
+            ReloadUsersList();
+        }
+
+        private void ReloadUsersList()
+        {
+            var users = new Client().GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text }).Items;
+            UserList.ItemsSource = users.Select(aUser
+                => new UserListItemModel
+                {
+                    Id = aUser.Identifier,
+                    Email = aUser.Email,
+                    Group = aUser.Group,
+                }).ToList();
         }
     }
 }
