@@ -1,4 +1,5 @@
-﻿using Keeper.WPF.Admin;
+﻿using Keeper.Core;
+using Keeper.WPF.Admin;
 using System.Windows;
 
 namespace Keeper.WPF
@@ -11,23 +12,7 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            if (userType == 0) // user gui
-            {
-                manage_users_but.Visibility = Visibility.Hidden;
-                project_edit_but.Visibility = Visibility.Hidden;
-            }
-
-            if (userType == 1) // user PM
-            {
-                manage_users_but.Visibility = Visibility.Hidden;
-                
-            }
-
-            if (userType == 2) // user HR
-            {
-                project_edit_but.Visibility = Visibility.Hidden;
-            }
-
+                //project_edit_but.Visibility = Visibility.Hidden;
         }
 
         private void Manage_Users_but_Click(object sender, RoutedEventArgs e)
@@ -37,11 +22,15 @@ namespace Keeper.WPF
             admin.Show();
         }
 
-        private int userType = 0;
 
         private void Project_Edit_but_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ReloadProjectList()
+        {
+            //ProjectList = new Client().
         }
     }
 }

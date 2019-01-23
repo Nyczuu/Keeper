@@ -1,7 +1,6 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Users;
 using Keeper.WPF.Admin;
-using Keeper.WPF.ProjectManager;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -65,28 +64,13 @@ namespace Keeper.WPF
 
         private void Run(Guid sessionKey)
         {
-            Window window = null as Window;
             var getUserSessionResponse = new Client().GetUserSession(
                 new GetUserSessionRequest { SessionKey = sessionKey });
 
             if(getUserSessionResponse != null)
             {
                 WorkContext.Instance.Initialize(getUserSessionResponse);
-                switch (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType)
-                {
-                    case UserGroupType.Administrator:
-                        { window = new AdminWindow(); }
-                        break;
-
-                    case UserGroupType.ProjectManager:
-                        { window = new ProjectManagerWindow(); }
-                        break;
-
-                    case UserGroupType.Worker:
-                        { }
-                        break;
-                }
-
+                var window = new UserWindow();
                 App.Current.MainWindow = window;
                 this.Close();
                 window.Show();
