@@ -1,5 +1,7 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Users;
+using Keeper.WPF.Admin;
+using Keeper.WPF.ProjectManager;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -13,7 +15,6 @@ namespace Keeper.WPF
     {
         public MainWindow()
         {
-            Installer.Run();
             InitializeComponent();
         }
 
@@ -66,8 +67,7 @@ namespace Keeper.WPF
         {
             Window window = null as Window;
             var getUserSessionResponse = new Client().GetUserSession(
-                new GetUserSessionRequest
-                { SessionKey = sessionKey });
+                new GetUserSessionRequest { SessionKey = sessionKey });
 
             if(getUserSessionResponse != null)
             {
@@ -79,7 +79,7 @@ namespace Keeper.WPF
                         break;
 
                     case UserGroupType.ProjectManager:
-                        { }
+                        { window = new ProjectManagerWindow(); }
                         break;
 
                     case UserGroupType.Worker:

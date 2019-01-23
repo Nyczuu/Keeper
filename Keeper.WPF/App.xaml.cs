@@ -7,5 +7,9 @@ namespace Keeper.WPF
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Installer.Run();
+        }
     }
 }

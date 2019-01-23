@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Keeper.WPF
+namespace Keeper.WPF.Admin
 {
     /// <summary>
     /// Logika interakcji dla klasy AdminWindow.xaml
@@ -24,7 +24,8 @@ namespace Keeper.WPF
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
             AddUserWindow add = new AddUserWindow();
-            add.Show();
+            add.ShowDialog();
+            ReloadUsersList();
         }
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)

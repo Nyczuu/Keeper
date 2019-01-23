@@ -8,6 +8,7 @@ namespace Keeper.WPF
     {
         public static void Run()
         {
+            //Installation steps here
             SetUpBuiltInAdministratorAccount();
         }
 
