@@ -3,7 +3,7 @@ using Keeper.CoreContract.Users;
 using System;
 using System.Windows;
 
-namespace Keeper.WPF
+namespace Keeper.WPF.Admin
 {
     /// <summary>
     /// Logika interakcji dla klasy AddUserWindow.xaml

@@ -1,13 +1,8 @@
 ﻿using Keeper.CoreContract.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Keeper.WPF
+namespace Keeper.WPF.Admin
 {
-    class UserListItemModel
+    public class UserListItemModel
     {
         public int Id { get; set; }
         public string Email { get; set; }

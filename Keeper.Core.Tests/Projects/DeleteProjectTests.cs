@@ -15,10 +15,7 @@ namespace Keeper.Core.Tests.Projects
         public void DeleteProject()
         {
             var createProjectResponse = _client.CreateProject(
-                 new CreateProjectRequest
-                 {
-                     Name = _testName,
-                 });
+                 new CreateProjectRequest { Name = _testName});
 
             var deleteProjectResponse = _client.DeleteProject(
                 new DeleteProjectRequest { Identifiers = new int[] { createProjectResponse.Identifier.Value } });

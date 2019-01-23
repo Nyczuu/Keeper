@@ -12,21 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Keeper.WPF
+namespace Keeper.WPF.ProjectManager
 {
     /// <summary>
-    /// Logika interakcji dla klasy DeleteUserWindow.xaml
+    /// Logika interakcji dla klasy ProjectManagerWindow.xaml
     /// </summary>
-    public partial class DeleteUserWindow : Window
+    public partial class ProjectManagerWindow : Window
     {
-        public DeleteUserWindow()
+        public ProjectManagerWindow()
         {
             InitializeComponent();
-        }
-
-        private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

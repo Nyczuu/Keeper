@@ -47,6 +47,11 @@
     <Compile Include="Tasks\CreateTaskRequest.cs" />
     <Compile Include="Tasks\CreateTaskResponse.cs" />
     <Compile Include="Tasks\CreateTaskResponseType.cs" />
+    <Compile Include="Tasks\DeleteTaskRequest.cs" />
+    <Compile Include="Tasks\DeleteTaskResponse.cs" />
+    <Compile Include="Tasks\GetTaskResponse.cs" />
+    <Compile Include="Tasks\GetTaskRequest.cs" />
+    <Compile Include="Tasks\GetTaskResponseItem.cs" />
     <Compile Include="Tasks\TaskStatus.cs" />
     <Compile Include="Projects\DeleteProjectRequest.cs" />
     <Compile Include="Projects\DeleteProjectResponse.cs" />
