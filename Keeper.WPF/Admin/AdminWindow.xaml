@@ -11,9 +11,9 @@
     <Grid Margin="0,0,-6.4,-19.6">
         <Button x:Name="AddUserButton" Content="Add" HorizontalAlignment="Left" Margin="99,130,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="AddUserButton_Click"/>
         <Button x:Name="DeleteUserButton" Content="Delete" HorizontalAlignment="Left" Margin="99,217,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24" Click="DeleteUserButton_Click"/>
-        <TextBox x:Name="SearchTxtBox" HorizontalAlignment="Left" Margin="445,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="20" TextChanged="SearchTxtBox_TextChanged" Grid.ColumnSpan="2" RenderTransformOrigin="0.45,-0.105"/>
+        <TextBox x:Name="SearchTxtBox" HorizontalAlignment="Left" Margin="539,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="20" TextChanged="SearchTxtBox_TextChanged" RenderTransformOrigin="0.45,-0.105"/>
         <Button x:Name="EditUserButton" Content="Edit" HorizontalAlignment="Left" Margin="99,301,0,0" VerticalAlignment="Top" Width="200" Height="50" FontSize="24"/>
         <DataGrid x:Name="UserList" HorizontalAlignment="Left" Height="535" Margin="445,130,0,0" VerticalAlignment="Top" Width="760" RenderTransformOrigin="2.864,-0.419" VerticalGridLinesBrush="#FFC5C3C3" />
-        <Label x:Name="Search" Content="Filter" HorizontalAlignment="Left" Margin="445,44,0,0" VerticalAlignment="Top" Height="44" Width="90" FontSize="24"/>
+        <Label x:Name="Search" Content="Filter" HorizontalAlignment="Left" Margin="444,81,0,0" VerticalAlignment="Top" Height="36" Width="90" FontSize="20"/>
     </Grid>
 </Window>
