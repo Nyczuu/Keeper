@@ -20,7 +20,7 @@ namespace Keeper.Core.Users
                         query = query.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier));
 
                     if (!string.IsNullOrWhiteSpace(request.SearchKeyword))
-                        query = query.Where(aUser => aUser.Email.Contains(request.SearchKeyword.ToLower()));
+                        query = query.Where(aUser => aUser.Email.ToLower().Contains(request.SearchKeyword.ToLower()));
 
                     Response = new GetUserResponse
                     {

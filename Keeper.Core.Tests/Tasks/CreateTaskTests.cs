@@ -10,12 +10,15 @@ namespace Keeper.Core.Tests.Tasks
         [TestMethod()]
         public void CreateTask()
         {
+            var projectIdentifier = new Client().CreateProject(
+                new CreateProjectRequest { Name = _testName }).Identifier.Value;
+
             var createTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = _testName,
                     Description = _testDescription,
-                    ProjectIdentifier = _projectIdentifier,
+                    ProjectIdentifier = projectIdentifier,
                 });
 
             Assert.IsNotNull(createTaskResponse.Identifier);
@@ -28,11 +31,14 @@ namespace Keeper.Core.Tests.Tasks
         [DataRow("     ")]
         public void CreateTask_NameEmpty(string name)
         {
+            var projectIdentifier = new Client().CreateProject(
+                new CreateProjectRequest { Name = _testName }).Identifier.Value;
+
             var createTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = name,
-                    ProjectIdentifier = _projectIdentifier,
+                    ProjectIdentifier = projectIdentifier,
                 });
 
             Assert.IsTrue(createTaskResponse.Type == CreateTaskResponseType.NameEmpty);
@@ -45,7 +51,8 @@ namespace Keeper.Core.Tests.Tasks
         [DataRow("     ExistingTestTask")]
         public void CreateTask_NameExists(string name)
         {
-            var projectIdentifier = _projectIdentifier;
+            var projectIdentifier = new Client().CreateProject(
+                new CreateProjectRequest { Name = _testName }).Identifier.Value;
 
             var createFirstTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
