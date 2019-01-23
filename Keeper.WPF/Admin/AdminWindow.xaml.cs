@@ -17,7 +17,7 @@ namespace Keeper.WPF.Admin
 
             UserList.CanUserAddRows = false;
             UserList.CanUserDeleteRows = false;
-            
+            UserList.IsReadOnly = true;
             ReloadUsersList();
         }
 
