@@ -1,4 +1,7 @@
-﻿using Keeper.CoreContract.Users;
+﻿using Keeper.Core;
+using Keeper.CoreContract.Projects;
+using Keeper.CoreContract.Tasks;
+using Keeper.CoreContract.Users;
 using Keeper.WPF.Admin;
 using Keeper.WPF.ProjectManager;
 using System.Windows;
@@ -13,9 +16,10 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Administrator) {
-               //admin moze grzebac w projektach wiec go nie ukrywam u niego
-            }
+            new Client().CreateProject(new CreateProjectRequest
+            {
+                Name = "Testname"
+            });
             if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager) {
                 manage_users_but.Visibility = Visibility.Hidden;
             }
@@ -44,18 +48,36 @@ namespace Keeper.WPF
 
         private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            ReloadTaskList(ProjectList.SelectedIndex);
+            ReloadTaskList();
         }
 
-        private void ReloadTaskList(int ProjectId)
+        private void ReloadTaskList()
         {
-            //GetTask(ProjectId);
+            TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
+            {
+                ProjectIdentifiers = new int[]{ (ProjectList.SelectedIndex+1) }
+            }).Items;
         }
 
         private void ReloadProjectList()
         {
-            //GetProjects();
+            ProjectList.ItemsSource = new Client().GetProject(new GetProjectRequest
+            {
+                SearchKeyword = SearchProjectTxtBox.Text
+            }).Items;
+
         }
 
+        private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            ReloadProjectList();
+        }
+
+        private void OpenLogButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new TaskWindow();
+            App.Current.MainWindow = window;
+            window.ShowDialog();
+        }
     }
 }

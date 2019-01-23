@@ -12,5 +12,9 @@ namespace Keeper.CoreContract.Projects
         public string Name;
 
         public int TasksCount { get; set; }
+        public override string  ToString()
+        {
+            return $"{Name} ({TasksCount})";
+        }
     }
 }
