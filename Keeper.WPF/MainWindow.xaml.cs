@@ -37,26 +37,26 @@ namespace Keeper.WPF
             });
 
             if (loginUserResponse == null)
-                Message_TxtBlock.Text = Strings.Common_DefaultError;
+                ErrorTxtBlock.Text = Strings.Common_DefaultError;
 
             else
             {
                 switch (loginUserResponse.Type)
                 {
                     case LoginUserResponseType.NoUser:
-                        { Message_TxtBlock.Text = Strings.LoginUser_NoUser; }
+                        { ErrorTxtBlock.Text = Strings.LoginUser_NoUser; }
                         break;
                     case LoginUserResponseType.WrongEmail:
-                        { Message_TxtBlock.Text = Strings.LoginUser_WrongEmail; }
+                        { ErrorTxtBlock.Text = Strings.LoginUser_WrongEmail; }
                         break;
                     case LoginUserResponseType.WrongPassword:
-                        { Message_TxtBlock.Text = Strings.LoginUser_WrongPassword; }
+                        { ErrorTxtBlock.Text = Strings.LoginUser_WrongPassword; }
                         break;
                     case LoginUserResponseType.Success:
                         { Run(loginUserResponse.SessionKey); }
                         break;
                     default:
-                        { Message_TxtBlock.Text = Strings.Common_DefaultError; }
+                        { ErrorTxtBlock.Text = Strings.Common_DefaultError; }
                         break;
                 }
             }

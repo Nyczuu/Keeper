@@ -25,6 +25,6 @@
         <Label x:Name="User_Label" Content="Email" HorizontalAlignment="Left" Margin="144,125,0,0" VerticalAlignment="Top" FontSize="24" Height="55" Width="66"/>
         <Button x:Name="Login_Button" Content="Login" HorizontalAlignment="Left" Margin="236,417,0,0" VerticalAlignment="Top" Width="326" Height="45" Grid.ColumnSpan="2" FontSize="20" Click="Login_Button_Click"/>
         <TextBox x:Name="Login_TxtBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="50" Margin="274,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" TextAlignment="Center"/>
-        <TextBlock x:Name="Message_TxtBlock" HorizontalAlignment="Left" Margin="236,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="95" Width="326" FontSize="20" TextAlignment="Center" IsEnabled="False"/>
+        <TextBlock x:Name="ErrorTxtBlock" HorizontalAlignment="Left" Margin="236,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="95" Width="326" FontSize="20" TextAlignment="Center" IsEnabled="False"/>
     </Grid>
 </Window>

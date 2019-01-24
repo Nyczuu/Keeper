@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:Keeper.WPF"
         mc:Ignorable="d"
         Title="TaskWindow" Height="752.405" Width="1278.41">
-    <Grid>
-        <ListBox x:Name="taskListBox" HorizontalAlignment="Left" Height="511" Margin="498,71,0,0" VerticalAlignment="Top" Width="488"/>
-
-    </Grid>
+    <Grid/>
 </Window>

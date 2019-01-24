@@ -16,41 +16,18 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            new Client().CreateProject(new CreateProjectRequest
+            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager)
             {
-                Name = "Testname"
-            });
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager) {
-                manage_users_but.Visibility = Visibility.Hidden;
+                UserEditButton.Visibility = Visibility.Hidden;
             }
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Worker) {
-                project_edit_but.Visibility = Visibility.Hidden;
-                manage_users_but.Visibility = Visibility.Hidden;
+            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Worker)
+            {
+                ProjEditButton.Visibility = Visibility.Hidden;
+                UserEditButton.Visibility = Visibility.Hidden;
             }
             ReloadProjectList();
         }
-
-        private void Manage_Users_but_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow admin = new AdminWindow();
-            App.Current.MainWindow = admin;           
-            admin.ShowDialog();
-        }
-
-
-        private void Project_Edit_but_Click(object sender, RoutedEventArgs e)
-        {
-            ProjectManagerWindow pMWindow = new ProjectManagerWindow();
-            App.Current.MainWindow = pMWindow;
-            pMWindow.ShowDialog();
-        }
-
-
-        private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            ReloadTaskList();
-        }
-
+      
         private void ReloadTaskList()
         {
             TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
@@ -68,16 +45,37 @@ namespace Keeper.WPF
 
         }
 
-        private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            ReloadProjectList();
-        }
-
         private void OpenLogButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new TaskWindow();
             App.Current.MainWindow = window;
             window.ShowDialog();
         }
+
+        private void UserEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow admin = new AdminWindow();
+            App.Current.MainWindow = admin;
+            admin.ShowDialog();
+        }
+
+        private void ProjEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectManagerWindow pMWindow = new ProjectManagerWindow();
+            App.Current.MainWindow = pMWindow;
+            pMWindow.ShowDialog();
+        }
+
+        private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            ReloadTaskList();
+        }
+
+        private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            ReloadProjectList();
+        }
+
+
     }
 }

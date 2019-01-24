@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="752.405" Width="1278.41">
     <Grid>
-        <Button x:Name="manage_users_but" Content="Manage Users" HorizontalAlignment="Left" Margin="281,630,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="Manage_Users_but_Click"/>
+        <Button x:Name="UserEditButton" Content="Manage Users" HorizontalAlignment="Left" Margin="281,630,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="UserEditButton_Click"/>
         <ListBox x:Name="TaskList" HorizontalAlignment="Left" Height="559" Margin="281,40,0,0" VerticalAlignment="Top" Width="704"/>
-        <Button x:Name="project_edit_but" Content="Manage Projects" HorizontalAlignment="Left" Margin="10,630,0,0" VerticalAlignment="Top" Width="217" Height="50" FontSize="24" Click="Project_Edit_but_Click"/>
+        <Button x:Name="ProjEditButton" Content="Manage Projects" HorizontalAlignment="Left" Margin="10,630,0,0" VerticalAlignment="Top" Width="217" Height="50" FontSize="24" Click="ProjEditButton_Click"/>
         <ListBox x:Name="ProjectList" HorizontalAlignment="Left" Height="559" Margin="10,40,0,0" VerticalAlignment="Top" Width="217" SelectionChanged="ProjectList_SelectionChanged"/>
         <TextBox x:Name="SearchProjectTxtBox" HorizontalAlignment="Left" Height="23" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchProjectTxtBox_TextChanged"/>
         <Button x:Name="OpenLogButton" Content="OpenLog" HorizontalAlignment="Left" Margin="1010,40,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="OpenLogButton_Click"/>
