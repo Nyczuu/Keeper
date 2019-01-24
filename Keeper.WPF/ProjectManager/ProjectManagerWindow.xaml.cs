@@ -61,7 +61,7 @@ namespace Keeper.WPF.ProjectManager
             {
                 InvolvedUsersWindow window = new InvolvedUsersWindow(ProjectList.SelectedItems
                     .Cast<ProjectListItemModel>()
-                    .Select(aSelectedItem => aSelectedItem.Id).ToArray());
+                    .Select(aSelectedItem => aSelectedItem.Id).SingleOrDefault());
                 window.ShowDialog();
             }
             
