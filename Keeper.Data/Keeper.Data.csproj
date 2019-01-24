@@ -74,6 +74,18 @@
     <Compile Include="Migrations\201901241747221_WorklogsFinishedDateNullable.Designer.cs">
       <DependentUpon>201901241747221_WorklogsFinishedDateNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901241757117_TaskComments.cs" />
+    <Compile Include="Migrations\201901241757117_TaskComments.Designer.cs">
+      <DependentUpon>201901241757117_TaskComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901241807563_TaskCollections.cs" />
+    <Compile Include="Migrations\201901241807563_TaskCollections.Designer.cs">
+      <DependentUpon>201901241807563_TaskCollections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901241843291_TaskWorklogStartDate.cs" />
+    <Compile Include="Migrations\201901241843291_TaskWorklogStartDate.Designer.cs">
+      <DependentUpon>201901241843291_TaskWorklogStartDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,7 +93,7 @@
     <Compile Include="Tasks\TaskComment.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSession.cs" />
-    <Compile Include="Worklogs\Worklog.cs" />
+    <Compile Include="Tasks\TaskWorklog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,6 +124,16 @@
     <EmbeddedResource Include="Migrations\201901241747221_WorklogsFinishedDateNullable.resx">
       <DependentUpon>201901241747221_WorklogsFinishedDateNullable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901241757117_TaskComments.resx">
+      <DependentUpon>201901241757117_TaskComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901241807563_TaskCollections.resx">
+      <DependentUpon>201901241807563_TaskCollections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901241843291_TaskWorklogStartDate.resx">
+      <DependentUpon>201901241843291_TaskWorklogStartDate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,7 +26,7 @@ namespace Keeper.Core.Tasks
 
                         if (project == null)
                             Response = new CreateTaskResponse
-                            { Type = CreateTaskResponseType.ProjectDoNotExists };
+                            { Type = CreateTaskResponseType.ProjectDoesNotExist };
 
                         else
                         {

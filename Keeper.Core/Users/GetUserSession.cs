@@ -14,7 +14,7 @@ namespace Keeper.Core.Users
             {
                 using(var dbContext = new ApplicationDbContext())
                 {
-                    var session = dbContext.UserSession.SingleOrDefault(aUserSession
+                    var session = dbContext.UserSessions.SingleOrDefault(aUserSession
                         => aUserSession.SessionKey == request.SessionKey);
 
                     if (session != null && session.User != null)

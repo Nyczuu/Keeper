@@ -20,7 +20,7 @@ namespace Keeper.Core.Tests
         {
             //Warning: order of these commands actually matters!
             var dbContext = new ApplicationDbContext();
-            dbContext.UserSession.RemoveRange(dbContext.UserSession);
+            dbContext.UserSessions.RemoveRange(dbContext.UserSessions);
             dbContext.Users.RemoveRange(dbContext.Users);
             dbContext.Tasks.RemoveRange(dbContext.Tasks);
             dbContext.Projects.RemoveRange(dbContext.Projects);

@@ -36,7 +36,7 @@ namespace Keeper.Core.Users
                             var sessionKey = Guid.NewGuid();
                             var userSession = new UserSession();
                             userSession.Set(request, sessionKey, user.Identifier);
-                            dbContext.UserSession.Add(userSession);
+                            dbContext.UserSessions.Add(userSession);
                             dbContext.SaveChanges();
 
                             Response = new LoginUserResponse

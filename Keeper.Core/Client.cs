@@ -56,6 +56,15 @@ namespace Keeper.Core
         public DeleteTaskResponse DeleteTask(DeleteTaskRequest request)
             => new DeleteTask(request).Response;
 
+        public CreateTaskCommentResponse CreateTaskComment(CreateTaskCommentRequest request)
+            => new CreateTaskComment(request).Response;
+
+        public CreateTaskWorklogResponse CreateTaskWorklog(CreateTaskWorklogRequest request)
+            => new CreateTaskWorklog(request).Response;
+
+        public StartTaskResponse StartTask(StartTaskRequest request)
+            => new StartTask(request).Response;
+
         #endregion
     }
 }

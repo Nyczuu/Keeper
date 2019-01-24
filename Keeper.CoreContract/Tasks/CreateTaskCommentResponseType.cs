@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Tasks
 {
-    public enum CreateTaskResponseType
+    public enum CreateTaskCommentResponseType
     {
-        NameEmpty,
-        NameExists,
-        ProjectDoesNotExist,
+        ContentEmpty,
         Success,
     }
 }

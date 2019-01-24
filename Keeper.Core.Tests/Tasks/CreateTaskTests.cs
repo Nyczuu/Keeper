@@ -82,7 +82,7 @@ namespace Keeper.Core.Tests.Tasks
                     ProjectIdentifier = 0,
                 });
 
-            Assert.IsTrue(createTaskResponse.Type == CreateTaskResponseType.ProjectDoNotExists);
+            Assert.IsTrue(createTaskResponse.Type == CreateTaskResponseType.ProjectDoesNotExist);
         }
     }
 }

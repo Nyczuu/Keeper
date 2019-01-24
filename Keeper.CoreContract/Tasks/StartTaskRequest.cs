@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Tasks
 {
-    public enum CreateTaskResponseType
+    public class StartTaskRequest
     {
-        NameEmpty,
-        NameExists,
-        ProjectDoesNotExist,
-        Success,
+        public int UserIdentifier;
+        public int TaskIdentifier;
+
     }
 }

@@ -55,8 +55,11 @@
     <Compile Include="Projects\GetProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\CreateTask.cs" />
+    <Compile Include="Tasks\CreateTaskComment.cs" />
+    <Compile Include="Tasks\CreateTaskWorklog.cs" />
     <Compile Include="Tasks\DeleteTask.cs" />
     <Compile Include="Tasks\GetTask.cs" />
+    <Compile Include="Tasks\StartTask.cs" />
     <Compile Include="Users\AddUsersToProject.cs" />
     <Compile Include="Users\CreateUser.cs" />
     <Compile Include="Users\DeleteUser.cs" />

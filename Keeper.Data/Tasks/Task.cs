@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Keeper.CoreContract.Tasks;
 using Keeper.Data.Projects;
 
@@ -11,7 +13,9 @@ namespace Keeper.Data.Tasks
         public int ProjectIdentifier { get; private set; }
         public TaskStatus Status { get; private set; }
 
-        public virtual Project Project { get; set; }
+        public virtual Project Project { get; private set; }
+        public virtual ICollection<TaskComment> Comments { get; private set; }
+        public virtual ICollection<TaskWorklog> Worklogs { get; private set; }
 
         public void Set(CreateTaskRequest request)
         {
@@ -25,6 +29,13 @@ namespace Keeper.Data.Tasks
                 Description = request.Description.Trim();
 
             ProjectIdentifier = request.ProjectIdentifier;
+        }
+
+        public void Set(StartTaskRequest request)
+        {
+            UpdatedOnUtc = DateTime.UtcNow;
+
+            Status = TaskStatus.InProgress;
         }
     }
 }
