@@ -61,6 +61,24 @@ namespace Keeper.WPF {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Provided name already exists..
+        /// </summary>
+        internal static string Add_Project_NameExists {
+            get {
+                return ResourceManager.GetString("Add_Project_NameExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Please enter project name..
+        /// </summary>
+        internal static string AddProject_NameEmpty {
+            get {
+                return ResourceManager.GetString("AddProject_NameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Something went wrong, please try again later. If the error occurs consistently, please contact the support..
         /// </summary>
         internal static string Common_DefaultError {

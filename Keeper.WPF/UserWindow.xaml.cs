@@ -16,42 +16,23 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Administrator) 
-                manage_users_but.Visibility = Visibility.Visible;
-
             if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager)
-                project_edit_but.Visibility = Visibility.Visible;
-            
+            {
+                UserEditButton.Visibility = Visibility.Hidden;
+            }
+            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Worker)
+            {
+                ProjEditButton.Visibility = Visibility.Hidden;
+                UserEditButton.Visibility = Visibility.Hidden;
+            }
             ReloadProjectList();
         }
-
-        private void Manage_Users_but_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow admin = new AdminWindow();
-            App.Current.MainWindow = admin;           
-            admin.ShowDialog();
-        }
-
-        private void Project_Edit_but_Click(object sender, RoutedEventArgs e)
-        {
-            ProjectManagerWindow projectManagerWindow = new ProjectManagerWindow();
-            App.Current.MainWindow = projectManagerWindow;
-            projectManagerWindow.ShowDialog();
-        }
-
-        private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            ReloadTaskList();
-        }
-
+      
         private void ReloadTaskList()
         {
             TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
             {
-                ProjectIdentifiers = new int[] 
-                {
-                    ((GetProjectResponseItem)ProjectList.SelectedItem).Identifier,
-                }
+                ProjectIdentifiers = new int[]{ (ProjectList.SelectedIndex+1) }
             }).Items;
         }
 
@@ -59,13 +40,9 @@ namespace Keeper.WPF
         {
             ProjectList.ItemsSource = new Client().GetProject(new GetProjectRequest
             {
-                SearchKeyword = SearchProjectTxtBox.Text
+                SearchKeyword = SearchTxtBox.Text
             }).Items;
-        }
 
-        private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            ReloadProjectList();
         }
 
         private void OpenLogButton_Click(object sender, RoutedEventArgs e)
@@ -74,5 +51,32 @@ namespace Keeper.WPF
             App.Current.MainWindow = window;
             window.ShowDialog();
         }
+    
+        private void UserEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow admin = new AdminWindow();
+            App.Current.MainWindow = admin;
+            admin.ShowDialog();
+        }
+
+        private void ProjEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectManagerWindow pMWindow = new ProjectManagerWindow();
+            App.Current.MainWindow = pMWindow;
+            pMWindow.ShowDialog();
+            ReloadProjectList();
+        }
+
+        private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            ReloadTaskList();
+        }
+
+        private void SearchTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            ReloadProjectList();
+        }
+
+
     }
 }
