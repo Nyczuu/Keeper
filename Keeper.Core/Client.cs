@@ -56,6 +56,9 @@ namespace Keeper.Core
         public DeleteTaskResponse DeleteTask(DeleteTaskRequest request)
             => new DeleteTask(request).Response;
 
+        public UpdateTaskResponse UpdateTask(UpdateTaskRequest request)
+            => new UpdateTask(request).Response;
+
         #endregion
     }
 }

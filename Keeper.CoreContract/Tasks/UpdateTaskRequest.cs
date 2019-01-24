@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Keeper.CoreContract.Tasks
+{
+    public class UpdateTaskRequest
+    {
+        public int Identifier;
+        public string Name;
+        public string Description;
+        public int ProjectIdentifier;
+    }
+}

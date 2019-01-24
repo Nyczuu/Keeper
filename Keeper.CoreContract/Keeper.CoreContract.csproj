@@ -42,11 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Projects\CreateProjectRequest.cs" />
+    <Compile Include="Projects\UpdateProjectResponse.cs" />
     <Compile Include="Projects\CreateProjectResponse.cs" />
     <Compile Include="Projects\CreateProjectResponseType.cs" />
+    <Compile Include="Projects\UpdateProjectRequest.cs" />
     <Compile Include="Projects\GetProjectRequest.cs" />
     <Compile Include="Projects\GetProjectResponse.cs" />
     <Compile Include="Projects\GetProjectResponseItem.cs" />
+    <Compile Include="Projects\UpdateProjectResponseType.cs" />
+    <Compile Include="Tasks\UpdateTaskResponse.cs" />
+    <Compile Include="Tasks\UpdateTaskResponseType.cs" />
+    <Compile Include="Tasks\UpdateTaskRequest.cs" />
     <Compile Include="Tasks\CreateTaskRequest.cs" />
     <Compile Include="Tasks\CreateTaskResponse.cs" />
     <Compile Include="Tasks\CreateTaskResponseType.cs" />
