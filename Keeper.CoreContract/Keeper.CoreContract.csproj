@@ -83,6 +83,8 @@
     <Compile Include="Users\GetUserResponseItem.cs" />
     <Compile Include="Users\LoginUserRequest.cs" />
     <Compile Include="Users\LoginUserResponse.cs" />
+    <Compile Include="Users\RemoveUsersFromProjectRequest.cs" />
+    <Compile Include="Users\RemoveUsersFromProjectResponse.cs" />
     <Compile Include="Users\UserGroupType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

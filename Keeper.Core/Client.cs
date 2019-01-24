@@ -30,6 +30,9 @@ namespace Keeper.Core
         public AddUsersToProjectResponse AddUsersToProject(AddUsersToProjectRequest request)
             => new AddUsersToProject(request).Response;
 
+        public RemoveUsersFromProjectResponse RemoveUsersFromProject(RemoveUsersFromProjectRequest request)
+            => new RemoveUsersFromProject(request).Response;
+
         #endregion
         
         #region Projects

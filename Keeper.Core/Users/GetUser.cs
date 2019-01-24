@@ -19,6 +19,11 @@ namespace Keeper.Core.Users
                     if (request.UsersIdentifiers != null && request.UsersIdentifiers.Any())
                         query = query.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier));
 
+                    if (request.ProjectsIdentifiers != null && request.ProjectsIdentifiers.Any())
+                        query = query.Where(aUser 
+                            => aUser.Projects.Any(aProject 
+                                => request.ProjectsIdentifiers.Contains(aProject.Identifier)));
+
                     if (!string.IsNullOrWhiteSpace(request.SearchKeyword))
                         query = query.Where(aUser => aUser.Email.ToLower().Contains(request.SearchKeyword.ToLower()));
 

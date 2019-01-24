@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Keeper.CoreContract.Users
 {
-    public class GetUserRequest
+    public class RemoveUsersFromProjectRequest
     {
+        public int ProjectIdentifier;
         public int[] UsersIdentifiers;
-        public int[] ProjectsIdentifiers;
-        public string SearchKeyword;
     }
 }
