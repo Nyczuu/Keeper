@@ -50,7 +50,8 @@ namespace Keeper.WPF.Admin
 
         private void ReloadUsersList()
         {
-            var users = new Client().GetUser(new GetUserRequest { SearchKeyword = SearchTxtBox.Text }).Items;
+            var users = new Client().GetUser(new GetUserRequest {
+                SearchKeyword = SearchTxtBox.Text }).Items;
             UserList.ItemsSource = users.Select(aUser
                 => new UserListItemModel
                 {

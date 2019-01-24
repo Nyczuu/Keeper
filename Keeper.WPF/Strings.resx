@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddProject_NameEmpty" xml:space="preserve">
+    <value>Please enter project name.</value>
+  </data>
+  <data name="Add_Project_NameExists" xml:space="preserve">
+    <value>Provided name already exists.</value>
+  </data>
   <data name="Common_DefaultError" xml:space="preserve">
     <value>Something went wrong, please try again later. If the error occurs consistently, please contact the support.</value>
   </data>

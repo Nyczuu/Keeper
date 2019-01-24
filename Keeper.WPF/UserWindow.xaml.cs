@@ -40,7 +40,7 @@ namespace Keeper.WPF
         {
             ProjectList.ItemsSource = new Client().GetProject(new GetProjectRequest
             {
-                SearchKeyword = SearchProjectTxtBox.Text
+                SearchKeyword = SearchTxtBox.Text
             }).Items;
 
         }
@@ -51,7 +51,7 @@ namespace Keeper.WPF
             App.Current.MainWindow = window;
             window.ShowDialog();
         }
-
+    
         private void UserEditButton_Click(object sender, RoutedEventArgs e)
         {
             AdminWindow admin = new AdminWindow();
@@ -64,6 +64,7 @@ namespace Keeper.WPF
             ProjectManagerWindow pMWindow = new ProjectManagerWindow();
             App.Current.MainWindow = pMWindow;
             pMWindow.ShowDialog();
+            ReloadProjectList();
         }
 
         private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -71,7 +72,7 @@ namespace Keeper.WPF
             ReloadTaskList();
         }
 
-        private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void SearchTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             ReloadProjectList();
         }

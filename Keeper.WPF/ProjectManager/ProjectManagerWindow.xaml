@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Keeper.WPF.ProjectManager"
         mc:Ignorable="d"
-        Title="PMWindow" Height="450" Width="800">
+        Title="PMWindow" Height="450" Width="420.312">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="184*"/>
+            <RowDefinition Height="235*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="ManageUsersButton" Content="Involved Users" HorizontalAlignment="Left" Margin="286,50,0,0" VerticalAlignment="Top" Width="116" Height="35" Click="InvolvedUsersButton_Click"/>
+        <Button x:Name="AddProjectButton" Content="Add Project" HorizontalAlignment="Left" Margin="286,90,0,0" VerticalAlignment="Top" Width="116" Height="35" Click="AddProjectButton_Click"/>
+        <Button x:Name="DelProjectButton" Content="Delete Project" HorizontalAlignment="Left" Margin="286,130,0,0" VerticalAlignment="Top" Width="116" Height="35" Click="DelProjectButton_Click"/>
+        <Label x:Name="FilterLbl" Content="Filter" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchTxtBox" HorizontalAlignment="Left" Height="26" Margin="51,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchTxtBox_TextChanged"/>
+        <DataGrid x:Name="ProjectList" HorizontalAlignment="Left" Height="359" Margin="10,50,0,0" VerticalAlignment="Top" Width="228" Grid.RowSpan="2"/>
+
     </Grid>
 </Window>
