@@ -66,12 +66,22 @@
     <Compile Include="Migrations\201901221941410_UserSession_FinishedOnUtc_AsNullable.Designer.cs">
       <DependentUpon>201901221941410_UserSession_FinishedOnUtc_AsNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901241743004_Worklogs.cs" />
+    <Compile Include="Migrations\201901241743004_Worklogs.Designer.cs">
+      <DependentUpon>201901241743004_Worklogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901241747221_WorklogsFinishedDateNullable.cs" />
+    <Compile Include="Migrations\201901241747221_WorklogsFinishedDateNullable.Designer.cs">
+      <DependentUpon>201901241747221_WorklogsFinishedDateNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TaskComment.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSession.cs" />
+    <Compile Include="Worklogs\Worklog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -95,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901221941410_UserSession_FinishedOnUtc_AsNullable.resx">
       <DependentUpon>201901221941410_UserSession_FinishedOnUtc_AsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901241743004_Worklogs.resx">
+      <DependentUpon>201901241743004_Worklogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901241747221_WorklogsFinishedDateNullable.resx">
+      <DependentUpon>201901241747221_WorklogsFinishedDateNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

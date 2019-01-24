@@ -16,13 +16,12 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager) {
-                manage_users_but.Visibility = Visibility.Hidden;
-            }
-            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Worker) {
-                project_edit_but.Visibility = Visibility.Hidden;
-                manage_users_but.Visibility = Visibility.Hidden;
-            }
+            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.Administrator) 
+                manage_users_but.Visibility = Visibility.Visible;
+
+            if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager)
+                project_edit_but.Visibility = Visibility.Visible;
+            
             ReloadProjectList();
         }
 
