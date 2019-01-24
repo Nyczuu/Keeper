@@ -57,6 +57,7 @@
     <Compile Include="Tasks\CreateTask.cs" />
     <Compile Include="Tasks\DeleteTask.cs" />
     <Compile Include="Tasks\GetTask.cs" />
+    <Compile Include="Tasks\UpdateTask.cs" />
     <Compile Include="Users\AddUsersToProject.cs" />
     <Compile Include="Users\CreateUser.cs" />
     <Compile Include="Users\DeleteUser.cs" />
