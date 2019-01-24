@@ -16,10 +16,6 @@ namespace Keeper.WPF
         public UserWindow()
         {
             InitializeComponent();
-            new Client().CreateProject(new CreateProjectRequest
-            {
-                Name = "Testname"
-            });
             if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager) {
                 manage_users_but.Visibility = Visibility.Hidden;
             }
@@ -37,14 +33,12 @@ namespace Keeper.WPF
             admin.ShowDialog();
         }
 
-
         private void Project_Edit_but_Click(object sender, RoutedEventArgs e)
         {
-            ProjectManagerWindow pMWindow = new ProjectManagerWindow();
-            App.Current.MainWindow = pMWindow;
-            pMWindow.ShowDialog();
+            ProjectManagerWindow projectManagerWindow = new ProjectManagerWindow();
+            App.Current.MainWindow = projectManagerWindow;
+            projectManagerWindow.ShowDialog();
         }
-
 
         private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -55,7 +49,10 @@ namespace Keeper.WPF
         {
             TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
             {
-                ProjectIdentifiers = new int[]{ (ProjectList.SelectedIndex+1) }
+                ProjectIdentifiers = new int[] 
+                {
+                    ((GetProjectResponseItem)ProjectList.SelectedItem).Identifier,
+                }
             }).Items;
         }
 
@@ -65,7 +62,6 @@ namespace Keeper.WPF
             {
                 SearchKeyword = SearchProjectTxtBox.Text
             }).Items;
-
         }
 
         private void SearchProjectTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
