@@ -18,25 +18,13 @@ using System.Windows.Shapes;
 namespace Keeper.WPF.ProjectManager
 {
     /// <summary>
-    /// Logika interakcji dla klasy InvolvedUsersWindow.xaml
+    /// Logika interakcji dla klasy AddUserToProjectWindow.xaml
     /// </summary>
-    public partial class InvolvedUsersWindow : Window
+    public partial class AddUserToProjectWindow : Window
     {
-        public InvolvedUsersWindow(int ProjectId)
+        public AddUserToProjectWindow()
         {
             InitializeComponent();
-            ReloadUsersList();
-        }
-        private void AddUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddUserToProjectWindow add = new AddUserToProjectWindow();
-            add.ShowDialog();
-            ReloadUsersList();
-        }
-
-        private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            
             ReloadUsersList();
         }
 
@@ -45,12 +33,15 @@ namespace Keeper.WPF.ProjectManager
             ReloadUsersList();
         }
 
+        private void AddToProjectButton_Click(object sender, RoutedEventArgs e)
+        {
+           // AddUsersToProjectResponse.
+        }
         private void ReloadUsersList()
         {
             var users = new Client().GetUser(new GetUserRequest
             {
-                SearchKeyword = SearchTxtBox.Text,
-                
+                SearchKeyword = SearchTxtBox.Text
             }).Items;
             UserList.ItemsSource = users.Select(aUser
                 => new UserListItemModel
