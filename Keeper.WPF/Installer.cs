@@ -9,11 +9,10 @@ namespace Keeper.WPF
         public static void Run()
         {
             //Installation steps here
-            SetUpBuiltInAdministratorAccount();
-            SetUpBuiltInProjectManagersAccounts();
+            SetUpBuiltInAccounts();
         }
 
-        private static void SetUpBuiltInAdministratorAccount()
+        private static void SetUpBuiltInAccounts()
         {
             var client = new Client();
 
@@ -27,11 +26,6 @@ namespace Keeper.WPF
                     Group = UserGroupType.Administrator,
                     Password = "zaq1@WSX"
                 });
-        }
-
-        private static void SetUpBuiltInProjectManagersAccounts()
-        {
-            var client = new Client();
 
             var projectManager = client.GetUser(new GetUserRequest
             { SearchKeyword = "pm@keeper.com" })?.Items?.SingleOrDefault();
@@ -45,13 +39,13 @@ namespace Keeper.WPF
                 });
 
             var projectManager2 = client.GetUser(new GetUserRequest
-            { SearchKeyword = "pm2@keeper.com" })?.Items?.SingleOrDefault();
+            { SearchKeyword = "worker@keeper.com" })?.Items?.SingleOrDefault();
 
             if (projectManager2 == null)
                 client.CreateUser(new CreateUserRequest
                 {
-                    Email = "pm2@keeper.com",
-                    Group = UserGroupType.ProjectManager,
+                    Email = "worker@keeper.com",
+                    Group = UserGroupType.Worker,
                     Password = "zaq1@WSX"
                 });
         }
