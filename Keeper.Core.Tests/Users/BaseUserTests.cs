@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Keeper.Data.Users;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Keeper.Core.Tests.Users
@@ -18,8 +19,7 @@ namespace Keeper.Core.Tests.Users
 
         public string GeneratePseudoRandomTestEmail()
         {
-            Random random = new Random();
-            return $"test{random.Next()}{_testEmailDomain}";
+            return $"test{GeneratePseudoRandomName<User>()}{_testEmailDomain}";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 namespace Keeper.Core.Tests.Projects
 {
     [TestClass]
-    public class GetUserTests : BaseProjectTests
+    public class GetProjectTests : BaseProjectTests
     {
         [TestMethod]
         public void GetProject()

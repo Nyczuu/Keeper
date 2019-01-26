@@ -42,7 +42,6 @@ namespace Keeper.WPF
             {
                 SearchKeyword = SearchTxtBox.Text
             }).Items;
-
         }
 
         private void OpenLogButton_Click(object sender, RoutedEventArgs e)
@@ -76,7 +75,5 @@ namespace Keeper.WPF
         {
             ReloadProjectList();
         }
-
-
     }
 }

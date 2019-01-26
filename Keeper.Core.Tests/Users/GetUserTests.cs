@@ -28,7 +28,7 @@ namespace Keeper.Core.Tests.Users
 
             Assert.IsTrue(getUserResponse.Items.Count() == 1);
             Assert.IsTrue(getUserResponse.Items.Single().Identifier == createUserResponse.Identifier.Value);
-            Assert.IsTrue(getUserResponse.Items.Single().Email == testEmail);
+            Assert.IsTrue(getUserResponse.Items.Single().Email.ToLower() == testEmail.ToLower());
             Assert.IsTrue(getUserResponse.Items.Single().Group == UserGroupType.Worker);
         }
 
@@ -46,7 +46,7 @@ namespace Keeper.Core.Tests.Users
                 });
 
             Assert.IsTrue(getUserResponse.Items.FirstOrDefault().Identifier == createUserResponse.Identifier.Value);
-            Assert.IsTrue(getUserResponse.Items.FirstOrDefault().Email == testEmail);
+            Assert.IsTrue(getUserResponse.Items.FirstOrDefault().Email.ToLower() == testEmail.ToLower());
         }
     }
 }

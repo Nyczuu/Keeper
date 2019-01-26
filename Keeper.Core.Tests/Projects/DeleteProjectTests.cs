@@ -18,5 +18,24 @@ namespace Keeper.Core.Tests.Projects
 
             Assert.IsNotNull(deleteProjectResponse);
         }
+
+        [TestMethod]
+        public void DeleteProjects()
+        {
+            var createProjectResponse1 = _client.CreateProject(
+                new CreateProjectRequest { Name = GeneratePseudoRandomName<Project>() });
+
+            var createProjectResponse2 = _client.CreateProject(
+                new CreateProjectRequest { Name = GeneratePseudoRandomName<Project>() });
+
+            var deleteProjectResponse = _client.DeleteProject(
+               new DeleteProjectRequest { Identifiers = new int[] 
+                    {
+                        createProjectResponse1.Identifier.Value,
+                        createProjectResponse2.Identifier.Value
+                    } });
+
+            Assert.IsNotNull(deleteProjectResponse);
+        }
     }
 }

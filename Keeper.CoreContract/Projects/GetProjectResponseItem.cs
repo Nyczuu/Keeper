@@ -10,8 +10,8 @@ namespace Keeper.CoreContract.Projects
     {
         public int Identifier;
         public string Name;
+        public int TasksCount;
 
-        public int TasksCount { get; set; }
         public override string  ToString()
         {
             return $"{Name} ({TasksCount})";
