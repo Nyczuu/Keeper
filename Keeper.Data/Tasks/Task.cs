@@ -31,6 +31,18 @@ namespace Keeper.Data.Tasks
             ProjectIdentifier = request.ProjectIdentifier;
         }
 
+        public void Set(UpdateTaskRequest request)
+        {
+            UpdatedOnUtc = DateTime.UtcNow;
+
+            if (request.Name != null)
+                Name = request.Name.Trim();
+            if (request.Description != null)
+                Description = request.Description.Trim();
+
+            ProjectIdentifier = request.ProjectIdentifier;
+        }
+
         public void Set(StartTaskRequest request)
         {
             UpdatedOnUtc = DateTime.UtcNow;

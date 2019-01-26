@@ -21,5 +21,13 @@ namespace Keeper.Data.Projects
             if (request.Name != null)
                 Name = request.Name.Trim();
         }
+
+        public void Set(UpdateProjectRequest request)
+        {
+            UpdatedOnUtc = DateTime.UtcNow;
+
+            if (request.Name != null)
+                Name = request.Name.Trim();
+        }
     }
 }

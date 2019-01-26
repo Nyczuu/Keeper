@@ -21,8 +21,7 @@ namespace Keeper.Core.Tasks
                 {
                     using (var dbContext = new ApplicationDbContext())
                     {
-                        var project = dbContext.Projects.SingleOrDefault(aProject
-                             => aProject.Identifier == request.ProjectIdentifier);
+                        ;
 
                         if (project == null)
                             Response = new CreateTaskResponse
