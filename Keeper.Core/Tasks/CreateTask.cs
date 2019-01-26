@@ -14,42 +14,40 @@ namespace Keeper.Core.Tasks
             if (request != null)
             {
                 if (string.IsNullOrWhiteSpace(request.Name))
+                {
                     Response = new CreateTaskResponse
                     { Type = CreateTaskResponseType.NameEmpty };
+                    return;
+                }
 
-                else
+                using (var dbContext = new ApplicationDbContext())
                 {
-                    using (var dbContext = new ApplicationDbContext())
+                    var project = dbContext.Projects.SingleOrDefault(aProject => aProject.Identifier == request.ProjectIdentifier);
+
+                    if (project == null)
                     {
-                        ;
-
-                        if (project == null)
-                            Response = new CreateTaskResponse
-                            { Type = CreateTaskResponseType.ProjectDoesNotExist };
-
-                        else
-                        {
-                            if (project.Tasks.Any(aTask
-                                 => aTask.Name.Trim().ToLower()
-                                 == request.Name.Trim().ToLower()))
-                                Response = new CreateTaskResponse
-                                { Type = CreateTaskResponseType.NameExists };
-
-                            else
-                            {
-                                var task = new Task();
-                                task.Set(request);
-                                dbContext.Tasks.Add(task);
-                                dbContext.SaveChanges();
-
-                                Response = new CreateTaskResponse
-                                {
-                                    Identifier = task.Identifier,
-                                    Type = CreateTaskResponseType.Success
-                                };
-                            }
-                        }
+                        Response = new CreateTaskResponse
+                        { Type = CreateTaskResponseType.ProjectDoesNotExist };
+                        return;
                     }
+
+                    if (project.Tasks.Any(aTask => aTask.Name.Trim().ToLower() == request.Name.Trim().ToLower()))
+                    {
+                        Response = new CreateTaskResponse
+                        { Type = CreateTaskResponseType.NameExists };
+                        return;
+                    }
+
+                    var task = new Task();
+                    task.Set(request);
+                    dbContext.Tasks.Add(task);
+                    dbContext.SaveChanges();
+
+                    Response = new CreateTaskResponse
+                    {
+                        Identifier = task.Identifier,
+                        Type = CreateTaskResponseType.Success
+                    };
                 }
             }
         }

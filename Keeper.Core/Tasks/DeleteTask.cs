@@ -23,8 +23,6 @@ namespace Keeper.Core.Tasks
 
                 Response = new DeleteTaskResponse();
             }
-
         }
-
     }
 }

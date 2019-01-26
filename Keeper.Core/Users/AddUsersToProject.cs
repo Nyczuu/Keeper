@@ -10,19 +10,15 @@ namespace Keeper.Core.Users
 
         public AddUsersToProject(AddUsersToProjectRequest request)
         {
-            if (request != null 
-                && request.UsersIdentifiers != null 
-                && request.UsersIdentifiers.Any())
+            if (request != null && request.UsersIdentifiers != null && request.UsersIdentifiers.Any())
             {
                 using (var dbContext = new ApplicationDbContext())
                 {
-                    var project = dbContext.Projects.SingleOrDefault(aProject
-                        => aProject.Identifier == request.ProjectIdentifier);
+                    var project = dbContext.Projects.SingleOrDefault(aProject => aProject.Identifier == request.ProjectIdentifier);
 
                     if (project != null)
                     {
-                        var users = dbContext.Users.Where(aUser 
-                            => request.UsersIdentifiers.Contains(aUser.Identifier));
+                        var users = dbContext.Users.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier));
 
                         foreach (var user in users)
                             user.Projects.Add(project);

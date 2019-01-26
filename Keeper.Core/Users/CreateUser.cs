@@ -14,41 +14,39 @@ namespace Keeper.Core.Users
         {
             if (request != null)
             {
-                if (string.IsNullOrWhiteSpace(request.Email) 
-                    || !EmailHelper.IsValidEmail(request.Email))
+                if (string.IsNullOrWhiteSpace(request.Email) || !EmailHelper.IsValidEmail(request.Email))
+                {
                     Response = new CreateUserResponse
                     { Type = CreateUserResponseType.EmailNotValid };
+                    return;
+                }
 
                 //TODO: Password regex check (force min 10 characters etc)
-                else if (string.IsNullOrWhiteSpace(request.Password))
+                if (string.IsNullOrWhiteSpace(request.Password))
+                {
                     Response = new CreateUserResponse
                     { Type = CreateUserResponseType.PasswordTooWeak };
+                    return;
+                }
 
-                else
+                using (var dbContext = new ApplicationDbContext())
                 {
-                    using (var dbContext = new ApplicationDbContext())
+                    if (dbContext.Users.Any(aUser => aUser.Email.ToLower().Trim() == request.Email.ToLower().Trim()))
                     {
-                        if (dbContext.Users.Any(aUser
-                             => aUser.Email.ToLower().Trim()
-                             == request.Email.ToLower().Trim()))
-                        {
-                            Response = new CreateUserResponse
-                            { Type = CreateUserResponseType.EmailExists };
-                        }
-                        else
-                        {
-                            var user = new User();
-                            user.Set(request);
-                            dbContext.Users.Add(user);
-                            dbContext.SaveChanges();
-
-                            Response = new CreateUserResponse
-                            {
-                                Identifier = user.Identifier,
-                                Type = CreateUserResponseType.Success,
-                            };
-                        }
+                        Response = new CreateUserResponse
+                        { Type = CreateUserResponseType.EmailExists };
+                        return;
                     }
+                    var user = new User();
+                    user.Set(request);
+                    dbContext.Users.Add(user);
+                    dbContext.SaveChanges();
+
+                    Response = new CreateUserResponse
+                    {
+                        Identifier = user.Identifier,
+                        Type = CreateUserResponseType.Success,
+                    };
                 }
             }
         }

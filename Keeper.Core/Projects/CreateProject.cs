@@ -14,33 +14,31 @@ namespace Keeper.Core.Projects
             if (request != null)
             {
                 if (string.IsNullOrWhiteSpace(request.Name))
+                {
                     Response = new CreateProjectResponse
                     { Type = CreateProjectResponseType.NameEmpty };
-                else
-                {
-                    using (var dbContext = new ApplicationDbContext())
-                    {
-                        if (dbContext.Projects.Any(aProject
-                            => aProject.Name.ToLower().Trim()
-                            == request.Name.ToLower().Trim()))
-                        {
-                            Response = new CreateProjectResponse
-                            { Type = CreateProjectResponseType.NameExists };
-                        }
-                        else
-                        {
-                            var project = new Project();
-                            project.Set(request);
-                            dbContext.Projects.Add(project);
-                            dbContext.SaveChanges();
+                    return;
+                }
 
-                            Response = new CreateProjectResponse
-                            {
-                                Identifier = project.Identifier,
-                                Type = CreateProjectResponseType.Success,
-                            };
-                        }
+                using (var dbContext = new ApplicationDbContext())
+                {
+                    if (dbContext.Projects.Any(aProject => aProject.Name.ToLower().Trim() == request.Name.ToLower().Trim()))
+                    {
+                        Response = new CreateProjectResponse
+                        { Type = CreateProjectResponseType.NameExists };
+                        return;
                     }
+
+                    var project = new Project();
+                    project.Set(request);
+                    dbContext.Projects.Add(project);
+                    dbContext.SaveChanges();
+
+                    Response = new CreateProjectResponse
+                    {
+                        Identifier = project.Identifier,
+                        Type = CreateProjectResponseType.Success,
+                    };
                 }
             }
         }

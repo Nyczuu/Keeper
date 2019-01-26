@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Keeper.CoreContract.Projects;
 using Keeper.Data;
 
@@ -26,9 +22,7 @@ namespace Keeper.Core.Projects
                 }
 
                 Response = new DeleteProjectResponse();
-
             }
-
         }
     }
 }

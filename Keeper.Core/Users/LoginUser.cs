@@ -15,37 +15,43 @@ namespace Keeper.Core.Users
         {
             if (request != null)
             {
-                if (string.IsNullOrWhiteSpace(request.Email)
-                    || !EmailHelper.IsValidEmail(request.Email))
+                if (string.IsNullOrWhiteSpace(request.Email) || !EmailHelper.IsValidEmail(request.Email))
+                {
                     Response = new LoginUserResponse
                     { Type = LoginUserResponseType.WrongEmail };
-                else
-                    using (var dbContext = new ApplicationDbContext())
-                    {
-                        var user = dbContext.Users.SingleOrDefault(aUser
-                            => aUser.Email.Trim().ToLower()
-                            == request.Email.Trim().ToLower());
-                        if (user == null)
-                            Response = new LoginUserResponse
-                            { Type = LoginUserResponseType.NoUser };
-                        else if (user.Password != request.Password)
-                            Response = new LoginUserResponse
-                            { Type = LoginUserResponseType.WrongPassword };
-                        else
-                        {
-                            var sessionKey = Guid.NewGuid();
-                            var userSession = new UserSession();
-                            userSession.Set(request, sessionKey, user.Identifier);
-                            dbContext.UserSessions.Add(userSession);
-                            dbContext.SaveChanges();
+                    return;
+                }
 
-                            Response = new LoginUserResponse
-                            {
-                                Type = LoginUserResponseType.Success,
-                                SessionKey = sessionKey,
-                            };
-                        }
+                using (var dbContext = new ApplicationDbContext())
+                {
+                    var user = dbContext.Users.SingleOrDefault(aUser => aUser.Email.Trim().ToLower() == request.Email.Trim().ToLower());
+
+                    if (user == null)
+                    {
+                        Response = new LoginUserResponse
+                        { Type = LoginUserResponseType.NoUser };
+                        return;
                     }
+
+                    if (user.Password != request.Password)
+                    {
+                        Response = new LoginUserResponse
+                        { Type = LoginUserResponseType.WrongPassword };
+                        return;
+                    }
+
+                    var sessionKey = Guid.NewGuid();
+                    var userSession = new UserSession();
+                    userSession.Set(request, sessionKey, user.Identifier);
+                    dbContext.UserSessions.Add(userSession);
+                    dbContext.SaveChanges();
+
+                    Response = new LoginUserResponse
+                    {
+                        Type = LoginUserResponseType.Success,
+                        SessionKey = sessionKey,
+                    };
+                }
             }
         }
     }

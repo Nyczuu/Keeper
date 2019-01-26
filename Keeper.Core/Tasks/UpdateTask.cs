@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Keeper.CoreContract.Tasks;
+﻿using Keeper.CoreContract.Tasks;
 using Keeper.Data;
+using System.Linq;
 
 namespace Keeper.Core.Tasks
 {
@@ -19,11 +14,8 @@ namespace Keeper.Core.Tasks
             {
                 using (var dbContext = new ApplicationDbContext())
                 {
-                    var task = dbContext.Tasks.SingleOrDefault(aTask
-                             => aTask.Identifier == request.Identifier);
-
-                    var project = dbContext.Projects.SingleOrDefault(aProject
-                             => aProject.Identifier == request.ProjectIdentifier);
+                    var task = dbContext.Tasks.SingleOrDefault(aTask => aTask.Identifier == request.Identifier);
+                    var project = dbContext.Projects.SingleOrDefault(aProject => aProject.Identifier == request.ProjectIdentifier);
 
                     if (task == null)
                     {
@@ -31,22 +23,20 @@ namespace Keeper.Core.Tasks
                         { Type = UpdateTaskResponseType.TaskDoesNotExist };
                         return;
                     }
-                    else if (project == null)
+
+                    if (project == null)
                     {
                         Response = new UpdateTaskResponse
                         { Type = UpdateTaskResponseType.ProjectDoesNotExist };
                         return;
                     }
-                    else
+
+                    task.Set(request);
+                    dbContext.SaveChanges();
+                    Response = new UpdateTaskResponse
                     {
-                        task.Set(request);
-                        dbContext.SaveChanges();
-                        Response = new UpdateTaskResponse
-                        {
-                            Type = UpdateTaskResponseType.Success
-                        };
-                        return;
-                    }                                        
+                        Type = UpdateTaskResponseType.Success
+                    };
                 }
             }
         }

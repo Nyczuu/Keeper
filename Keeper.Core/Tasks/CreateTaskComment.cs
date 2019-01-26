@@ -10,24 +10,24 @@ namespace Keeper.Core.Tasks
 
         public CreateTaskComment(CreateTaskCommentRequest request)
         {
-            if(request != null)
+            if (request != null)
             {
                 if (string.IsNullOrWhiteSpace(request.Content))
+                {
                     Response = new CreateTaskCommentResponse
                     { Type = CreateTaskCommentResponseType.ContentEmpty };
+                    return;
+                }
 
-                else
+                using (var dbContext = new ApplicationDbContext())
                 {
-                    using (var dbContext = new ApplicationDbContext())
-                    {
-                        var taskComment = new TaskComment();
-                        taskComment.Set(request);
-                        dbContext.TaskComents.Add(taskComment);
-                        dbContext.SaveChanges();
+                    var taskComment = new TaskComment();
+                    taskComment.Set(request);
+                    dbContext.TaskComents.Add(taskComment);
+                    dbContext.SaveChanges();
 
-                        Response = new CreateTaskCommentResponse
-                        { Type = CreateTaskCommentResponseType.Success };
-                    }
+                    Response = new CreateTaskCommentResponse
+                    { Type = CreateTaskCommentResponseType.Success };
                 }
             }
         }

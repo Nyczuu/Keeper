@@ -14,45 +14,46 @@ namespace Keeper.Core.Tasks
             if (request != null)
             {
                 if (request.StartDate > request.FinishDate)
+                {
                     Response = new CreateTaskWorklogResponse
                     { Type = CreateTaskWorklogResponseType.StartAndFinishPeriodNotValid };
+                    return;
+                }
 
-                else if ((request.FinishDate - request.StartDate).TotalMinutes < 1)
+                if ((request.FinishDate - request.StartDate).TotalMinutes < 1)
+                {
                     Response = new CreateTaskWorklogResponse
                     { Type = CreateTaskWorklogResponseType.StartAndFinishPeriodLessThanOneMinute };
+                    return;
+                }
 
-                else
+                using (var dbContext = new ApplicationDbContext())
                 {
-                    using(var dbContext = new ApplicationDbContext())
+                    var task = dbContext.Tasks.SingleOrDefault(aTask => aTask.Identifier == request.TaskIdentifier);
+
+                    if (task == null)
                     {
-                        var task = dbContext.Tasks.SingleOrDefault(aTask
-                            => aTask.Identifier == request.TaskIdentifier);
-
-                        if (task == null)
-                            Response = new CreateTaskWorklogResponse
-                            { Type = CreateTaskWorklogResponseType.TaskDoesNotExist };
-
-                        else
-                        {
-                            var user = dbContext.Users.SingleOrDefault(aUser
-                                => aUser.Identifier == request.UserIdentifier);
-
-                            if(user == null)
-                                Response = new CreateTaskWorklogResponse
-                                { Type = CreateTaskWorklogResponseType.UserDoesNotExist };
-
-                            else
-                            {
-                                var worklog = new TaskWorklog();
-                                worklog.Set(request);
-                                dbContext.TaskWorklogs.Add(worklog);
-                                dbContext.SaveChanges();
-
-                                Response = new CreateTaskWorklogResponse
-                                { Type = CreateTaskWorklogResponseType.Success };
-                            }
-                        }
+                        Response = new CreateTaskWorklogResponse
+                        { Type = CreateTaskWorklogResponseType.TaskDoesNotExist };
+                        return;
                     }
+
+                    var user = dbContext.Users.SingleOrDefault(aUser => aUser.Identifier == request.UserIdentifier);
+
+                    if (user == null)
+                    {
+                        Response = new CreateTaskWorklogResponse
+                        { Type = CreateTaskWorklogResponseType.UserDoesNotExist };
+                        return;
+                    }
+
+                    var worklog = new TaskWorklog();
+                    worklog.Set(request);
+                    dbContext.TaskWorklogs.Add(worklog);
+                    dbContext.SaveChanges();
+
+                    Response = new CreateTaskWorklogResponse
+                    { Type = CreateTaskWorklogResponseType.Success };
                 }
             }
         }

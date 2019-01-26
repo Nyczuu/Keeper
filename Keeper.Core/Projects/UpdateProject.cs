@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Keeper.CoreContract.Projects;
+﻿using Keeper.CoreContract.Projects;
 using Keeper.Data;
+using System.Linq;
 
 namespace Keeper.Core.Projects
 {
@@ -19,25 +14,19 @@ namespace Keeper.Core.Projects
             {
                 using (var dbContext = new ApplicationDbContext())
                 {
-                    var project = dbContext.Projects.SingleOrDefault(aProject
-                        => aProject.Identifier == request.ProjectsIdentifier);
+                    var project = dbContext.Projects.SingleOrDefault(aProject => aProject.Identifier == request.ProjectsIdentifier);
 
                     if (project == null)
                     {
                         Response = new UpdateProjectResponse
-                        { Type = UpdateProjectResponseType.ProjectDoesNotExist};
+                        { Type = UpdateProjectResponseType.ProjectDoesNotExist };
                         return;
                     }
-                    else
-                    {
-                        project.Set(request);
-                        dbContext.SaveChanges();
-                        Response = new UpdateProjectResponse
-                        {
-                            Type = UpdateProjectResponseType.Success
-                        };
-                        return;
-                    }
+
+                    project.Set(request);
+                    dbContext.SaveChanges();
+                    Response = new UpdateProjectResponse
+                    { Type = UpdateProjectResponseType.Success };
                 }
             }
         }

@@ -15,8 +15,7 @@ namespace Keeper.Core.Tasks
             {
                 using (var dbContext = new ApplicationDbContext())
                 {
-                    var task = dbContext.Tasks.SingleOrDefault(aTask
-                        => aTask.Identifier == request.TaskIdentifier);
+                    var task = dbContext.Tasks.SingleOrDefault(aTask => aTask.Identifier == request.TaskIdentifier);
 
                     if (task == null)
                     {
@@ -25,8 +24,7 @@ namespace Keeper.Core.Tasks
                         return;
                     }
 
-                    var user = dbContext.Users.SingleOrDefault(aUser
-                        => aUser.Identifier == request.UserIdentifier);
+                    var user = dbContext.Users.SingleOrDefault(aUser => aUser.Identifier == request.UserIdentifier);
 
                     if (user == null)
                     {
@@ -35,9 +33,8 @@ namespace Keeper.Core.Tasks
                         return;
                     }
 
-                    var conflictingTask = task.Worklogs.SingleOrDefault(aWorklog
-                        => aWorklog.FinishDate == null
-                        && aWorklog.UserIdentifier == request.UserIdentifier);
+                    var conflictingTask = task.Worklogs.SingleOrDefault(aWorklog 
+                        => aWorklog.FinishDate == null && aWorklog.UserIdentifier == request.UserIdentifier);
 
                     if (conflictingTask != null)
                     {

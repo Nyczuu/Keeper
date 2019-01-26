@@ -20,8 +20,7 @@ namespace Keeper.Core.Projects
                         query = query.Where(aProject => request.ProjectsIdentifiers.Contains(aProject.Identifier));
 
                     if (!string.IsNullOrWhiteSpace(request.SearchKeyword))
-                        query = query.Where(aProject 
-                            => aProject.Name.ToLower().Contains(request.SearchKeyword.ToLower()));
+                        query = query.Where(aProject => aProject.Name.ToLower().Contains(request.SearchKeyword.ToLower()));
 
                     Response = new GetProjectResponse
                     {
