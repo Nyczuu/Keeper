@@ -1,16 +1,17 @@
 ﻿using Keeper.CoreContract.Projects;
+using Keeper.Data.Projects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
 namespace Keeper.Core.Tests.Projects
 {
-    [TestClass()]
+    [TestClass]
     public class GetUserTests : BaseProjectTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetProject()
         {
-            var testName = _testName;
+            var testName = GeneratePseudoRandomName<Project>();
             var createProjectResponse = _client.CreateProject(
                 new CreateProjectRequest { Name = testName });
 
@@ -26,10 +27,11 @@ namespace Keeper.Core.Tests.Projects
             Assert.IsTrue(getProjectResponse.Items.Single().Name == testName);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetProject_ByName()
         {
-            var testName = _testName;
+            var testName = GeneratePseudoRandomName<Project>();
+
             var createProjectResponse = _client.CreateProject(
                 new CreateProjectRequest { Name = testName });
 

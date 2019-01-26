@@ -1,24 +1,22 @@
 ﻿using Keeper.CoreContract.Projects;
 using Keeper.CoreContract.Tasks;
+using Keeper.Data.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Keeper.Core.Tests.Tasks
 {
-    [TestClass()]
+    [TestClass]
     public class CreateTaskTests : BaseTaskTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void CreateTask()
         {
-            var projectIdentifier = new Client().CreateProject(
-                new CreateProjectRequest { Name = _testName }).Identifier.Value;
-
             var createTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
-                    Name = _testName,
+                    Name = GeneratePseudoRandomName<Task>(),
                     Description = _testDescription,
-                    ProjectIdentifier = projectIdentifier,
+                    ProjectIdentifier = _testProjectIdentifier,
                 });
 
             Assert.IsNotNull(createTaskResponse.Identifier);
@@ -31,14 +29,11 @@ namespace Keeper.Core.Tests.Tasks
         [DataRow("     ")]
         public void CreateTask_NameEmpty(string name)
         {
-            var projectIdentifier = new Client().CreateProject(
-                new CreateProjectRequest { Name = _testName }).Identifier.Value;
-
             var createTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = name,
-                    ProjectIdentifier = projectIdentifier,
+                    ProjectIdentifier = _testProjectIdentifier,
                 });
 
             Assert.IsTrue(createTaskResponse.Type == CreateTaskResponseType.NameEmpty);
@@ -51,33 +46,30 @@ namespace Keeper.Core.Tests.Tasks
         [DataRow("     ExistingTestTask")]
         public void CreateTask_NameExists(string name)
         {
-            var projectIdentifier = new Client().CreateProject(
-                new CreateProjectRequest { Name = _testName }).Identifier.Value;
-
             var createFirstTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = "ExistingTestTask",
-                    ProjectIdentifier = projectIdentifier,
+                    ProjectIdentifier = _testProjectIdentifier,
                 });
 
             var createSameNameTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
                     Name = name,
-                    ProjectIdentifier = projectIdentifier,
+                    ProjectIdentifier = _testProjectIdentifier,
                 });
 
             Assert.IsTrue(createSameNameTaskResponse.Type == CreateTaskResponseType.NameExists);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void CreateTask_ProjectDoNotExists()
         {
             var createTaskResponse = _client.CreateTask(
                 new CreateTaskRequest
                 {
-                    Name = _testName,
+                    Name = GeneratePseudoRandomName<Task>(),
                     Description = _testDescription,
                     ProjectIdentifier = 0,
                 });

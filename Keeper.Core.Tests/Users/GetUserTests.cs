@@ -4,13 +4,13 @@ using System.Linq;
 
 namespace Keeper.Core.Tests.Users
 {
-    [TestClass()]
+    [TestClass]
     public class GetUserTests : BaseUserTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetUser()
         {
-            var testEmail = _testEmail;
+            var testEmail = GeneratePseudoRandomTestEmail();
             var createUserResponse = _client.CreateUser(
                 new CreateUserRequest
                 {
@@ -32,10 +32,10 @@ namespace Keeper.Core.Tests.Users
             Assert.IsTrue(getUserResponse.Items.Single().Group == UserGroupType.Worker);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void GetUser_ByEmail()
         {
-            var testEmail = _testEmail;
+            var testEmail = GeneratePseudoRandomTestEmail();
             var createUserResponse = _client.CreateUser(
                 new CreateUserRequest { Email = testEmail, Password = _testPassword });
 

@@ -3,16 +3,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Keeper.Core.Tests.Users
 {
-    [TestClass()]
+    [TestClass]
     public class CreateUserTests : BaseUserTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void CreateUser()
         {
             var createUserResponse = _client.CreateUser(
                 new CreateUserRequest
                 {
-                    Email = _testEmail,
+                    Email = GeneratePseudoRandomTestEmail(),
                     Password = _testPassword,
                     Group = UserGroupType.Worker,
                 });
@@ -39,7 +39,7 @@ namespace Keeper.Core.Tests.Users
                 == CreateUserResponseType.EmailNotValid);
         }
 
-        [DataTestMethod()]
+        [DataTestMethod]
         [DataRow("EXISTINGTESTUSER@test.pl")]
         [DataRow("existingtestuser@test.pl")]
         public void CreateUser_EmailExists(string email)

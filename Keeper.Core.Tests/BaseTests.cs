@@ -1,14 +1,15 @@
 ﻿using Keeper.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace Keeper.Core.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class BaseTests
     {
         protected Client _client { get; private set; }
-        protected string _testName { get { return GeneratePseudoRandomProjectName(); } }
 
         public BaseTests()
         {
@@ -26,10 +27,13 @@ namespace Keeper.Core.Tests
             dbContext.Projects.RemoveRange(dbContext.Projects);
         }
 
-        private string GeneratePseudoRandomProjectName()
+        public string GeneratePseudoRandomName<T>()
         {
-            Random random = new Random();
-            return $"TestName{random.Next(10000)}";
+            var randomProvider = new RNGCryptoServiceProvider();
+            var randomNumber = new byte[8];
+            randomProvider.GetBytes(randomNumber);   
+
+            return $"Test{nameof(T)}Name{Math.Abs(BitConverter.ToInt32(randomNumber, 0))}";
         }
     }
 }

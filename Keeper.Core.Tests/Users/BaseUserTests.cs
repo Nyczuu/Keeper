@@ -1,18 +1,25 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Keeper.Core.Tests.Users
 {
+    [TestClass]
     public class BaseUserTests : BaseTests
     {
-        private readonly string _testEmailDomain = "@test.pl";
+        private string _testEmailDomain;
+        protected string _testPassword;
 
-        protected string _testPassword { get { return "testPassword123!"; } }
-        protected string _testEmail { get { return GeneratePseudoRandomTestEmail(); } }
+        [TestInitialize]
+        public void Setup()
+        {
+            _testEmailDomain = "@test.pl";
+            _testPassword = "testPassword123!";
+        }
 
-        private string GeneratePseudoRandomTestEmail()
+        public string GeneratePseudoRandomTestEmail()
         {
             Random random = new Random();
-            return $"test{random.Next(10000)}{_testEmailDomain}";
+            return $"test{random.Next()}{_testEmailDomain}";
         }
     }
 }

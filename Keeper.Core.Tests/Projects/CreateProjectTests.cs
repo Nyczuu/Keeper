@@ -1,24 +1,17 @@
 ﻿using Keeper.CoreContract.Projects;
+using Keeper.Data.Projects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Keeper.Core.Tests.Projects
 {
-    [TestClass()]
+    [TestClass]
     public class CreateProjectTests : BaseProjectTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void CreateProject()
         {
             var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest
-                {
-                    Name = _testName,
-                });
+                new CreateProjectRequest { Name = GeneratePseudoRandomName<Project>() });
 
             Assert.IsNotNull(createProjectResponse.Identifier);
             Assert.IsTrue(createProjectResponse.Type == CreateProjectResponseType.Success);
@@ -31,10 +24,7 @@ namespace Keeper.Core.Tests.Projects
         public void CreateProject_NameEmpty(string name)
         {
             var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest
-                {
-                    Name = name
-                });
+                new CreateProjectRequest { Name = name });
 
             Assert.IsTrue(createProjectResponse.Type == CreateProjectResponseType.NameEmpty);
         }
@@ -47,16 +37,10 @@ namespace Keeper.Core.Tests.Projects
         public void CreateProject_NameExists(string name)
         {
             var createFirstProjectResponse = _client.CreateProject(
-                new CreateProjectRequest
-                {
-                    Name = "ExistingTestProject"
-                });
+                new CreateProjectRequest { Name = "ExistingTestProject" });
 
             var createSameNameProjectResponse = _client.CreateProject(
-                new CreateProjectRequest
-                {
-                    Name = name
-                });
+                new CreateProjectRequest { Name = name });
 
             Assert.IsTrue(createSameNameProjectResponse.Type == CreateProjectResponseType.NameExists);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Keeper.Core.Tests.Helpers
 {
-    [TestClass()]
+    [TestClass]
     public class EmailHelperTests
     {
         [DataTestMethod]
