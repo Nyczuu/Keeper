@@ -11,5 +11,6 @@ namespace Keeper.CoreContract.Users
         public int[] UsersIdentifiers;
         public int[] ProjectsIdentifiers;
         public string SearchKeyword;
+        public UserGroupType? UserGroup;
     }
 }

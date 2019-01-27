@@ -18,7 +18,7 @@ namespace Keeper.Core.Users
 
                     if (project != null)
                     {
-                        var users = project.Users.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier));
+                        var users = project.Users.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier)).ToArray();
 
                         foreach (var user in users)
                             project.Users.Remove(user);

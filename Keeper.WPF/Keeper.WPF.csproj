@@ -71,15 +71,9 @@
     <Compile Include="ProjectManager\AddProjectWindow.xaml.cs">
       <DependentUpon>AddProjectWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectManager\ManageProjectUsersWindow.xaml.cs">
-      <DependentUpon>ManageProjectUsersWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectManager\InvolvedUsersWindow.xaml.cs">
-      <DependentUpon>InvolvedUsersWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ProjectManager\ProjectListItemModel.cs" />
-    <Compile Include="ProjectManager\ProjectManagerWindow.xaml.cs">
-      <DependentUpon>ProjectManagerWindow.xaml</DependentUpon>
+    <Compile Include="ProjectManager\ProjectManageWindow.xaml.cs">
+      <DependentUpon>ProjectManageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,8 +84,8 @@
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserListItemModel.cs" />
-    <Compile Include="UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
+    <Compile Include="DashboardWindow.xaml.cs">
+      <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WorkContext.cs" />
     <Page Include="Admin\AddUserWindow.xaml">
@@ -102,7 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -113,23 +107,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProjectManager\AddProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProjectManager\ManageProjectUsersWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ProjectManager\InvolvedUsersWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ProjectManager\ProjectManagerWindow.xaml">
+    <Page Include="ProjectManager\ProjectManageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,7 +123,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow.xaml">
+    <Page Include="DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

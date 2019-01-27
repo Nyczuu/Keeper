@@ -1,0 +1,16 @@
+﻿<Window x:Class="Keeper.WPF.DashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="750" Width="1280">
+    <Grid>
+        <Button x:Name="UserManageButton" Content="Manage Users" HorizontalAlignment="Left" Margin="281,630,0,0" VerticalAlignment="Top" Width="250" Height="50" FontSize="24" Click="UserManageButton_Click" Visibility="Hidden" />
+        <Button x:Name="ProjectManageButton" Content="Manage Project" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top" Width="103" Height="23" Click="ProjectManageButton_Click" Visibility="Hidden"/>
+        <Button x:Name="ProjectAddButton" Content="Add Project" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top" Width="103" Height="23" Click="ProjectAddButton_Click" Visibility="Hidden"/>
+        <ListBox x:Name="TaskList" HorizontalAlignment="Left" Height="559" Margin="281,40,0,0" VerticalAlignment="Top" Width="704"/>
+        <ListBox x:Name="ProjectList" HorizontalAlignment="Left" Height="559" Margin="10,40,0,0" VerticalAlignment="Top" Width="220" SelectionChanged="ProjectList_SelectionChanged"/>
+        <TextBox x:Name="SearchTxtBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="SearchTxtBox_TextChanged"/>
+    </Grid>
+</Window>

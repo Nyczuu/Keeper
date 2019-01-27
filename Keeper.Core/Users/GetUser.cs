@@ -26,6 +26,9 @@ namespace Keeper.Core.Users
                     if (!string.IsNullOrWhiteSpace(request.SearchKeyword))
                         query = query.Where(aUser => aUser.Email.ToLower().Contains(request.SearchKeyword.ToLower()));
 
+                    if (request.UserGroup != null)
+                        query = query.Where(aUser => aUser.GroupType == request.UserGroup);
+
                     Response = new GetUserResponse
                     {
                         Items = query.Select(aUser => new GetUserResponseItem

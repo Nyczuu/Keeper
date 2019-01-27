@@ -7,12 +7,9 @@ using System.Windows.Input;
 
 namespace Keeper.WPF
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
@@ -70,9 +67,9 @@ namespace Keeper.WPF
             if(getUserSessionResponse != null)
             {
                 WorkContext.Instance.Initialize(getUserSessionResponse);
-                var window = new UserWindow();
+                var window = new DashboardWindow();
                 App.Current.MainWindow = window;
-                this.Close();
+                Close();
                 window.Show();
             }
         }

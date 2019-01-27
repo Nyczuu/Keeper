@@ -18,7 +18,7 @@ namespace Keeper.Core.Users
 
                     if (project != null)
                     {
-                        var users = dbContext.Users.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier));
+                        var users = dbContext.Users.Where(aUser => request.UsersIdentifiers.Contains(aUser.Identifier)).ToArray();
 
                         foreach (var user in users)
                             user.Projects.Add(project);
