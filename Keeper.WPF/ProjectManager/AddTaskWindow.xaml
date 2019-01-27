@@ -1,0 +1,14 @@
+﻿<Window x:Class="Keeper.WPF.ProjectManager.AddTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Add Task" Height="450" Width="400">
+    <Grid>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="372"/>
+        <TextBox x:Name="TaskNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Margin="10,41,0,0"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="TaskDescriptionTextBox" HorizontalAlignment="Left" Height="200" Margin="10,100,0,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+    </Grid>
+</Window>

@@ -71,10 +71,14 @@
     <Compile Include="ProjectManager\AddProjectWindow.xaml.cs">
       <DependentUpon>AddProjectWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManager\AddTaskWindow.xaml.cs">
+      <DependentUpon>AddTaskWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProjectManager\ProjectListItemModel.cs" />
     <Compile Include="ProjectManager\ProjectManageWindow.xaml.cs">
       <DependentUpon>ProjectManageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManager\TaskSearchStatusComboBoxItemModel.cs" />
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +116,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProjectManager\AddProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProjectManager\AddTaskWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

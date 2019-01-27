@@ -1,5 +1,4 @@
-﻿using System;
-using Keeper.Core.Projects;
+﻿using Keeper.Core.Projects;
 using Keeper.Core.Tasks;
 using Keeper.Core.Users;
 using Keeper.CoreContract.Projects;

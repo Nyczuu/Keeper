@@ -10,5 +10,7 @@ namespace Keeper.CoreContract.Tasks
     {
         public int[] TaskIdentifiers;
         public int[] ProjectIdentifiers;
+        public string SearchKeyword;
+        public TaskStatus? Status;
     }
 }

@@ -5,6 +5,7 @@ using Keeper.CoreContract.Users;
 using Keeper.WPF.Admin;
 using Keeper.WPF.ProjectManager;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Keeper.WPF
 {
@@ -49,7 +50,6 @@ namespace Keeper.WPF
 
         private void ProjectManageButton_Click(object sender, RoutedEventArgs e)
         {
-
             ProjectManageWindow projectManageWindow =
                 new ProjectManageWindow(((GetProjectResponseItem)ProjectList.SelectedItem).Identifier);
             App.Current.MainWindow = projectManageWindow;
@@ -67,7 +67,7 @@ namespace Keeper.WPF
             ReloadProjectList();
         }
 
-        private void ProjectList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ProjectList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (WorkContext.Instance.CurrentlyLoggedOnUser.GroupType == UserGroupType.ProjectManager)
             {
@@ -86,7 +86,7 @@ namespace Keeper.WPF
             ReloadTaskList();
         }
 
-        private void SearchTxtBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             ReloadProjectList();
         }

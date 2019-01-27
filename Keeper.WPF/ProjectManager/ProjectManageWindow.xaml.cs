@@ -1,5 +1,7 @@
 ﻿using Keeper.Core;
+using Keeper.CoreContract.Tasks;
 using Keeper.CoreContract.Users;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,8 +20,15 @@ namespace Keeper.WPF.ProjectManager
             WorkersList.SelectionMode = SelectionMode.Multiple;
             WorkersAssignedList.SelectionMode = SelectionMode.Multiple;
 
+            TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(0, "All"));
+            foreach (var status in Enum.GetValues(typeof(TaskStatus)))
+                TaskSearchStatusComboBox.Items.Add(status);
+
             ReloadWorkersLists();
+            ReloadTaskList();
         }
+
+        #region Users
 
         private void WorkersAssignButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,8 +66,39 @@ namespace Keeper.WPF.ProjectManager
             var assignedUsers = new Client().GetUser(new GetUserRequest
             { UserGroup = UserGroupType.Worker, ProjectsIdentifiers = new int[] { _projectIdentifier } }).Items;
 
-            WorkersList.ItemsSource = users.Except(assignedUsers);
             WorkersAssignedList.ItemsSource = assignedUsers;
+            WorkersList.ItemsSource = users.Where(aUser => !assignedUsers.Select(anAssignedUser
+                => anAssignedUser.Identifier).Contains(aUser.Identifier));
         }
+
+        #endregion
+
+        #region Tasks
+
+        private void TaskAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            var taskAddWindow = new AddTaskWindow(_projectIdentifier);
+            App.Current.MainWindow = taskAddWindow;
+            taskAddWindow.ShowDialog();
+        }
+
+        private void TaskSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ReloadTaskList();
+        }
+
+        private void ReloadTaskList()
+        {
+            var selectedStatus = ((TaskSearchStatusComboBoxItemModel)TaskSearchStatusComboBox.SelectedItem)?.Identifier;
+
+            TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
+            {
+                ProjectIdentifiers = new int[] { _projectIdentifier },
+                SearchKeyword = TaskSearchTextBox.Text,
+                Status = selectedStatus != 0 ? (TaskStatus?)TaskSearchStatusComboBox.SelectedItem : null,
+            }).Items;
+        }
+
+        #endregion
     }
 }

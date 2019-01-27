@@ -22,6 +22,12 @@ namespace Keeper.Core.Tasks
                     if (request.ProjectIdentifiers != null && request.ProjectIdentifiers.Any())
                         query = query.Where(aTask => request.ProjectIdentifiers.Contains(aTask.ProjectIdentifier));
 
+                    if (!string.IsNullOrWhiteSpace(request.SearchKeyword))
+                        query = query.Where(aTask => aTask.Name.ToLower().Contains(request.SearchKeyword.ToLower().Trim()));
+
+                    if (request.Status != null)
+                        query = query.Where(aTast => aTast.Status == request.Status);
+
                     Response = new GetTaskResponse
                     {
                         Items = query.Select(aTask => new GetTaskResponseItem
