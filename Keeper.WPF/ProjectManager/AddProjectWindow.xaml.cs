@@ -1,18 +1,6 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Projects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Keeper.WPF.ProjectManager
 {
@@ -46,7 +34,7 @@ namespace Keeper.WPF.ProjectManager
                     { ErrorTxtBlock.Text = Strings.Add_Project_NameExists; }
                     break;
                 case CreateProjectResponseType.Success:
-                    { this.Close(); }
+                    { Close(); }
                     break;
                 default: { ErrorTxtBlock.Text = Strings.Common_DefaultError; } break;
             }

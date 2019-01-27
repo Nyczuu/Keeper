@@ -18,11 +18,11 @@ using System.Windows.Shapes;
 namespace Keeper.WPF.ProjectManager
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddUserToProjectWindow.xaml
+    /// Logika interakcji dla klasy ManageProjectUsersWindow.xaml
     /// </summary>
-    public partial class AddUserToProjectWindow : Window
+    public partial class ManageProjectUsersWindow : Window
     {
-        public AddUserToProjectWindow()
+        public ManageProjectUsersWindow()
         {
             InitializeComponent();
             ReloadUsersList();

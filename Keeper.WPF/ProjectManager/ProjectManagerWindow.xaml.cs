@@ -29,7 +29,6 @@ namespace Keeper.WPF.ProjectManager
             ProjectList.CanUserDeleteRows = false;
             ProjectList.IsReadOnly = true;
             ReloadProjectList();
-            
         }
 
       

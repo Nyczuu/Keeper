@@ -66,12 +66,13 @@
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CurrentlyLoggedOnUser.cs" />
+    <Compile Include="GUIBuilder.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="ProjectManager\AddProjectWindow.xaml.cs">
       <DependentUpon>AddProjectWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectManager\AddUserToProjectWindow.xaml.cs">
-      <DependentUpon>AddUserToProjectWindow.xaml</DependentUpon>
+    <Compile Include="ProjectManager\ManageProjectUsersWindow.xaml.cs">
+      <DependentUpon>ManageProjectUsersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectManager\InvolvedUsersWindow.xaml.cs">
       <DependentUpon>InvolvedUsersWindow.xaml</DependentUpon>
@@ -120,7 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProjectManager\AddUserToProjectWindow.xaml">
+    <Page Include="ProjectManager\ManageProjectUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
