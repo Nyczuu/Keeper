@@ -1,6 +1,7 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Tasks;
 using Keeper.CoreContract.Users;
+using Keeper.WPF.Extensions;
 using System;
 using System.Linq;
 using System.Windows;
@@ -17,12 +18,15 @@ namespace Keeper.WPF.ProjectManager
             _projectIdentifier = projectIdentifier;
 
             InitializeComponent();
+            TaskList.SetDefaults();
+
+
             WorkersList.SelectionMode = SelectionMode.Multiple;
             WorkersAssignedList.SelectionMode = SelectionMode.Multiple;
 
             TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(0, "All"));
-            foreach (var status in Enum.GetValues(typeof(TaskStatus)))
-                TaskSearchStatusComboBox.Items.Add(status);
+            foreach (TaskStatus status in Enum.GetValues(typeof(TaskStatus)))
+                TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(status));
 
             ReloadWorkersLists();
             ReloadTaskList();
@@ -80,9 +84,15 @@ namespace Keeper.WPF.ProjectManager
             var taskAddWindow = new AddTaskWindow(_projectIdentifier);
             App.Current.MainWindow = taskAddWindow;
             taskAddWindow.ShowDialog();
+            ReloadTaskList();
         }
 
         private void TaskSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ReloadTaskList();
+        }
+
+        private void TaskSearchStatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ReloadTaskList();
         }
@@ -91,12 +101,20 @@ namespace Keeper.WPF.ProjectManager
         {
             var selectedStatus = ((TaskSearchStatusComboBoxItemModel)TaskSearchStatusComboBox.SelectedItem)?.Identifier;
 
-            TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
+            var tasks = new Client().GetTask(new GetTaskRequest
             {
                 ProjectIdentifiers = new int[] { _projectIdentifier },
                 SearchKeyword = TaskSearchTextBox.Text,
-                Status = selectedStatus != 0 ? (TaskStatus?)TaskSearchStatusComboBox.SelectedItem : null,
+                Status = selectedStatus != 0 ? (TaskStatus?)selectedStatus : null,
             }).Items;
+
+            TaskList.ItemsSource = tasks.Select(aTask 
+                => new TaskListItemModel
+                {
+                    Identifier = aTask.Identifier,
+                    Name = aTask.Name,
+                    Status = aTask.Status,
+                }).ToList();
         }
 
         #endregion

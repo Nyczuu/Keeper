@@ -70,7 +70,7 @@ namespace Keeper.WPF {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Please enter project name..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Project name is required..
         /// </summary>
         internal static string AddProject_NameEmpty {
             get {
@@ -138,6 +138,33 @@ namespace Keeper.WPF {
         internal static string LoginUser_WrongPassword {
             get {
                 return ResourceManager.GetString("LoginUser_WrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Task name is required..
+        /// </summary>
+        internal static string TaskAddResponse_NameEmpty {
+            get {
+                return ResourceManager.GetString("TaskAddResponse_NameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Task with this name already exists in this project..
+        /// </summary>
+        internal static string TaskAddResponse_NameExists {
+            get {
+                return ResourceManager.GetString("TaskAddResponse_NameExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Project does not exist..
+        /// </summary>
+        internal static string TaskAddResponse_ProjectDoesNotExist {
+            get {
+                return ResourceManager.GetString("TaskAddResponse_ProjectDoesNotExist", resourceCulture);
             }
         }
     }

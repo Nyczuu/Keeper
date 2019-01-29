@@ -35,7 +35,8 @@ namespace Keeper.Core.Tasks
                             Identifier = aTask.Identifier,
                             Name = aTask.Name,
                             Description = aTask.Description,
-                            ProjectIdentifier = aTask.ProjectIdentifier
+                            ProjectIdentifier = aTask.ProjectIdentifier,
+                            Status = aTask.Status,
                         }).ToArray(),
                     };
                 }

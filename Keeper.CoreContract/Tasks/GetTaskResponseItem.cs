@@ -9,10 +9,10 @@ namespace Keeper.CoreContract.Tasks
         public string Name;
         public string Description;
         public int ProjectIdentifier;
+        public TaskStatus Status;
 
         public override string ToString()
         {
-            //var desc = Description.Take(50).ToString();
             return $"{Name}: {Description}";
         }
     }

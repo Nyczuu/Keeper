@@ -21,14 +21,14 @@ namespace Keeper.Data.Tasks
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
+            Status = TaskStatus.Open;
+            ProjectIdentifier = request.ProjectIdentifier;
 
             if (request.Name != null)
                 Name = request.Name.Trim();
 
             if (request.Description != null)
                 Description = request.Description.Trim();
-
-            ProjectIdentifier = request.ProjectIdentifier;
         }
 
         public void Set(UpdateTaskRequest request)

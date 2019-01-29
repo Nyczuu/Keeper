@@ -23,7 +23,10 @@ namespace Keeper.WPF.ProjectManager
             });
 
             if (response == null)
+            {
                 ErrorTxtBlock.Text = Strings.Common_DefaultError;
+                return;
+            }
 
             switch (response.Type)
             {

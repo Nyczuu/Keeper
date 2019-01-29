@@ -3,6 +3,7 @@ using Keeper.CoreContract.Users;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Keeper.WPF.Extensions;
 
 namespace Keeper.WPF.Admin
 {
@@ -14,10 +15,8 @@ namespace Keeper.WPF.Admin
         public AdminWindow()
         {
             InitializeComponent();
-
-            UserList.CanUserAddRows = false;
-            UserList.CanUserDeleteRows = false;
-            UserList.IsReadOnly = true;
+            UserList.SetDefaults();
+            
             ReloadUsersList();
         }
 
@@ -50,8 +49,9 @@ namespace Keeper.WPF.Admin
 
         private void ReloadUsersList()
         {
-            var users = new Client().GetUser(new GetUserRequest {
-                SearchKeyword = SearchTxtBox.Text }).Items;
+            var users = new Client().GetUser(new GetUserRequest
+            { SearchKeyword = SearchTxtBox.Text }).Items;
+
             UserList.ItemsSource = users.Select(aUser
                 => new UserListItemModel
                 {

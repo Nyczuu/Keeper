@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddProject_NameEmpty" xml:space="preserve">
-    <value>Please enter project name.</value>
+    <value>Project name is required.</value>
   </data>
   <data name="Add_Project_NameExists" xml:space="preserve">
     <value>Provided name already exists.</value>
@@ -143,5 +143,14 @@
   </data>
   <data name="LoginUser_WrongPassword" xml:space="preserve">
     <value>Provided password is not correct.</value>
+  </data>
+  <data name="TaskAddResponse_NameEmpty" xml:space="preserve">
+    <value>Task name is required.</value>
+  </data>
+  <data name="TaskAddResponse_NameExists" xml:space="preserve">
+    <value>Task with this name already exists in this project.</value>
+  </data>
+  <data name="TaskAddResponse_ProjectDoesNotExist" xml:space="preserve">
+    <value>Project does not exist.</value>
   </data>
 </root>

@@ -2,7 +2,7 @@
 
 namespace Keeper.WPF.Admin
 {
-    public class UserListItemModel
+    class UserListItemModel
     {
         public int Id { get; set; }
         public string Email { get; set; }
