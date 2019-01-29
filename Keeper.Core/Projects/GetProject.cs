@@ -28,6 +28,7 @@ namespace Keeper.Core.Projects
                         {
                             Identifier = aProject.Identifier,
                             Name = aProject.Name,
+                            Key = aProject.Key,
                             TasksCount = aProject.Tasks.Count(),
                         }).ToArray(),
                     };

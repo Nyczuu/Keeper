@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="CurrentlyLoggedOnUser.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
+    <Compile Include="Extensions\ListBoxExtensions.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="ProjectManager\AddProjectWindow.xaml.cs">
       <DependentUpon>AddProjectWindow.xaml</DependentUpon>

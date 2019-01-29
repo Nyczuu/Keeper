@@ -6,6 +6,7 @@ namespace Keeper.CoreContract.Tasks
     public class GetTaskResponseItem
     {
         public int Identifier;
+        public string Number;
         public string Name;
         public string Description;
         public int ProjectIdentifier;

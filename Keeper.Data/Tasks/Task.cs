@@ -9,6 +9,7 @@ namespace Keeper.Data.Tasks
     public class Task : BaseEntity
     {
         public string Name { get; private set; }
+        public string Number { get; private set; }
         public string Description { get; private set; }
         public int ProjectIdentifier { get; private set; }
         public TaskStatus Status { get; private set; }
@@ -17,7 +18,7 @@ namespace Keeper.Data.Tasks
         public virtual ICollection<TaskComment> Comments { get; private set; }
         public virtual ICollection<TaskWorklog> Worklogs { get; private set; }
 
-        public void Set(CreateTaskRequest request)
+        public void Set(CreateTaskRequest request, string number)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
@@ -26,6 +27,9 @@ namespace Keeper.Data.Tasks
 
             if (request.Name != null)
                 Name = request.Name.Trim();
+
+            if (number != null)
+                Number = number.ToUpper().Trim();
 
             if (request.Description != null)
                 Description = request.Description.Trim();

@@ -1,6 +1,7 @@
 ﻿using Keeper.CoreContract.Projects;
 using Keeper.Data;
 using Keeper.Data.Projects;
+using System;
 using System.Linq;
 
 namespace Keeper.Core.Projects
@@ -29,8 +30,16 @@ namespace Keeper.Core.Projects
                         return;
                     }
 
+                    var projectNameWords = request.Name.Split(' ');
+                    var projectKey = projectNameWords.Count() > 0 
+                        ? string.Join("", projectNameWords.Select(aWord => aWord[0])) 
+                        : projectNameWords.Take(3).ToString();
+
+                    if (dbContext.Projects.Any(aProject => aProject.Key == projectKey.ToUpper().Trim()))
+                        throw new NotImplementedException();
+
                     var project = new Project();
-                    project.Set(request);
+                    project.Set(request,projectKey);
                     dbContext.Projects.Add(project);
                     dbContext.SaveChanges();
 

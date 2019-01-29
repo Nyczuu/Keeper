@@ -2,7 +2,7 @@
 
 namespace Keeper.WPF.Extensions
 {
-    public static class DataGridExtensions
+    static class DataGridExtensions
     {
         public static DataGrid SetDefaults(this DataGrid dataGrid)
         {

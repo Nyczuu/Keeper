@@ -16,16 +16,18 @@
                     <ListBox x:Name="WorkersList" HorizontalAlignment="Left" Height="300" Margin="10,61,0,0" VerticalAlignment="Top" Width="275"/>
                     <Button x:Name="WorkersAssignButton" Content="&gt;" HorizontalAlignment="Left" Margin="354,201,0,0" VerticalAlignment="Top" Width="75" Click="WorkersAssignButton_Click"/>
                     <Button x:Name="WorkersUnassignButton" Content="&lt;" HorizontalAlignment="Left" Margin="354,235,0,0" VerticalAlignment="Top" Width="75" Click="WorkersUnassignButton_Click"/>
-                    <Label Content="All workers" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="275"/>
-                    <Label Content="Assigned workers" HorizontalAlignment="Left" Margin="481,35,0,0" VerticalAlignment="Top" Width="275"/>
+                    <Label Content="All workers:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="275"/>
+                    <Label Content="Assigned workers:" HorizontalAlignment="Left" Margin="481,35,0,0" VerticalAlignment="Top" Width="275"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tasks">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TaskList" HorizontalAlignment="Left" Height="317" Margin="10,44,0,0" VerticalAlignment="Top" Width="746"/>
+                    <DataGrid x:Name="TaskList" HorizontalAlignment="Left" Height="317" Margin="10,44,0,0" VerticalAlignment="Top" Width="746" SelectionChanged="TaskList_SelectionChanged"/>
                     <TextBox x:Name="TaskSearchTextBox" HorizontalAlignment="Left" Height="23" Margin="10,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TaskSearchTextBox_TextChanged"/>
                     <ComboBox x:Name="TaskSearchStatusComboBox" HorizontalAlignment="Left" Margin="135,17,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="TaskSearchStatusComboBox_SelectionChanged"/>
-                    <Button x:Name="TaskAddButton" Content="Add Task" HorizontalAlignment="Left" Margin="681,19,0,0" VerticalAlignment="Top" Width="75" Click="TaskAddButton_Click"/>
+                    <Button x:Name="TaskAddButton" Content="Create" HorizontalAlignment="Left" Margin="681,19,0,0" VerticalAlignment="Top" Width="75" Click="TaskAddButton_Click"/>
+                    <Button x:Name="TaskEditButton" Content="Edit" HorizontalAlignment="Left" Margin="601,19,0,0" VerticalAlignment="Top" Width="75" Visibility="Hidden" Click="TaskEditButton_Click"/>
+                    <Button x:Name="TaskDeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="681,19,0,0" VerticalAlignment="Top" Width="75" Visibility="Hidden" Click="TaskDeleteButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

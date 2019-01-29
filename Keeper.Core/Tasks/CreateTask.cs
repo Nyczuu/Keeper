@@ -38,8 +38,11 @@ namespace Keeper.Core.Tasks
                         return;
                     }
 
+                    project.Set(request);
+                    dbContext.SaveChanges();
+
                     var task = new Task();
-                    task.Set(request);
+                    task.Set(request, $"{project.Key}-{project.TasksCreatedTotal}");
                     dbContext.Tasks.Add(task);
                     dbContext.SaveChanges();
 

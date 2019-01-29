@@ -18,21 +18,18 @@ namespace Keeper.WPF.ProjectManager
             _projectIdentifier = projectIdentifier;
 
             InitializeComponent();
-            TaskList.SetDefaults();
-
-
-            WorkersList.SelectionMode = SelectionMode.Multiple;
-            WorkersAssignedList.SelectionMode = SelectionMode.Multiple;
-
-            TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(0, "All"));
-            foreach (TaskStatus status in Enum.GetValues(typeof(TaskStatus)))
-                TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(status));
-
-            ReloadWorkersLists();
-            ReloadTaskList();
+            InitializeUsersTab();
+            InitializeTasksTab();
         }
 
         #region Users
+
+        private void InitializeUsersTab()
+        {
+            WorkersList.SetDefaults();
+            WorkersAssignedList.SetDefaults();
+            ReloadWorkersLists();
+        }
 
         private void WorkersAssignButton_Click(object sender, RoutedEventArgs e)
         {
@@ -79,12 +76,32 @@ namespace Keeper.WPF.ProjectManager
 
         #region Tasks
 
+        private void InitializeTasksTab()
+        {
+            TaskList.SetDefaults();
+            TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(0, "All"));
+            foreach (TaskStatus status in Enum.GetValues(typeof(TaskStatus)))
+                TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(status));
+
+            ReloadTaskList();
+        }
+
         private void TaskAddButton_Click(object sender, RoutedEventArgs e)
         {
             var taskAddWindow = new AddTaskWindow(_projectIdentifier);
             App.Current.MainWindow = taskAddWindow;
             taskAddWindow.ShowDialog();
             ReloadTaskList();
+        }
+
+        private void TaskEditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TaskDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void TaskSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -95,6 +112,28 @@ namespace Keeper.WPF.ProjectManager
         private void TaskSearchStatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ReloadTaskList();
+        }
+
+        private void TaskList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TaskList.SelectedItems.Count == 1)
+            {
+                TaskAddButton.Visibility = Visibility.Hidden;
+                TaskEditButton.Visibility = Visibility.Visible;
+                TaskDeleteButton.Visibility = Visibility.Visible;
+            }
+            else if (TaskList.SelectedItems.Count > 1)
+            {
+                TaskAddButton.Visibility = Visibility.Hidden;
+                TaskEditButton.Visibility = Visibility.Hidden;
+                TaskDeleteButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TaskAddButton.Visibility = Visibility.Visible;
+                TaskEditButton.Visibility = Visibility.Hidden;
+                TaskDeleteButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ReloadTaskList()
