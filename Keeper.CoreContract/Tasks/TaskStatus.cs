@@ -4,7 +4,7 @@
     {
         Open = 1,
         InProgress,
-        Finished,
+        Resolved,
         Reopened,
         Closed,
     }

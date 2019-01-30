@@ -1,0 +1,14 @@
+﻿<Window x:Class="Keeper.WPF.ProjectManager.ProjectCreateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="New Project" Height="191.892" Width="400">
+    <Grid>
+        <Label x:Name="ProjectCreateNameLabel" Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372" Height="26"/>
+        <TextBox x:Name="ProjectCreateNameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <Button x:Name="ProjectCreateButton" Content="Create" HorizontalAlignment="Left" Margin="307,131,0,0" VerticalAlignment="Top" Width="75" Click="ProjectCreateButton_Click"/>
+        <TextBlock x:Name="ProjectCreateValidationMessageTextBlock" HorizontalAlignment="Left" Margin="10,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="57" Width="372"/>
+    </Grid>
+</Window>

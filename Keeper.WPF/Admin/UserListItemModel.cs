@@ -4,7 +4,7 @@ namespace Keeper.WPF.Admin
 {
     class UserListItemModel
     {
-        public int Id { get; set; }
+        public int Identifier { get; set; }
         public string Email { get; set; }
         public UserGroupType Group { get; set; }
     }

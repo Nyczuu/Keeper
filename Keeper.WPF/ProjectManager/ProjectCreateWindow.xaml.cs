@@ -7,39 +7,39 @@ namespace Keeper.WPF.ProjectManager
     /// <summary>
     /// Logika interakcji dla klasy AddProjectWindow.xaml
     /// </summary>
-    public partial class AddProjectWindow : Window
+    public partial class ProjectCreateWindow : Window
     {
-        public AddProjectWindow()
+        public ProjectCreateWindow()
         {
             InitializeComponent();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void ProjectCreateButton_Click(object sender, RoutedEventArgs e)
         {
             var client = new Client();
             var response = client.CreateProject(new CreateProjectRequest
             {
-                Name = NameTxtBox.Text
+                Name = ProjectCreateNameTextBox.Text
             });
 
             if (response == null)
             {
-                ErrorTxtBlock.Text = Strings.Common_DefaultError;
+                ProjectCreateValidationMessageTextBlock.Text = Strings.Common_DefaultError;
                 return;
             }
 
             switch (response.Type)
             {
                 case CreateProjectResponseType.NameEmpty:
-                    { ErrorTxtBlock.Text = Strings.AddProject_NameEmpty; }
+                    { ProjectCreateValidationMessageTextBlock.Text = Strings.AddProject_NameEmpty; }
                     break;
                 case CreateProjectResponseType.NameExists:
-                    { ErrorTxtBlock.Text = Strings.Add_Project_NameExists; }
+                    { ProjectCreateValidationMessageTextBlock.Text = Strings.Add_Project_NameExists; }
                     break;
                 case CreateProjectResponseType.Success:
                     { Close(); }
                     break;
-                default: { ErrorTxtBlock.Text = Strings.Common_DefaultError; } break;
+                default: { ProjectCreateValidationMessageTextBlock.Text = Strings.Common_DefaultError; } break;
             }
         }
     }

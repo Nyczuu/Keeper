@@ -60,9 +60,9 @@ namespace Keeper.WPF
 
         private void ProjectAddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddProjectWindow addProjectWindow = new AddProjectWindow();
-            App.Current.MainWindow = addProjectWindow;
-            addProjectWindow.ShowDialog();
+            ProjectCreateWindow createProjectWindow = new ProjectCreateWindow();
+            App.Current.MainWindow = createProjectWindow;
+            createProjectWindow.ShowDialog();
 
             ReloadProjectList();
         }

@@ -22,6 +22,10 @@ namespace Keeper.WPF.ProjectManager
             InitializeTasksTab();
         }
 
+        #region Details
+
+        #endregion
+
         #region Users
 
         private void InitializeUsersTab()
@@ -88,7 +92,7 @@ namespace Keeper.WPF.ProjectManager
 
         private void TaskAddButton_Click(object sender, RoutedEventArgs e)
         {
-            var taskAddWindow = new AddTaskWindow(_projectIdentifier);
+            var taskAddWindow = new TaskCreateWindow(_projectIdentifier);
             App.Current.MainWindow = taskAddWindow;
             taskAddWindow.ShowDialog();
             ReloadTaskList();
@@ -101,7 +105,18 @@ namespace Keeper.WPF.ProjectManager
 
         private void TaskDeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            if (TaskList.SelectedItems.Count > 0)
+            {
+                new Client().DeleteTask(new DeleteTaskRequest
+                {
+                    Identifiers = TaskList.SelectedItems
+                    .Cast<TaskListItemModel>()
+                    .Select(aSelectedItem => aSelectedItem.Identifier)
+                    .ToArray()
+                });
+            }
 
+            ReloadTaskList();
         }
 
         private void TaskSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -152,6 +167,7 @@ namespace Keeper.WPF.ProjectManager
                 {
                     Identifier = aTask.Identifier,
                     Name = aTask.Name,
+                    Number = aTask.Number,
                     Status = aTask.Status,
                 }).ToList();
         }

@@ -35,7 +35,7 @@ namespace Keeper.WPF.Admin
                 {
                     Identifiers = UserList.SelectedItems
                     .Cast<UserListItemModel>()
-                    .Select(aSelectedItem => aSelectedItem.Id)
+                    .Select(aSelectedItem => aSelectedItem.Identifier)
                     .ToArray()
                 });
             }
@@ -55,7 +55,7 @@ namespace Keeper.WPF.Admin
             UserList.ItemsSource = users.Select(aUser
                 => new UserListItemModel
                 {
-                    Id = aUser.Identifier,
+                    Identifier = aUser.Identifier,
                     Email = aUser.Email,
                     Group = aUser.Group,
                 }).ToList();
