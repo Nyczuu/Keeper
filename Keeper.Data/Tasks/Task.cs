@@ -14,12 +14,10 @@ namespace Keeper.Data.Tasks
         public string Description { get; private set; }
         public int ProjectIdentifier { get; private set; }
         public int CreatorIdentifier { get; private set; }
-        public int AssigneeIdentifier { get; private set; }
+        public int? AssigneeIdentifier { get; private set; }
         public TaskStatus Status { get; private set; }
 
         public virtual Project Project { get; private set; }
-        public virtual User Creator { get; private set; }
-        public virtual User Assignee { get; private set; }
         public virtual ICollection<TaskComment> Comments { get; private set; }
         public virtual ICollection<TaskWorklog> Worklogs { get; private set; }
 

@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201901292100204_ProjectKeyAndTaskNumber.Designer.cs">
       <DependentUpon>201901292100204_ProjectKeyAndTaskNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901311802323_CreatorIdentifier.cs" />
+    <Compile Include="Migrations\201901311802323_CreatorIdentifier.Designer.cs">
+      <DependentUpon>201901311802323_CreatorIdentifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901292100204_ProjectKeyAndTaskNumber.resx">
       <DependentUpon>201901292100204_ProjectKeyAndTaskNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311802323_CreatorIdentifier.resx">
+      <DependentUpon>201901311802323_CreatorIdentifier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

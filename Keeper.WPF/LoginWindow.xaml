@@ -3,19 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Keeper.WPF"
         mc:Ignorable="d"
-        Title="LogIn" Height="600" Width="800">
-    <Grid Background="#FFE5E5E5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="197*"/>
-        </Grid.ColumnDefinitions>
-        <PasswordBox x:Name="Password_Box" HorizontalAlignment="Left" Margin="274,208,0,0" VerticalAlignment="Top" Height="50" Width="250" Grid.ColumnSpan="2" FontSize="24" KeyDown="Password_Box_KeyDown"/>
-        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="120,208,0,0" VerticalAlignment="Top" Height="50" Width="120" FontSize="24" RenderTransformOrigin="0.525,0.479" />
-        <Label x:Name="User_Label" Content="Email" HorizontalAlignment="Left" Margin="144,125,0,0" VerticalAlignment="Top" FontSize="24" Height="55" Width="66"/>
-        <Button x:Name="Login_Button" Content="Login" HorizontalAlignment="Left" Margin="236,417,0,0" VerticalAlignment="Top" Width="326" Height="45" Grid.ColumnSpan="2" FontSize="20" Click="Login_Button_Click"/>
-        <TextBox x:Name="Login_TxtBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="50" Margin="274,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" TextAlignment="Center"/>
-        <TextBlock x:Name="ErrorTxtBlock" HorizontalAlignment="Left" Margin="236,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="95" Width="326" FontSize="20" TextAlignment="Center" IsEnabled="False"/>
+        Title="LogIn" Height="280" Width="400">
+    <Grid Margin="0,0,0,0">
+        <Label x:Name="LoginEmailLabel" Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="LoginEmailTextBox" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <Label x:Name="LoginPasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="372"  />
+        <PasswordBox x:Name="LoginPasswordPasswordBox" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" KeyDown="LoginPasswordPasswordBox_KeyDown" Width="372"/>
+        <TextBlock x:Name="LoginValidationMessageTextBlock" HorizontalAlignment="Left" Margin="10,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="372"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="312,218,0,0" VerticalAlignment="Top" Click="LoginButton_Click" RenderTransformOrigin="-2.242,6.5" Width="70"/>
     </Grid>
 </Window>

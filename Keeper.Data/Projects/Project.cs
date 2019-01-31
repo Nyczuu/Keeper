@@ -11,15 +11,18 @@ namespace Keeper.Data.Projects
     {
         public string Name { get; private set; }
         public string Key { get; private set; }
+        public int CreatorIdentifier { get; private set; }
         public int TasksCreatedTotal { get; private set; }
 
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<User> Users { get; private set; }
+        public virtual ICollection<Task> Tasks { get; private set; }
 
         public void Set(CreateProjectRequest request, string key)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
+
+            CreatorIdentifier = request.CreatorIdentifier;
 
             if (request.Name != null)
                 Name = request.Name.Trim();

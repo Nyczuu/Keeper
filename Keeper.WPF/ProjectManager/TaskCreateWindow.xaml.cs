@@ -1,5 +1,7 @@
 ﻿using Keeper.Core;
 using Keeper.CoreContract.Tasks;
+using Keeper.CoreContract.Users;
+using System.Linq;
 using System.Windows;
 
 namespace Keeper.WPF.ProjectManager
@@ -15,6 +17,19 @@ namespace Keeper.WPF.ProjectManager
         {
             InitializeComponent();
             _projectIdentifier = projectIdentifier;
+
+            TaskCreateAssigneeComboBox.ItemsSource = new Client().GetUser(
+                new GetUserRequest
+                {
+                    ProjectsIdentifiers = new int[] { _projectIdentifier },
+                    UserGroup = UserGroupType.Worker,
+                })?.Items?
+                .Select(aUser =>
+                new TaskCreateAssigneeComboBoxItemModel
+                {
+                    Email = aUser.Email,
+                    Identifier = aUser.Identifier,
+                });
         }
 
         private void TaskCreateButton_Click(object sender, RoutedEventArgs e)
@@ -25,6 +40,8 @@ namespace Keeper.WPF.ProjectManager
                 ProjectIdentifier = _projectIdentifier,
                 Name = TaskCreateNameTextBox.Text,
                 Description = TaskCreateDescriptionTextBox.Text,
+                CreatorIdentifier = WorkContext.Instance.CurrentlyLoggedOnUser.Identifier,
+                AssigneeIdentifier = ((TaskCreateAssigneeComboBoxItemModel)TaskCreateAssigneeComboBox.SelectedItem).Identifier,
             });
 
             if (response == null)

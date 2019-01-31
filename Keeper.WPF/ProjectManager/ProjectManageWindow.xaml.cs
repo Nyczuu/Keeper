@@ -83,18 +83,25 @@ namespace Keeper.WPF.ProjectManager
         private void InitializeTasksTab()
         {
             TaskList.SetDefaults();
-            TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(0, "All"));
+            TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel { Identifier = 0, Value = "All" });
             foreach (TaskStatus status in Enum.GetValues(typeof(TaskStatus)))
-                TaskSearchStatusComboBox.Items.Add(new TaskSearchStatusComboBoxItemModel(status));
+            {
+                TaskSearchStatusComboBox.Items.Add(
+                    new TaskSearchStatusComboBoxItemModel
+                    {
+                        Identifier = (int)status,
+                        Value = status.ToString()
+                    });
+            }
 
             ReloadTaskList();
         }
 
-        private void TaskAddButton_Click(object sender, RoutedEventArgs e)
+        private void TaskCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            var taskAddWindow = new TaskCreateWindow(_projectIdentifier);
-            App.Current.MainWindow = taskAddWindow;
-            taskAddWindow.ShowDialog();
+            var taskCreateWindow = new TaskCreateWindow(_projectIdentifier);
+            App.Current.MainWindow = taskCreateWindow;
+            taskCreateWindow.ShowDialog();
             ReloadTaskList();
         }
 
@@ -133,19 +140,19 @@ namespace Keeper.WPF.ProjectManager
         {
             if (TaskList.SelectedItems.Count == 1)
             {
-                TaskAddButton.Visibility = Visibility.Hidden;
+                TaskCreateButton.Visibility = Visibility.Hidden;
                 TaskEditButton.Visibility = Visibility.Visible;
                 TaskDeleteButton.Visibility = Visibility.Visible;
             }
             else if (TaskList.SelectedItems.Count > 1)
             {
-                TaskAddButton.Visibility = Visibility.Hidden;
+                TaskCreateButton.Visibility = Visibility.Hidden;
                 TaskEditButton.Visibility = Visibility.Hidden;
                 TaskDeleteButton.Visibility = Visibility.Visible;
             }
             else
             {
-                TaskAddButton.Visibility = Visibility.Visible;
+                TaskCreateButton.Visibility = Visibility.Visible;
                 TaskEditButton.Visibility = Visibility.Hidden;
                 TaskDeleteButton.Visibility = Visibility.Hidden;
             }
@@ -162,7 +169,7 @@ namespace Keeper.WPF.ProjectManager
                 Status = selectedStatus != 0 ? (TaskStatus?)selectedStatus : null,
             }).Items;
 
-            TaskList.ItemsSource = tasks.Select(aTask 
+            TaskList.ItemsSource = tasks.Select(aTask
                 => new TaskListItemModel
                 {
                     Identifier = aTask.Identifier,

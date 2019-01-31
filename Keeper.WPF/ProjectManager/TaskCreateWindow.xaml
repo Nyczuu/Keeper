@@ -6,10 +6,6 @@
         mc:Ignorable="d"
         Title="New Task" Height="450" Width="400">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
         <Label x:Name="TaskCreateNameLabel" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="370" Height="26"/>
         <TextBox x:Name="TaskCreateNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Margin="10,41,0,0"/>
         <Label x:Name="TaskCreateDescriptionLabel" Content="Description:" HorizontalAlignment="Left" Margin="12,69,0,0" VerticalAlignment="Top" Width="370" Height="26"/>
@@ -17,6 +13,6 @@
         <Label x:Name="TaskCreateAssigneeLabel" Content="Assignee:" HorizontalAlignment="Left" Margin="12,305,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="TaskCreateAssigneeComboBox" HorizontalAlignment="Left" Margin="77,305,0,0" VerticalAlignment="Top" Width="305"/>
         <TextBlock x:Name="TaskCreateValidationMessageTextBlock" HorizontalAlignment="Left" Margin="10,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="372"/>
-        <Button x:Name="TaskCreateButton"  Content="Create" HorizontalAlignment="Left" Margin="305,389,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="TaskCreateButton_Click"/>
+        <Button x:Name="TaskCreateButton"  Content="Create" HorizontalAlignment="Left" Margin="312,389,0,0" VerticalAlignment="Top"  Click="TaskCreateButton_Click" Width="70"/>
     </Grid>
 </Window>

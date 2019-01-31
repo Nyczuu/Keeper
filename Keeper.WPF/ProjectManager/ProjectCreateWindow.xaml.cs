@@ -19,7 +19,8 @@ namespace Keeper.WPF.ProjectManager
             var client = new Client();
             var response = client.CreateProject(new CreateProjectRequest
             {
-                Name = ProjectCreateNameTextBox.Text
+                Name = ProjectCreateNameTextBox.Text,
+                CreatorIdentifier = WorkContext.Instance.CurrentlyLoggedOnUser.Identifier,
             });
 
             if (response == null)

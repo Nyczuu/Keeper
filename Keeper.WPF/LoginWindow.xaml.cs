@@ -12,14 +12,15 @@ namespace Keeper.WPF
         public LoginWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             Login();
         }
 
-        private void Password_Box_KeyDown(object sender, KeyEventArgs e)
+        private void LoginPasswordPasswordBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
                 Login();
@@ -29,31 +30,31 @@ namespace Keeper.WPF
         {
             var loginUserResponse = new Client().LoginUser(new LoginUserRequest
             {
-                Email = Login_TxtBox.Text,
-                Password = Password_Box.Password,
+                Email = LoginEmailTextBox.Text,
+                Password = LoginPasswordPasswordBox.Password,
             });
 
             if (loginUserResponse == null)
-                ErrorTxtBlock.Text = Strings.Common_DefaultError;
+                LoginValidationMessageTextBlock.Text = Strings.Common_DefaultError;
 
             else
             {
                 switch (loginUserResponse.Type)
                 {
                     case LoginUserResponseType.NoUser:
-                        { ErrorTxtBlock.Text = Strings.LoginUser_NoUser; }
+                        { LoginValidationMessageTextBlock.Text = Strings.LoginUser_NoUser; }
                         break;
                     case LoginUserResponseType.WrongEmail:
-                        { ErrorTxtBlock.Text = Strings.LoginUser_WrongEmail; }
+                        { LoginValidationMessageTextBlock.Text = Strings.LoginUser_WrongEmail; }
                         break;
                     case LoginUserResponseType.WrongPassword:
-                        { ErrorTxtBlock.Text = Strings.LoginUser_WrongPassword; }
+                        { LoginValidationMessageTextBlock.Text = Strings.LoginUser_WrongPassword; }
                         break;
                     case LoginUserResponseType.Success:
                         { Run(loginUserResponse.SessionKey); }
                         break;
                     default:
-                        { ErrorTxtBlock.Text = Strings.Common_DefaultError; }
+                        { LoginValidationMessageTextBlock.Text = Strings.Common_DefaultError; }
                         break;
                 }
             }

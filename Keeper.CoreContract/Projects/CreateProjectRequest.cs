@@ -3,5 +3,6 @@
     public class CreateProjectRequest
     {
         public string Name;
+        public int CreatorIdentifier;
     }
 }

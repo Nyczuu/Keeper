@@ -72,6 +72,7 @@
     <Compile Include="ProjectManager\ProjectCreateWindow.xaml.cs">
       <DependentUpon>ProjectCreateWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManager\TaskCreateAssigneeComboBoxItemModel.cs" />
     <Compile Include="ProjectManager\TaskCreateWindow.xaml.cs">
       <DependentUpon>TaskCreateWindow.xaml</DependentUpon>
     </Compile>
