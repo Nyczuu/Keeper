@@ -12,7 +12,7 @@ namespace Keeper.Data.Tasks
         public virtual Task Task { get; private set; }
         public virtual User User { get; private set; }
 
-        public void Set(CreateTaskCommentRequest request)
+        public void Set(TaskCommentCreateRequest request)
         {
             Content = request.Content;
             TaskIdentifier = request.TaskIdentifier;

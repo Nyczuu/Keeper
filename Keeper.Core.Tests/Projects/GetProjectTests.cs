@@ -12,11 +12,11 @@ namespace Keeper.Core.Tests.Projects
         public void GetProject()
         {
             var testName = GeneratePseudoRandomName<Project>();
-            var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = testName });
+            var createProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = testName });
 
-            var getProjectResponse = _client.GetProject(
-                new GetProjectRequest
+            var getProjectResponse = _client.ProjectGet1(
+                new ProjectGet1Request
                 {
                     ProjectsIdentifiers = new int[]
                     { createProjectResponse.Identifier.Value }
@@ -32,11 +32,11 @@ namespace Keeper.Core.Tests.Projects
         {
             var testName = GeneratePseudoRandomName<Project>();
 
-            var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = testName });
+            var createProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = testName });
 
-            var getProjectResponse = _client.GetProject(
-                new GetProjectRequest { SearchKeyword = testName });
+            var getProjectResponse = _client.ProjectGet1(
+                new ProjectGet1Request { SearchKeyword = testName });
 
             Assert.IsTrue(getProjectResponse.Items.FirstOrDefault().Identifier == createProjectResponse.Identifier.Value);
             Assert.IsTrue(getProjectResponse.Items.FirstOrDefault().Name == testName);

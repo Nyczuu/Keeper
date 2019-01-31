@@ -9,15 +9,15 @@ namespace Keeper.Core.Tests.Users
         [TestMethod]
         public void DeleteUser()
         {
-            var createUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = GeneratePseudoRandomTestEmail(),
                     Password = _testPassword
                 });
 
-            var deleteUserResponse = _client.DeleteUser(
-                new DeleteUserRequest { Identifiers = new int[] { createUserResponse.Identifier.Value } });
+            var deleteUserResponse = _client.UserDelete(
+                new UserDeleteRequest { Identifiers = new int[] { createUserResponse.Identifier.Value } });
 
             Assert.IsNotNull(deleteUserResponse);
         }

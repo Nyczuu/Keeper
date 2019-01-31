@@ -13,8 +13,8 @@ namespace Keeper.Core.Tests.Tasks
         [TestInitialize]
         public void Setup()
         {
-            _testProjectIdentifier = new Client().CreateProject(
-                new CreateProjectRequest { Name = GeneratePseudoRandomName<Project>() }).Identifier.Value;
+            _testProjectIdentifier = new Client().ProjectCreate(
+                new ProjectCreateRequest { Name = GeneratePseudoRandomName<Project>() }).Identifier.Value;
 
             _testDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
                 + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "

@@ -14,7 +14,7 @@ namespace Keeper.Data.Tasks
         public virtual User User { get; private set; }
         public virtual Task Task { get; private set; }
 
-        public void Set(CreateTaskWorklogRequest request)
+        public void Set(TaskWorklogCreateRequest request)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
@@ -25,7 +25,7 @@ namespace Keeper.Data.Tasks
             FinishDate = request.FinishDate;
         }
 
-        public void Set(StartTaskRequest request)
+        public void Set(TaskStartRequest request)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;

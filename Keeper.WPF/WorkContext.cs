@@ -27,7 +27,7 @@ namespace Keeper.WPF
             }
         }
 
-        public void Initialize(GetUserSessionResponse response)
+        public void Initialize(UserSessionGetResponse response)
         {
             SessionKey = response.SessionKey;
             CurrentlyLoggedOnUser = new CurrentlyLoggedOnUser(response);

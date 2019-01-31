@@ -17,7 +17,7 @@ namespace Keeper.Data.Users
 
         public virtual User User { get; private set; }
 
-        public void Set(LoginUserRequest request, Guid sessionKey, int userIdentifier)
+        public void Set(UserLoginRequest request, Guid sessionKey, int userIdentifier)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;

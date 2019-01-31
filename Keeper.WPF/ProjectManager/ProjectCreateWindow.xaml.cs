@@ -17,7 +17,7 @@ namespace Keeper.WPF.ProjectManager
         private void ProjectCreateButton_Click(object sender, RoutedEventArgs e)
         {
             var client = new Client();
-            var response = client.CreateProject(new CreateProjectRequest
+            var response = client.ProjectCreate(new ProjectCreateRequest
             {
                 Name = ProjectCreateNameTextBox.Text,
                 CreatorIdentifier = WorkContext.Instance.CurrentlyLoggedOnUser.Identifier,
@@ -31,13 +31,13 @@ namespace Keeper.WPF.ProjectManager
 
             switch (response.Type)
             {
-                case CreateProjectResponseType.NameEmpty:
+                case ProjectCreateResponseType.NameEmpty:
                     { ProjectCreateValidationMessageTextBlock.Text = Strings.AddProject_NameEmpty; }
                     break;
-                case CreateProjectResponseType.NameExists:
+                case ProjectCreateResponseType.NameExists:
                     { ProjectCreateValidationMessageTextBlock.Text = Strings.Add_Project_NameExists; }
                     break;
-                case CreateProjectResponseType.Success:
+                case ProjectCreateResponseType.Success:
                     { Close(); }
                     break;
                 default: { ProjectCreateValidationMessageTextBlock.Text = Strings.Common_DefaultError; } break;

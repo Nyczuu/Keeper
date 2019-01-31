@@ -14,16 +14,16 @@ namespace Keeper.Core.Tests.Tasks
         {
             var testName = GeneratePseudoRandomName<Task>();
 
-            var createTaskResponse = _client.CreateTask(
-                new CreateTaskRequest
+            var createTaskResponse = _client.TaskCreate(
+                new TaskCreateRequest
                 {
                     Name = testName,
                     Description = _testDescription,
                     ProjectIdentifier = _testProjectIdentifier,
                 });
 
-            var getTaskResponse = _client.GetTask(
-                new GetTaskRequest
+            var getTaskResponse = _client.TaskGet1(
+                new TaskGet1Request
                 {
                     TaskIdentifiers = new int[]
                     { createTaskResponse.Identifier.Value }
@@ -40,15 +40,15 @@ namespace Keeper.Core.Tests.Tasks
         {
             var testName = GeneratePseudoRandomName<Task>();
 
-            var createTaskResponse = _client.CreateTask(
-                            new CreateTaskRequest
+            var createTaskResponse = _client.TaskCreate(
+                            new TaskCreateRequest
                             {
                                 Name = testName,
                                 ProjectIdentifier = _testProjectIdentifier,
                             });
 
-            var getTaskResponse= _client.GetTask(
-                new GetTaskRequest { ProjectIdentifiers = new int[] { _testProjectIdentifier } });
+            var getTaskResponse= _client.TaskGet1(
+                new TaskGet1Request { ProjectIdentifiers = new int[] { _testProjectIdentifier } });
 
             Assert.IsTrue(getTaskResponse.Items.SingleOrDefault().Identifier == createTaskResponse.Identifier.Value);
             Assert.IsTrue(getTaskResponse.Items.SingleOrDefault().Name == testName);

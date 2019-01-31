@@ -31,7 +31,7 @@ namespace Keeper.WPF.Admin
         {
             if(UserList.SelectedItems.Count > 0)
             {
-                new Client().DeleteUser(new DeleteUserRequest
+                new Client().UserDelete(new UserDeleteRequest
                 {
                     Identifiers = UserList.SelectedItems
                     .Cast<UserListItemModel>()
@@ -49,7 +49,7 @@ namespace Keeper.WPF.Admin
 
         private void ReloadUsersList()
         {
-            var users = new Client().GetUser(new GetUserRequest
+            var users = new Client().UserGet1(new UserGet1Request
             { SearchKeyword = SearchTxtBox.Text }).Items;
 
             UserList.ItemsSource = users.Select(aUser

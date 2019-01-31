@@ -11,16 +11,16 @@ namespace Keeper.Core.Tests.Users
         public void GetUser()
         {
             var testEmail = GeneratePseudoRandomTestEmail();
-            var createUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = testEmail,
                     Password = _testPassword,
                     Group = UserGroupType.Worker,
                 });
 
-            var getUserResponse = _client.GetUser(
-                new GetUserRequest
+            var getUserResponse = _client.UserGet1(
+                new UserGet1Request
                 {
                     UsersIdentifiers = new int[]
                     { createUserResponse.Identifier.Value }
@@ -36,11 +36,11 @@ namespace Keeper.Core.Tests.Users
         public void GetUser_ByEmail()
         {
             var testEmail = GeneratePseudoRandomTestEmail();
-            var createUserResponse = _client.CreateUser(
-                new CreateUserRequest { Email = testEmail, Password = _testPassword });
+            var createUserResponse = _client.UserCreate(
+                new UserCreateRequest { Email = testEmail, Password = _testPassword });
 
-            var getUserResponse = _client.GetUser(
-                new GetUserRequest
+            var getUserResponse = _client.UserGet1(
+                new UserGet1Request
                 {
                     SearchKeyword = testEmail
                 });

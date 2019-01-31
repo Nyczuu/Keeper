@@ -10,11 +10,11 @@ namespace Keeper.Core.Tests.Projects
         [TestMethod]
         public void CreateProject()
         {
-            var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = GeneratePseudoRandomName<Project>() });
+            var createProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = GeneratePseudoRandomName<Project>() });
 
             Assert.IsNotNull(createProjectResponse.Identifier);
-            Assert.IsTrue(createProjectResponse.Type == CreateProjectResponseType.Success);
+            Assert.IsTrue(createProjectResponse.Type == ProjectCreateResponseType.Success);
         }
 
         [DataTestMethod]
@@ -23,10 +23,10 @@ namespace Keeper.Core.Tests.Projects
         [DataRow("     ")]
         public void CreateProject_NameEmpty(string name)
         {
-            var createProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = name });
+            var createProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = name });
 
-            Assert.IsTrue(createProjectResponse.Type == CreateProjectResponseType.NameEmpty);
+            Assert.IsTrue(createProjectResponse.Type == ProjectCreateResponseType.NameEmpty);
         }
 
         [DataTestMethod]
@@ -36,13 +36,13 @@ namespace Keeper.Core.Tests.Projects
         [DataRow("     ExistingTestProject")]
         public void CreateProject_NameExists(string name)
         {
-            var createFirstProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = "ExistingTestProject" });
+            var createFirstProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = "ExistingTestProject" });
 
-            var createSameNameProjectResponse = _client.CreateProject(
-                new CreateProjectRequest { Name = name });
+            var createSameNameProjectResponse = _client.ProjectCreate(
+                new ProjectCreateRequest { Name = name });
 
-            Assert.IsTrue(createSameNameProjectResponse.Type == CreateProjectResponseType.NameExists);
+            Assert.IsTrue(createSameNameProjectResponse.Type == ProjectCreateResponseType.NameExists);
         }
     }
 }

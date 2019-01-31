@@ -17,7 +17,7 @@ namespace Keeper.Data.Projects
         public virtual ICollection<User> Users { get; private set; }
         public virtual ICollection<Task> Tasks { get; private set; }
 
-        public void Set(CreateProjectRequest request, string key)
+        public void Set(ProjectCreateRequest request, string key)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
@@ -31,7 +31,7 @@ namespace Keeper.Data.Projects
                 Key = key.ToUpper().Trim();
         }
 
-        public void Set(UpdateProjectRequest request)
+        public void Set(ProjectUpdateRequest request)
         {
             UpdatedOnUtc = DateTime.UtcNow;
 
@@ -39,7 +39,7 @@ namespace Keeper.Data.Projects
                 Name = request.Name.Trim();
         }
 
-        public void Set(CreateTaskRequest request)
+        public void Set(TaskCreateRequest request)
         {
             TasksCreatedTotal++;
         }

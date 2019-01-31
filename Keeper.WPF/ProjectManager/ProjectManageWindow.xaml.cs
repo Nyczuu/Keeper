@@ -39,10 +39,10 @@ namespace Keeper.WPF.ProjectManager
         {
             if (WorkersList.SelectedItems.Count > 0)
             {
-                new Client().AddUsersToProject(new AddUsersToProjectRequest
+                new Client().UserAddToProject(new UserAddToProjectRequest
                 {
                     ProjectIdentifier = _projectIdentifier,
-                    UsersIdentifiers = WorkersList.SelectedItems.Cast<GetUserResponseItem>()
+                    UsersIdentifiers = WorkersList.SelectedItems.Cast<UserGet1ResponseItem>()
                     .Select(aUser => aUser.Identifier).ToArray()
                 });
             }
@@ -53,10 +53,10 @@ namespace Keeper.WPF.ProjectManager
         {
             if (WorkersAssignedList.SelectedItems.Count > 0)
             {
-                new Client().RemoveUsersFromProject(new RemoveUsersFromProjectRequest
+                new Client().UserRemoveFromProject(new UserRemoveFromProjectRequest
                 {
                     ProjectIdentifier = _projectIdentifier,
-                    UsersIdentifiers = WorkersAssignedList.SelectedItems.Cast<GetUserResponseItem>()
+                    UsersIdentifiers = WorkersAssignedList.SelectedItems.Cast<UserGet1ResponseItem>()
                     .Select(aUser => aUser.Identifier).ToArray(),
                 });
             }
@@ -65,10 +65,10 @@ namespace Keeper.WPF.ProjectManager
 
         private void ReloadWorkersLists()
         {
-            var users = new Client().GetUser(new GetUserRequest
+            var users = new Client().UserGet1(new UserGet1Request
             { UserGroup = UserGroupType.Worker }).Items;
 
-            var assignedUsers = new Client().GetUser(new GetUserRequest
+            var assignedUsers = new Client().UserGet1(new UserGet1Request
             { UserGroup = UserGroupType.Worker, ProjectsIdentifiers = new int[] { _projectIdentifier } }).Items;
 
             WorkersAssignedList.ItemsSource = assignedUsers;
@@ -114,7 +114,7 @@ namespace Keeper.WPF.ProjectManager
         {
             if (TaskList.SelectedItems.Count > 0)
             {
-                new Client().DeleteTask(new DeleteTaskRequest
+                new Client().TaskDelete(new TaskDeleteRequest
                 {
                     Identifiers = TaskList.SelectedItems
                     .Cast<TaskListItemModel>()
@@ -162,7 +162,7 @@ namespace Keeper.WPF.ProjectManager
         {
             var selectedStatus = ((TaskSearchStatusComboBoxItemModel)TaskSearchStatusComboBox.SelectedItem)?.Identifier;
 
-            var tasks = new Client().GetTask(new GetTaskRequest
+            var tasks = new Client().TaskGet1(new TaskGet1Request
             {
                 ProjectIdentifiers = new int[] { _projectIdentifier },
                 SearchKeyword = TaskSearchTextBox.Text,

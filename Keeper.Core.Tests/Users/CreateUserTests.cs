@@ -9,8 +9,8 @@ namespace Keeper.Core.Tests.Users
         [TestMethod]
         public void CreateUser()
         {
-            var createUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = GeneratePseudoRandomTestEmail(),
                     Password = _testPassword,
@@ -19,7 +19,7 @@ namespace Keeper.Core.Tests.Users
 
             Assert.IsNotNull(createUserResponse.Identifier);
             Assert.IsTrue(createUserResponse.Type
-                == CreateUserResponseType.Success);
+                == UserCreateResponseType.Success);
         }
 
         [DataTestMethod]
@@ -28,15 +28,15 @@ namespace Keeper.Core.Tests.Users
         [DataRow("testmail.pl")]
         public void CreateUser_EmailNotValid(string email)
         {
-            var createUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = email,
                     Password = _testPassword
                 });
 
             Assert.IsTrue(createUserResponse.Type
-                == CreateUserResponseType.EmailNotValid);
+                == UserCreateResponseType.EmailNotValid);
         }
 
         [DataTestMethod]
@@ -44,22 +44,22 @@ namespace Keeper.Core.Tests.Users
         [DataRow("existingtestuser@test.pl")]
         public void CreateUser_EmailExists(string email)
         {
-            var createFirstUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createFirstUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = "ExistingTestUser@test.pl",
                     Password = _testPassword
                 });
 
-            var createSameEmailUserResponse = _client.CreateUser(
-                new CreateUserRequest
+            var createSameEmailUserResponse = _client.UserCreate(
+                new UserCreateRequest
                 {
                     Email = email,
                     Password = _testPassword
                 });
 
             Assert.IsTrue(createSameEmailUserResponse.Type
-                == CreateUserResponseType.EmailExists);
+                == UserCreateResponseType.EmailExists);
         }
     }
 }

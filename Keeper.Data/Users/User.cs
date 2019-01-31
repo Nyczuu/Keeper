@@ -13,7 +13,7 @@ namespace Keeper.Data.Users
 
         public virtual ICollection<Project> Projects { get; private set; }
 
-        public void Set(CreateUserRequest request)
+        public void Set(UserCreateRequest request)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;

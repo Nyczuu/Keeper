@@ -50,25 +50,25 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
-    <Compile Include="Projects\CreateProject.cs" />
-    <Compile Include="Projects\DeleteProject.cs" />
-    <Compile Include="Projects\GetProject.cs" />
-    <Compile Include="Projects\UpdateProject.cs" />
+    <Compile Include="Projects\ProjectCreate.cs" />
+    <Compile Include="Projects\ProjectDelete.cs" />
+    <Compile Include="Projects\ProjectGet1.cs" />
+    <Compile Include="Projects\ProjectUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\CreateTask.cs" />
-    <Compile Include="Tasks\CreateTaskComment.cs" />
-    <Compile Include="Tasks\CreateTaskWorklog.cs" />
-    <Compile Include="Tasks\DeleteTask.cs" />
-    <Compile Include="Tasks\GetTask.cs" />
-    <Compile Include="Tasks\UpdateTask.cs" />
-    <Compile Include="Tasks\StartTask.cs" />
-    <Compile Include="Users\AddUsersToProject.cs" />
-    <Compile Include="Users\CreateUser.cs" />
-    <Compile Include="Users\DeleteUser.cs" />
-    <Compile Include="Users\GetUser.cs" />
-    <Compile Include="Users\GetUserSession.cs" />
-    <Compile Include="Users\LoginUser.cs" />
-    <Compile Include="Users\RemoveUsersFromProject.cs" />
+    <Compile Include="Tasks\TaskCreate.cs" />
+    <Compile Include="Tasks\TaskCommentCreate.cs" />
+    <Compile Include="Tasks\TaskWorklogCreate.cs" />
+    <Compile Include="Tasks\TaskDelete.cs" />
+    <Compile Include="Tasks\TaskGet1.cs" />
+    <Compile Include="Tasks\TaskUpdate.cs" />
+    <Compile Include="Tasks\TaskStart.cs" />
+    <Compile Include="Users\UserAddToProject.cs" />
+    <Compile Include="Users\UserCreate.cs" />
+    <Compile Include="Users\UserDelete.cs" />
+    <Compile Include="Users\UserGet1.cs" />
+    <Compile Include="Users\UserSessionGet.cs" />
+    <Compile Include="Users\UserLogin.cs" />
+    <Compile Include="Users\UserRemoveFromProject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Keeper.CoreContract\Keeper.CoreContract.csproj">

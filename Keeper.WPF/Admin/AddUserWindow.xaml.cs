@@ -19,7 +19,7 @@ namespace Keeper.WPF.Admin
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var client = new Client();
-            var response = client.CreateUser(new CreateUserRequest
+            var response = client.UserCreate(new UserCreateRequest
             {
                 Email = EmailTextBox.Text,
                 Password = PassWordTextBox.Text,
@@ -31,16 +31,16 @@ namespace Keeper.WPF.Admin
 
             switch (response.Type)
             {
-                case CreateUserResponseType.EmailExists:
+                case UserCreateResponseType.EmailExists:
                     { ErrorTxtBlock.Text = Strings.CreateUser_EmailExists; }
                     break;
-                case CreateUserResponseType.EmailNotValid:
+                case UserCreateResponseType.EmailNotValid:
                     { ErrorTxtBlock.Text = Strings.CreateUser_EmailNotValid; }
                     break;
-                case CreateUserResponseType.PasswordTooWeak:
+                case UserCreateResponseType.PasswordTooWeak:
                     { ErrorTxtBlock.Text = Strings.CreateUser_PasswordTooWeak; }
                     break;
-                case CreateUserResponseType.Success:
+                case UserCreateResponseType.Success:
                     { this.Close(); }
                     break;
                 default: { ErrorTxtBlock.Text = Strings.Common_DefaultError; } break;

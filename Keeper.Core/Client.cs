@@ -11,64 +11,64 @@ namespace Keeper.Core
     {
         #region Users
 
-        public CreateUserResponse CreateUser(CreateUserRequest request)
-            => new CreateUser(request).Response;
+        public UserCreateResponse UserCreate(UserCreateRequest request)
+            => new UserCreate(request).Response;
 
-        public GetUserResponse GetUser(GetUserRequest request)
-            => new GetUser(request).Response;
+        public UserGet1Response UserGet1(UserGet1Request request)
+            => new UserGet1(request).Response;
 
-        public DeleteUserResponse DeleteUser(DeleteUserRequest request)
-            => new DeleteUser(request).Response;
+        public UserDeleteResponse UserDelete(UserDeleteRequest request)
+            => new UserDelete(request).Response;
 
-        public LoginUserResponse LoginUser(LoginUserRequest request)
-            => new LoginUser(request).Response;
+        public UserLoginResponse UserLogin(UserLoginRequest request)
+            => new UserLogin(request).Response;
 
-        public GetUserSessionResponse GetUserSession(GetUserSessionRequest request)
-            => new GetUserSession(request).Response;
+        public UserSessionGetResponse UserSessionGet(UserSessionGetRequest request)
+            => new UserSessionGet(request).Response;
 
-        public AddUsersToProjectResponse AddUsersToProject(AddUsersToProjectRequest request)
-            => new AddUsersToProject(request).Response;
+        public UserAddToProjectResponse UserAddToProject(UserAddToProjectRequest request)
+            => new UserAddToProject(request).Response;
 
-        public RemoveUsersFromProjectResponse RemoveUsersFromProject(RemoveUsersFromProjectRequest request)
-            => new RemoveUsersFromProject(request).Response;
+        public UserRemoveFromProjectResponse UserRemoveFromProject(UserRemoveFromProjectRequest request)
+            => new UserRemoveFromProject(request).Response;
 
         #endregion
         
         #region Projects
 
-        public CreateProjectResponse CreateProject(CreateProjectRequest request)
-            => new CreateProject(request).Response;
+        public ProjectCreateResponse ProjectCreate(ProjectCreateRequest request)
+            => new ProjectCreate(request).Response;
 
-        public GetProjectResponse GetProject(GetProjectRequest request)
-            => new GetProject(request).Response;
+        public ProjectGet1Response ProjectGet1(ProjectGet1Request request)
+            => new ProjectGet1(request).Response;
 
-        public DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
-            => new DeleteProject(request).Response;
+        public ProjectDeleteResponse ProjectDelete(ProjectDeleteRequest request)
+            => new ProjectDelete(request).Response;
 
         #endregion
 
         #region Tasks
 
-        public CreateTaskResponse CreateTask(CreateTaskRequest request)
-            => new CreateTask(request).Response;
+        public TaskCreateResponse TaskCreate(TaskCreateRequest request)
+            => new TaskCreate(request).Response;
 
-        public GetTaskResponse GetTask(GetTaskRequest request)
-            => new GetTask(request).Response;
+        public TaskGet1Response TaskGet1(TaskGet1Request request)
+            => new TaskGet1(request).Response;
 
-        public DeleteTaskResponse DeleteTask(DeleteTaskRequest request)
-            => new DeleteTask(request).Response;
+        public TaskDeleteResponse TaskDelete(TaskDeleteRequest request)
+            => new TaskDelete(request).Response;
 
-        public UpdateTaskResponse UpdateTask(UpdateTaskRequest request)
-            => new UpdateTask(request).Response;
+        public TaskUpdateResponse TaskUpdate(TaskUpdateRequest request)
+            => new TaskUpdate(request).Response;
 
-        public CreateTaskCommentResponse CreateTaskComment(CreateTaskCommentRequest request)
-            => new CreateTaskComment(request).Response;
+        public TaskStartResponse TaskStart(TaskStartRequest request)
+            => new TaskStart(request).Response;
 
-        public CreateTaskWorklogResponse CreateTaskWorklog(CreateTaskWorklogRequest request)
-            => new CreateTaskWorklog(request).Response;
+        public TaskCommentCreateResponse TaskCommentCreate(TaskCommentCreateRequest request)
+            => new TaskCommentCreate(request).Response;
 
-        public StartTaskResponse StartTask(StartTaskRequest request)
-            => new StartTask(request).Response;
+        public TaskWorklogCreateResponse TaskWorklogCreate(TaskWorklogCreateRequest request)
+            => new TaskWorklogCreate(request).Response;
 
         #endregion
     }

@@ -28,7 +28,7 @@ namespace Keeper.WPF
 
         private void Login()
         {
-            var loginUserResponse = new Client().LoginUser(new LoginUserRequest
+            var loginUserResponse = new Client().UserLogin(new UserLoginRequest
             {
                 Email = LoginEmailTextBox.Text,
                 Password = LoginPasswordPasswordBox.Password,
@@ -41,16 +41,16 @@ namespace Keeper.WPF
             {
                 switch (loginUserResponse.Type)
                 {
-                    case LoginUserResponseType.NoUser:
+                    case UserLoginResponseType.NoUser:
                         { LoginValidationMessageTextBlock.Text = Strings.LoginUser_NoUser; }
                         break;
-                    case LoginUserResponseType.WrongEmail:
+                    case UserLoginResponseType.WrongEmail:
                         { LoginValidationMessageTextBlock.Text = Strings.LoginUser_WrongEmail; }
                         break;
-                    case LoginUserResponseType.WrongPassword:
+                    case UserLoginResponseType.WrongPassword:
                         { LoginValidationMessageTextBlock.Text = Strings.LoginUser_WrongPassword; }
                         break;
-                    case LoginUserResponseType.Success:
+                    case UserLoginResponseType.Success:
                         { Run(loginUserResponse.SessionKey); }
                         break;
                     default:
@@ -62,8 +62,8 @@ namespace Keeper.WPF
 
         private void Run(Guid sessionKey)
         {
-            var getUserSessionResponse = new Client().GetUserSession(
-                new GetUserSessionRequest { SessionKey = sessionKey });
+            var getUserSessionResponse = new Client().UserSessionGet(
+                new UserSessionGetRequest { SessionKey = sessionKey });
 
             if(getUserSessionResponse != null)
             {

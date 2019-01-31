@@ -26,8 +26,8 @@ namespace Keeper.WPF
 
         private void ReloadTaskList()
         {
-            var selectedProject = ((GetProjectResponseItem)ProjectList.SelectedItem)?.Identifier;
-            TaskList.ItemsSource = new Client().GetTask(new GetTaskRequest
+            var selectedProject = ((ProjectGet1ResponseItem)ProjectList.SelectedItem)?.Identifier;
+            TaskList.ItemsSource = new Client().TaskGet1(new TaskGet1Request
             {
                 ProjectIdentifiers = selectedProject != null ? new int[] { selectedProject.Value } : null
             }).Items;
@@ -35,7 +35,7 @@ namespace Keeper.WPF
 
         private void ReloadProjectList()
         {
-            ProjectList.ItemsSource = new Client().GetProject(new GetProjectRequest
+            ProjectList.ItemsSource = new Client().ProjectGet1(new ProjectGet1Request
             {
                 SearchKeyword = SearchTxtBox.Text
             }).Items;
@@ -51,7 +51,7 @@ namespace Keeper.WPF
         private void ProjectManageButton_Click(object sender, RoutedEventArgs e)
         {
             ProjectManageWindow projectManageWindow =
-                new ProjectManageWindow(((GetProjectResponseItem)ProjectList.SelectedItem).Identifier);
+                new ProjectManageWindow(((ProjectGet1ResponseItem)ProjectList.SelectedItem).Identifier);
             App.Current.MainWindow = projectManageWindow;
             projectManageWindow.ShowDialog();
 

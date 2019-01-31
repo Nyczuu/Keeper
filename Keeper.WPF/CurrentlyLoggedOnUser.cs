@@ -10,7 +10,7 @@ namespace Keeper.WPF
 {
     public class CurrentlyLoggedOnUser
     {
-        public CurrentlyLoggedOnUser(GetUserSessionResponse response)
+        public CurrentlyLoggedOnUser(UserSessionGetResponse response)
         {
             Email = response.UserEmail;
             Identifier = response.UserIdentifier;

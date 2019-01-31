@@ -21,7 +21,7 @@ namespace Keeper.Data.Tasks
         public virtual ICollection<TaskComment> Comments { get; private set; }
         public virtual ICollection<TaskWorklog> Worklogs { get; private set; }
 
-        public void Set(CreateTaskRequest request, string number)
+        public void Set(TaskCreateRequest request, string number)
         {
             CreatedOnUtc = DateTime.UtcNow;
             UpdatedOnUtc = DateTime.UtcNow;
@@ -40,7 +40,7 @@ namespace Keeper.Data.Tasks
                 Description = request.Description.Trim();
         }
 
-        public void Set(UpdateTaskRequest request)
+        public void Set(TaskUpdateRequest request)
         {
             UpdatedOnUtc = DateTime.UtcNow;
 
@@ -52,7 +52,7 @@ namespace Keeper.Data.Tasks
             ProjectIdentifier = request.ProjectIdentifier;
         }
 
-        public void Set(StartTaskRequest request)
+        public void Set(TaskStartRequest request)
         {
             UpdatedOnUtc = DateTime.UtcNow;
 

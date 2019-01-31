@@ -18,8 +18,8 @@ namespace Keeper.WPF.ProjectManager
             InitializeComponent();
             _projectIdentifier = projectIdentifier;
 
-            TaskCreateAssigneeComboBox.ItemsSource = new Client().GetUser(
-                new GetUserRequest
+            TaskCreateAssigneeComboBox.ItemsSource = new Client().UserGet1(
+                new UserGet1Request
                 {
                     ProjectsIdentifiers = new int[] { _projectIdentifier },
                     UserGroup = UserGroupType.Worker,
@@ -35,7 +35,7 @@ namespace Keeper.WPF.ProjectManager
         private void TaskCreateButton_Click(object sender, RoutedEventArgs e)
         {
             var client = new Client();
-            var response = client.CreateTask(new CreateTaskRequest
+            var response = client.TaskCreate(new TaskCreateRequest
             {
                 ProjectIdentifier = _projectIdentifier,
                 Name = TaskCreateNameTextBox.Text,
@@ -52,16 +52,16 @@ namespace Keeper.WPF.ProjectManager
 
             switch (response.Type)
             {
-                case CreateTaskResponseType.NameEmpty:
+                case TaskCreateResponseType.NameEmpty:
                     { TaskCreateValidationMessageTextBlock.Text = Strings.AddProject_NameEmpty; }
                     break;
-                case CreateTaskResponseType.NameExists:
+                case TaskCreateResponseType.NameExists:
                     { TaskCreateValidationMessageTextBlock.Text = Strings.Add_Project_NameExists; }
                     break;
-                case CreateTaskResponseType.ProjectDoesNotExist:
+                case TaskCreateResponseType.ProjectDoesNotExist:
                     { TaskCreateValidationMessageTextBlock.Text = Strings.Add_Project_NameExists; }
                     break;
-                case CreateTaskResponseType.Success:
+                case TaskCreateResponseType.Success:
                     { Close(); }
                     break;
                 default:
